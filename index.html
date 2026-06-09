@@ -320,8 +320,120 @@ footer .footer-links span{color:#444;font-size:11px;letter-spacing:2px}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
 /* 响应式 */
-@media(max-width:900px){.brand-grid{grid-template-columns:repeat(3,1fr)}.event-grid{grid-template-columns:1fr}.pricing-grid{grid-template-columns:1fr;gap:16px}.pricing-card{border-radius:16px!important;border:1px solid var(--border)!important}.pricing-card.popular{margin-bottom:0;padding:36px 20px}.recruit-grid{grid-template-columns:1fr}.steps{padding-left:48px}.steps::before{left:22px}.step::before{left:-28px;width:10px;height:10px}.countdown-block{width:80px;height:80px}.countdown-block .num{font-size:28px}.log-timeline{padding-left:36px}}
-@media(max-width:768px){nav{padding:0 20px}.nav-links{position:fixed;top:0;right:-100%;width:70%;height:100vh;flex-direction:column;gap:0;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);padding:100px 40px 40px;transition:right .35s ease;border-left:1px solid var(--border)}.nav-links.open{right:0}.nav-links a{display:block;padding:16px 0;font-size:16px;border-bottom:1px solid var(--border)}.hamburger{display:flex}section{padding:60px 20px}.brand-grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.contact-card{min-width:100%}.services{flex-direction:column;gap:28px}.stats-strip{gap:36px}.stat-num{font-size:30px}.vibe-grid{grid-template-columns:repeat(3,1fr);gap:14px}.vibe-item .vibe-emoji{font-size:28px}.countdown-block{width:70px;height:70px}.countdown-block .num{font-size:26px}.countdown-timer{gap:12px}.steps{padding-left:40px}.steps::before{left:18px}.step::before{left:-26px;width:10px;height:10px}.step{padding:20px 0 20px 24px}.testimonial-card{width:280px}.log-timeline{padding-left:36px}.music-widget{bottom:90px;right:12px}.floating-cta{padding:10px 16px;gap:10px}.floating-cta .cta-text{font-size:11px}.floating-cta .cta-btn{padding:10px 20px;font-size:13px}body{padding-bottom:70px}}
+@media(max-width:900px){.brand-grid{grid-template-columns:repeat(3,1fr)}.event-grid{grid-template-columns:1fr}.pricing-grid{grid-template-columns:1fr;gap:12px}.pricing-card{border-radius:16px!important;border:1px solid var(--border)!important;padding:24px 16px}.pricing-card.popular{margin-bottom:0;padding:28px 16px}.recruit-grid{grid-template-columns:1fr}.steps{padding-left:40px}.steps::before{left:18px}.step::before{left:-26px;width:10px;height:10px}.countdown-block{width:70px;height:70px}.countdown-block .num{font-size:24px}.log-timeline{padding-left:32px}}
+@media(max-width:768px){
+  :root{scroll-behavior:smooth}
+  body{padding-bottom:60px}
+  nav{padding:0 14px;height:56px}
+  nav .logo{font-size:22px;letter-spacing:2px}
+  .nav-links{position:fixed;top:0;right:-100%;width:70%;height:100vh;flex-direction:column;gap:0;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);padding:80px 32px 32px;transition:right .35s ease;border-left:1px solid var(--border)}
+  .nav-links.open{right:0}
+  .nav-links a{display:block;padding:14px 0;font-size:15px;border-bottom:1px solid var(--border)}
+  .hamburger{display:flex}
+  /* 紧凑间距 */
+  section{padding:48px 16px}
+  .section-title{font-size:22px;letter-spacing:4px;margin-bottom:12px}
+  .section-sub{font-size:11px;letter-spacing:2px;margin-bottom:32px}
+  /* Hero 缩小 */
+  .hero{height:92vh;min-height:560px}
+  .hero h1{font-size:clamp(60px,18vw,100px);letter-spacing:10px}
+  .hero .slogan{font-size:14px;letter-spacing:4px}
+  .hero .slogan-sub{font-size:11px;letter-spacing:3px}
+  .hero-tags{gap:8px;margin-top:20px}
+  .hero-tags span{padding:5px 12px;font-size:10px;letter-spacing:2px}
+  .hero-halo{width:min(80vw,320px);height:min(80vw,320px)}
+  /* 统计条 */
+  .stats-strip{gap:24px;padding:28px 16px}
+  .stat-num{font-size:26px}
+  .stat-label{font-size:10px;letter-spacing:2px}
+  /* 倒计时 */
+  .countdown-section{padding:36px 16px}
+  .countdown-label{font-size:11px}
+  .countdown-timer{gap:10px}
+  .countdown-block{width:62px;height:62px}
+  .countdown-block .num{font-size:22px}
+  .countdown-block .unit{font-size:9px}
+  .countdown-urgency{font-size:10px;margin-top:12px}
+  /* 评价 */
+  .testimonial-strip{padding:28px 0}
+  .testimonial-card{width:260px;padding:20px 16px}
+  .testimonial-card .t-body{font-size:12px}
+  /* 局类型 */
+  .event-grid{gap:14px}
+  .event-card{padding:0 0 20px}
+  .event-card .icon{width:56px;height:56px;font-size:28px;margin:28px auto 12px}
+  .event-card h3{font-size:18px;letter-spacing:3px}
+  .event-card p{font-size:11px;padding:0 16px}
+  /* 自测 */
+  .quiz-question{font-size:17px}
+  .quiz-option{font-size:12px;padding:12px 14px}
+  /* 服务 */
+  .service-strip{padding:32px 16px}
+  .services{gap:24px;flex-direction:row;justify-content:space-around}
+  .service-item .sicon{font-size:24px}
+  .service-item .value{font-size:16px;letter-spacing:2px}
+  /* 价格 */
+  .pricing-amount{font-size:28px}
+  /* 品牌 */
+  .brand-wall-section section{padding:48px 16px}
+  .brand-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .brand-card{border-radius:28px;padding:20px 14px}
+  .brand-card h4{font-size:13px}
+  /* 氛围 */
+  .vibe-grid{grid-template-columns:repeat(3,1fr);gap:10px}
+  .vibe-item{padding:12px}
+  .vibe-item .vibe-emoji{font-size:24px;margin-bottom:4px}
+  .vibe-item .vibe-title{font-size:10px;letter-spacing:2px}
+  .vibe-item .vibe-desc{font-size:8px}
+  /* 日志 */
+  .log-timeline{padding-left:28px}
+  .log-timeline::before{left:13px}
+  .log-entry{margin-bottom:16px;padding:16px}
+  .log-entry::before{left:-24px;top:22px;width:8px;height:8px}
+  .log-entry h4{font-size:13px}
+  .log-entry p{font-size:11px}
+  .log-entry .log-icon{font-size:22px}
+  .log-entry .log-date{font-size:9px}
+  /* 流程 */
+  .steps{padding-left:36px}
+  .steps::before{left:15px}
+  .step{padding:16px 0 16px 20px}
+  .step::before{left:-24px;top:24px;width:8px;height:8px}
+  .step .step-num{font-size:30px}
+  .step h4{font-size:13px;letter-spacing:3px}
+  .step p{font-size:11px}
+  .step .step-icon{font-size:22px}
+  /* 招募 */
+  .recruit-card{padding:24px 16px}
+  .recruit-card h4{font-size:16px}
+  .recruit-card .r-desc{font-size:11px}
+  .recruit-highlight{padding:20px 20px;margin-bottom:28px}
+  .recruit-highlight p{font-size:11px}
+  /* FAQ */
+  .faq-q{font-size:12px;padding:14px 16px;letter-spacing:1px}
+  .faq-a{font-size:11px}
+  /* 联系 */
+  .contact-card{min-width:100%;padding:28px 20px}
+  .contact-card .wc-icon{font-size:36px}
+  .contact-card h3{font-size:17px}
+  .promo-shout{font-size:20px}
+  /* Footer */
+  footer{padding:24px 16px}
+  footer .footer-slogan{font-size:15px}
+  footer .footer-sub{font-size:10px}
+  .footer-links{gap:12px}
+  .footer-links span{font-size:9px}
+  /* 悬浮组件 */
+  .music-widget{bottom:80px;right:10px;width:38px;height:38px;font-size:16px}
+  .floating-cta{padding:8px 12px;gap:8px}
+  .floating-cta .cta-text{font-size:10px;letter-spacing:1px}
+  .floating-cta .cta-btn{padding:8px 16px;font-size:12px;letter-spacing:2px}
+  /* 弹窗 */
+  .popup-card{padding:32px 20px}
+  .popup-title{font-size:18px}
+  .popup-desc{font-size:11px}
+  .popup-btn{padding:12px 28px;font-size:13px}
+}
 </style>
 </head>
 <body>
@@ -641,7 +753,7 @@ nl.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>{hb.classLis
 document.querySelectorAll('.faq-q').forEach(b=>{b.addEventListener('click',()=>{const i=b.parentElement,wo=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(e=>e.classList.remove('open'));if(!wo)i.classList.add('open')})});
 
 // 底部CTA
-(function(){const c=document.getElementById('floating-cta'),cs=document.getElementById('contact');function u(){const r=cs.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)c.classList.remove('visible');else if(window.scrollY>500)c.classList.add('visible');else c.classList.remove('visible')}window.addEventListener('scroll',u)})();
+(function(){const c=document.getElementById('floating-cta'),cs=document.getElementById('contact');function u(){const isMobile=window.innerWidth<768;if(isMobile){c.classList.add('visible');return}const r=cs.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)c.classList.remove('visible');else if(window.scrollY>500)c.classList.add('visible');else c.classList.remove('visible')}window.addEventListener('scroll',u);u()})();
 
 // 音乐播放器
 (function(){const w=document.getElementById('music-widget');let p=false,ac=null,o=null,g=null;function sa(){try{ac=new(window.AudioContext||window.webkitAudioContext)();o=ac.createOscillator();g=ac.createGain();o.type='sine';o.frequency.value=60;g.gain.value=.03;o.connect(g);g.connect(ac.destination);o.start()}catch(e){}}function sp(){try{o.stop();ac.close()}catch(e){}ac=null;o=null;g=null}w.addEventListener('click',()=>{p=!p;if(p){w.classList.add('playing');w.querySelector('.music-tooltip').textContent='🔇 关闭音效';sa()}else{w.classList.remove('playing');w.querySelector('.music-tooltip').textContent='🎵 氛围音效';sp()}})})();
