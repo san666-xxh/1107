@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>晚藏 — 武汉隐奢组局</title>
+<meta name="description" content="晚藏——武汉隐奢社交圈。不喧哗，自有声。深夜里的藏宝地，为懂的人留门。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{overflow-x:hidden;max-width:100vw;scroll-behavior:smooth}
+
+:root{
+  --amber:#c8a45c;
+  --amber-bright:#e8c97a;
+  --ink:#131316;
+  --ink-card:#1a1a1e;
+  --cream:#f0ebe0;
+  --cream-dim:#b8b0a4;
+  --mist:#6b6560;
+  --border:#28282d;
+  --pink:#f472b6;
+  --purple:#a78bfa;
+  --teal:#2dd4bf;
+  --coral:#fb7185;
+  --gold-glow:#fbbf24;
+}
+
+body{
+  font-family:'Noto Sans SC',sans-serif;
+  background:var(--ink);
+  color:var(--cream);
+  line-height:1.8;
+  overflow-x:hidden;
+  cursor:default;
+}
+
+/* ── 顶部进度条 ── */
+.progress-bar{
+  position:fixed;top:0;left:0;height:2px;
+  background:linear-gradient(90deg,var(--pink),var(--purple),var(--teal),var(--amber-bright));
+  z-index:9999;width:0;transition:width .1s linear;
+  box-shadow:0 0 10px var(--pink),0 0 20px var(--purple);
+}
+
+/* ── 导航 ── */
+nav{
+  position:fixed;top:0;width:100%;z-index:100;
+  padding:0 48px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(19,19,22,.9);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(200,164,92,.1);
+  transition:all .4s;
+}
+nav .logo{
+  font-family:'Noto Serif SC',serif;
+  font-size:26px;font-weight:900;
+  background:linear-gradient(135deg,var(--amber-bright),var(--gold-glow));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  letter-spacing:8px;
+}
+nav .nav-links{display:flex;gap:40px;list-style:none}
+nav .nav-links a{
+  color:var(--cream-dim);text-decoration:none;
+  font-size:12px;font-weight:500;letter-spacing:3px;
+  transition:all .3s;
+}
+nav .nav-links a:hover{color:var(--pink);text-shadow:0 0 10px rgba(244,114,182,.3)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:101}
+.hamburger span{display:block;width:22px;height:2px;background:var(--amber);transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+
+/* ── Hero ── */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;position:relative;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 30% 20%,rgba(168,85,247,.12),transparent 50%),
+    radial-gradient(ellipse at 70% 60%,rgba(244,114,182,.1),transparent 50%),
+    radial-gradient(ellipse at 50% 50%,rgba(200,164,92,.06),transparent 40%),
+    radial-gradient(ellipse at 80% 30%,rgba(45,212,191,.08),transparent 40%),
+    #131316;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='40' cy='60' r='1' fill='rgba(255,255,255,0.3)'/><circle cx='150' cy='30' r='1.5' fill='rgba(255,255,255,0.2)'/><circle cx='80' cy='140' r='1' fill='rgba(255,255,255,0.25)'/><circle cx='170' cy='120' r='0.8' fill='rgba(255,255,255,0.15)'/><circle cx='20' cy='170' r='1.2' fill='rgba(255,255,255,0.2)'/></svg>") repeat;
+  opacity:.3;pointer-events:none;
+}
+.hero-content{position:relative;z-index:2;padding:0 24px}
+.hero-eyebrow{
+  font-family:'Noto Serif SC',serif;
+  font-size:12px;letter-spacing:10px;
+  background:linear-gradient(90deg,var(--pink),var(--purple));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:28px;
+}
+.hero h1{
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(64px,12vw,120px);font-weight:900;
+  background:linear-gradient(180deg,var(--amber-bright) 0%,var(--amber) 60%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  letter-spacing:20px;line-height:1;
+  filter:drop-shadow(0 0 30px rgba(200,164,92,.3));
+  margin-bottom:20px;
+  animation:titleGlow 3s ease-in-out infinite;
+}
+@keyframes titleGlow{
+  0%,100%{filter:drop-shadow(0 0 20px rgba(200,164,92,.3))}
+  50%{filter:drop-shadow(0 0 40px rgba(200,164,92,.5)) drop-shadow(0 0 80px rgba(244,114,182,.2))}
+}
+.hero .tagline{
+  font-size:16px;color:var(--cream-dim);letter-spacing:6px;font-weight:300;
+  margin-bottom:8px;
+}
+.hero .tagline-sub{
+  font-size:12px;color:var(--mist);letter-spacing:5px;font-weight:300;
+}
+.hero-badges{
+  margin-top:28px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+}
+.hero-badges span{
+  font-size:10px;letter-spacing:3px;padding:5px 14px;
+  border-radius:20px;transition:all .3s;cursor:default;
+}
+.hero-badges span:nth-child(1){border:1px solid var(--pink);color:var(--pink)}
+.hero-badges span:nth-child(2){border:1px solid var(--purple);color:var(--purple)}
+.hero-badges span:nth-child(3){border:1px solid var(--teal);color:var(--teal)}
+.hero-badges span:nth-child(4){border:1px solid var(--amber);color:var(--amber)}
+.hero-badges span:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.hero-badges span:nth-child(1):hover{background:rgba(244,114,182,.1)}
+.hero-badges span:nth-child(2):hover{background:rgba(168,133,250,.1)}
+.hero-badges span:nth-child(3):hover{background:rgba(45,212,191,.1)}
+.hero-badges span:nth-child(4):hover{background:rgba(200,164,92,.1)}
+.hero-scroll{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  color:var(--mist);font-size:10px;letter-spacing:4px;
+  animation:float 2s ease-in-out infinite;cursor:pointer;
+}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* ── 漂浮表情雨 ── */
+.emoji-rain{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+}
+
+/* ── 通用 ── */
+section{padding:100px 48px;max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.section-label{
+  font-size:11px;letter-spacing:6px;text-align:center;margin-bottom:12px;
+  background:linear-gradient(90deg,var(--pink),var(--purple),var(--teal));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.section-title{
+  text-align:center;margin-bottom:16px;
+  font-family:'Noto Serif SC',serif;
+  font-size:30px;font-weight:700;letter-spacing:6px;
+  color:var(--cream);
+}
+.section-line{
+  width:60px;height:2px;margin:0 auto 48px;
+  background:linear-gradient(90deg,var(--pink),var(--purple),var(--teal),var(--amber));
+  border-radius:1px;
+}
+
+/* ── 概念区 ── */
+.concept-text{
+  max-width:600px;margin:0 auto;text-align:center;
+  font-size:15px;color:var(--cream-dim);line-height:2.4;
+  position:relative;
+}
+.concept-text em{font-family:'Noto Serif SC',serif;font-style:normal;color:var(--amber)}
+.concept-text .sparkle{
+  position:absolute;font-size:20px;animation:sparkleFloat 3s ease-in-out infinite;pointer-events:none;
+}
+.concept-text .sparkle:nth-child(1){top:-20px;left:20px;animation-delay:0s}
+.concept-text .sparkle:nth-child(2){top:-10px;right:30px;animation-delay:1.5s}
+.concept-text .sparkle:nth-child(3){bottom:-15px;left:50%;animation-delay:2.5s}
+@keyframes sparkleFloat{
+  0%,100%{transform:translateY(0) scale(1);opacity:.4}
+  50%{transform:translateY(-12px) scale(1.2);opacity:1}
+}
+
+/* ── 局类型：彩色大卡片 ── */
+.party-list{display:flex;flex-direction:column;gap:10px;max-width:700px;margin:0 auto}
+.party-row{
+  display:flex;align-items:center;gap:32px;
+  padding:32px 36px;border-radius:16px;
+  transition:all .4s;cursor:default;position:relative;overflow:hidden;
+  border:1px solid var(--border);
+  background:linear-gradient(135deg,var(--ink-card),rgba(26,26,30,.8));
+}
+.party-row::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  transition:all .4s;
+}
+.party-row:nth-child(1)::before{background:linear-gradient(180deg,var(--pink),var(--coral))}
+.party-row:nth-child(2)::before{background:linear-gradient(180deg,var(--purple),var(--pink))}
+.party-row:nth-child(3)::before{background:linear-gradient(180deg,var(--teal),var(--purple))}
+.party-row:hover{transform:translateX(6px);box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.party-row:nth-child(1):hover{border-color:rgba(244,114,182,.3)}.party-row:nth-child(2):hover{border-color:rgba(168,133,250,.3)}.party-row:nth-child(3):hover{border-color:rgba(45,212,191,.3)}
+.party-row .p-icon{
+  font-size:40px;min-width:56px;text-align:center;
+  animation:wobble 4s ease-in-out infinite;
+}
+.party-row:nth-child(2) .p-icon{animation-delay:.5s}
+.party-row:nth-child(3) .p-icon{animation-delay:1s}
+@keyframes wobble{
+  0%,100%{transform:rotate(0)}
+  25%{transform:rotate(5deg)}
+  75%{transform:rotate(-5deg)}
+}
+.party-row .p-info{flex:1}
+.party-row .p-info h3{font-size:20px;font-weight:700;letter-spacing:4px;color:var(--cream);margin-bottom:4px}
+.party-row .p-info p{font-size:12px;color:var(--cream-dim);line-height:1.8}
+.party-row .p-badge{
+  font-size:10px;letter-spacing:3px;padding:6px 16px;border-radius:20px;
+  transition:all .3s;
+}
+.party-row:nth-child(1) .p-badge{border:1px solid var(--pink);color:var(--pink)}
+.party-row:nth-child(2) .p-badge{border:1px solid var(--purple);color:var(--purple)}
+.party-row:nth-child(3) .p-badge{border:1px solid var(--teal);color:var(--teal)}
+
+/* ── 酒吧圆环：彩色旋转 ── */
+.brand-circle-grid{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:16px;
+  max-width:700px;margin:0 auto;
+}
+.brand-circle{
+  width:105px;height:105px;border-radius:50%;
+  background:var(--ink-card);border:2px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;
+  transition:all .4s;position:relative;
+}
+.brand-circle::after{
+  content:'';position:absolute;inset:-3px;border-radius:50%;
+  border:1px solid transparent;transition:all .5s;
+}
+.brand-circle:hover{transform:scale(1.1) rotate(-5deg)}
+.brand-circle:nth-child(1):hover{border-color:var(--amber);box-shadow:0 0 24px rgba(200,164,92,.2)}
+.brand-circle:nth-child(1):hover::after{border-color:rgba(200,164,92,.3);animation:ringPulse 1.5s ease-out infinite}
+.brand-circle:nth-child(2):hover{border-color:var(--pink);box-shadow:0 0 24px rgba(244,114,182,.2)}
+.brand-circle:nth-child(3):hover{border-color:var(--purple);box-shadow:0 0 24px rgba(168,133,250,.2)}
+.brand-circle:nth-child(4):hover{border-color:var(--teal);box-shadow:0 0 24px rgba(45,212,191,.2)}
+@keyframes ringPulse{
+  0%{inset:-3px;opacity:1}100%{inset:-12px;opacity:0}
+}
+.brand-circle.primary{border-color:rgba(200,164,92,.35)}
+.brand-circle h4{font-size:15px;font-weight:600;letter-spacing:3px;color:var(--cream)}
+.brand-circle .bc-loc{font-size:9px;color:var(--mist);margin-top:2px}
+
+/* ── 跑马灯 ── */
+.whisper-strip{
+  overflow:hidden;padding:24px 0;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  position:relative;
+}
+.whisper-strip::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,var(--ink),transparent 10%,transparent 90%,var(--ink));
+  z-index:1;pointer-events:none;
+}
+.whisper-track{display:flex;gap:48px;animation:slide 30s linear infinite;width:max-content}
+.whisper-track span{font-size:13px;letter-spacing:4px;white-space:nowrap;font-weight:500}
+.whisper-track span.c1{color:var(--pink)}.whisper-track span.c2{color:var(--purple)}.whisper-track span.c3{color:var(--teal)}.whisper-track span.c4{color:var(--amber)}.whisper-track span.c5{color:var(--coral)}
+.whisper-track .dot{color:#333}
+@keyframes slide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── 入局流程 ── */
+.flow-row{display:flex;gap:0;max-width:750px;margin:0 auto}
+.flow-step{
+  flex:1;text-align:center;padding:36px 20px;
+  position:relative;transition:all .3s;
+}
+.flow-step:hover{transform:translateY(-4px)}
+.flow-step::after{
+  content:'';position:absolute;right:0;top:40px;
+  width:1px;height:50px;
+  background:linear-gradient(180deg,transparent,var(--amber),transparent);
+  opacity:.3;
+}
+.flow-step:last-child::after{display:none}
+.flow-step .fs-icon{
+  font-size:36px;margin-bottom:14px;display:inline-block;
+  animation:iconBounce 2s ease-in-out infinite;
+}
+.flow-step:nth-child(2) .fs-icon{animation-delay:.3s}
+.flow-step:nth-child(3) .fs-icon{animation-delay:.6s}
+@keyframes iconBounce{
+  0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}
+}
+.flow-step .fs-num{font-family:'Noto Serif SC',serif;font-size:40px;font-weight:900;color:rgba(200,164,92,.08);margin-bottom:8px;line-height:1}
+.flow-step h4{font-size:14px;font-weight:600;letter-spacing:3px;color:var(--cream);margin-bottom:6px}
+.flow-step p{font-size:11px;color:var(--cream-dim);line-height:1.7;max-width:180px;margin:0 auto}
+
+/* ── 评价：彩色卡片 ── */
+.review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:750px;margin:0 auto}
+.review-card{
+  padding:28px 24px;border-radius:14px;transition:all .4s;
+  border:1px solid var(--border);
+  background:var(--ink-card);
+}
+.review-card:nth-child(1):hover{border-color:var(--pink);box-shadow:0 6px 20px rgba(244,114,182,.1)}
+.review-card:nth-child(2):hover{border-color:var(--purple);box-shadow:0 6px 20px rgba(168,133,250,.1)}
+.review-card:nth-child(3):hover{border-color:var(--teal);box-shadow:0 6px 20px rgba(45,212,191,.1)}
+.review-card:nth-child(4):hover{border-color:var(--coral);box-shadow:0 6px 20px rgba(251,113,133,.1)}
+.review-card .rv-stars{font-size:12px;letter-spacing:4px;margin-bottom:10px}
+.review-card:nth-child(1) .rv-stars{color:var(--pink)}.review-card:nth-child(2) .rv-stars{color:var(--purple)}.review-card:nth-child(3) .rv-stars{color:var(--teal)}.review-card:nth-child(4) .rv-stars{color:var(--coral)}
+.review-card .rv-body{font-size:13px;color:var(--cream);line-height:1.9;margin-bottom:10px}
+.review-card .rv-who{font-size:10px;color:var(--mist);letter-spacing:2px}
+
+/* ── 团队 ── */
+.join-box{
+  max-width:650px;margin:0 auto;text-align:center;
+  padding:52px 40px;border-radius:16px;
+  background:linear-gradient(135deg,rgba(168,85,247,.05),rgba(244,114,182,.05),rgba(45,212,191,.05));
+  border:1px solid rgba(200,164,92,.12);
+  position:relative;overflow:hidden;
+}
+.join-box::before{
+  content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:conic-gradient(from 0deg,transparent,rgba(244,114,182,.03),transparent,rgba(168,133,250,.03),transparent,rgba(45,212,191,.03),transparent);
+  animation:spin 8s linear infinite;pointer-events:none;
+}
+@keyframes spin{100%{transform:rotate(360deg)}}
+.join-box>*{position:relative;z-index:1}
+.join-box h3{font-family:'Noto Serif SC',serif;font-size:22px;color:var(--amber);letter-spacing:6px;margin-bottom:12px}
+.join-box .join-desc{font-size:13px;color:var(--cream-dim);line-height:2.2;margin-bottom:24px}
+.join-tags{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.join-tags span{
+  font-size:11px;letter-spacing:2px;padding:6px 18px;border-radius:20px;
+  transition:all .3s;cursor:default;
+}
+.join-tags span:nth-child(1){border:1px solid var(--amber);color:var(--amber)}.join-tags span:nth-child(2){border:1px solid var(--pink);color:var(--pink)}.join-tags span:nth-child(3){border:1px solid var(--purple);color:var(--purple)}.join-tags span:nth-child(4){border:1px solid var(--teal);color:var(--teal)}
+.join-tags span:hover{transform:translateY(-2px)}
+.join-tags span:nth-child(1):hover{background:rgba(200,164,92,.1)}.join-tags span:nth-child(2):hover{background:rgba(244,114,182,.1)}.join-tags span:nth-child(3):hover{background:rgba(168,133,250,.1)}.join-tags span:nth-child(4):hover{background:rgba(45,212,191,.1)}
+
+/* ── 联系 ── */
+.contact-area{
+  max-width:500px;margin:0 auto;text-align:center;
+  padding:52px 40px;border-radius:16px;
+  background:var(--ink-card);
+  border:1px solid rgba(200,164,92,.2);
+}
+.contact-area .ca-wechat{
+  font-family:'Noto Serif SC',serif;
+  font-size:28px;font-weight:700;
+  background:linear-gradient(135deg,var(--amber-bright),var(--gold-glow));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  letter-spacing:4px;margin-bottom:10px;
+}
+.contact-area .ca-note{font-size:12px;color:var(--cream-dim);letter-spacing:2px;line-height:2}
+
+/* ── Footer ── */
+footer{
+  text-align:center;padding:48px 24px;
+  font-size:10px;color:var(--mist);letter-spacing:3px;
+  border-top:1px solid var(--border);
+}
+footer .ft-brand{font-family:'Noto Serif SC',serif;font-size:22px;color:var(--amber);letter-spacing:8px;margin-bottom:6px}
+
+/* ── 动画 ── */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ── 全局光点 ── */
+@keyframes drift{
+  0%{transform:translateY(100vh) scale(0);opacity:0}
+  10%{opacity:1}
+  90%{opacity:1}
+  100%{transform:translateY(-10vh) scale(1);opacity:0}
+}
+
+/* ── 响应式 ── */
+@media(max-width:768px){
+  nav{padding:0 20px;height:56px}
+  nav .logo{font-size:20px;letter-spacing:6px}
+  .nav-links{position:fixed;top:0;right:-100%;width:70%;height:100vh;flex-direction:column;gap:0;background:rgba(19,19,22,.98);backdrop-filter:blur(16px);padding:80px 32px 32px;transition:right .35s;visibility:hidden;border-left:1px solid var(--border)}
+  .nav-links.open{right:0;visibility:visible}
+  .nav-links a{display:block;padding:14px 0;font-size:14px;letter-spacing:4px;border-bottom:1px solid var(--border)}
+  .hamburger{display:flex}
+  section{padding:60px 20px}
+  .section-title{font-size:24px;letter-spacing:4px}
+  .hero h1{letter-spacing:12px}
+  .hero .tagline{font-size:13px;letter-spacing:4px}
+  .party-row{flex-direction:column;text-align:center;gap:16px;padding:24px 16px}
+  .party-row .p-icon{font-size:32px;min-width:auto}
+  .flow-row{flex-direction:column}
+  .flow-step::after{right:50%;top:auto;bottom:0;width:40px;height:1px;transform:translateX(50%)}
+  .review-grid{grid-template-columns:1fr}
+  .brand-circle{width:80px;height:80px}
+  .brand-circle h4{font-size:12px}
+  .join-box{padding:36px 20px}
+}
+</style>
+</head>
+<body>
+
+<canvas class="emoji-rain" id="emoji-rain"></canvas>
+<div class="progress-bar" id="progress-bar"></div>
+
+<nav role="navigation">
+  <div class="logo">晚 藏</div>
+  <button class="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="#concept">关于</a></li>
+    <li><a href="#party">局类型</a></li>
+    <li><a href="#brands">酒吧</a></li>
+    <li><a href="#join">团队</a></li>
+    <li><a href="#contact">联系</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">✦ WAN CANG ✦</div>
+    <h1>晚 藏</h1>
+    <p class="tagline">深夜里的藏宝地</p>
+    <p class="tagline-sub">不喧哗 · 自有声</p>
+    <div class="hero-badges">
+      <span>👑 卡颜局</span><span>✨ 微卡颜局</span><span>🔥 气氛局</span><span>🌙 MOON主场</span>
+    </div>
+  </div>
+  <div class="hero-scroll" onclick="document.querySelector('#concept').scrollIntoView()">✦ 入夜 ✦</div>
+</section>
+
+<section id="concept" class="fade-in">
+  <div class="section-label">✦ CONCEPT ✦</div>
+  <h2 class="section-title">关于</h2>
+  <div class="section-line"></div>
+  <div class="concept-text">
+    <span class="sparkle">✨</span><span class="sparkle">💫</span><span class="sparkle">🌟</span>
+    <p><em>晚藏</em>——武汉最有温度的隐奢社交圈。</p>
+    <p>不追求人头攒动，只筛选磁场相合的人。<br>
+    每一场都是定制局，每一次都像老友重聚。<br>
+    最好的夜晚，藏在最对的地方。</p>
+  </div>
+</section>
+
+<section id="party" class="fade-in">
+  <div class="section-label">✦ SOCIAL ✦</div>
+  <h2 class="section-title">局 · 型</h2>
+  <div class="section-line"></div>
+  <div class="party-list">
+    <div class="party-row">
+      <div class="p-icon">👑</div>
+      <div class="p-info">
+        <h3>卡 颜 局</h3>
+        <p>颜值门槛，严格审核。顶帅、顶美云集，武汉颜值天花板。颜即正义，入场即焦点。</p>
+      </div>
+      <div class="p-badge">定向邀约</div>
+    </div>
+    <div class="party-row">
+      <div class="p-icon">✨</div>
+      <div class="p-info">
+        <h3>微 卡 颜 局</h3>
+        <p>有门槛，不苛刻。气质在线、干净清爽就能进。高品质社交零压力，氛围刚刚好。</p>
+      </div>
+      <div class="p-badge">人气推荐</div>
+    </div>
+    <div class="party-row">
+      <div class="p-icon">🔥</div>
+      <div class="p-info">
+        <h3>气 氛 局</h3>
+        <p>不卡脸，卡的就是气氛。会玩、能喝、放得开。全场嗨翻，女围成群，来了就是兄弟。</p>
+      </div>
+      <div class="p-badge">随时可约</div>
+    </div>
+  </div>
+</section>
+
+<section id="brands" class="fade-in">
+  <div class="section-label">✦ VENUES ✦</div>
+  <h2 class="section-title">合作酒吧</h2>
+  <div class="section-line"></div>
+  <div class="brand-circle-grid">
+    <div class="brand-circle primary"><h4>MOON</h4><span class="bc-loc">街道口</span></div>
+    <div class="brand-circle"><h4>INSIDE</h4><span class="bc-loc">街道口</span></div>
+  </div>
+</section>
+
+<div class="whisper-strip">
+  <div class="whisper-track">
+    <span class="c1">✦ 晚 藏</span><span class="dot">·</span><span class="c2">MOON</span><span class="dot">·</span><span class="c3">INSIDE</span><span class="dot">·</span><span class="c4">街道口</span><span class="dot">·</span><span class="c5">卡颜微卡颜</span><span class="dot">·</span><span class="c1">气氛局</span><span class="dot">·</span><span class="c2">不喧哗自有声</span><span class="dot">·</span>
+    <span class="c3">✦ 晚 藏</span><span class="dot">·</span><span class="c4">MOON</span><span class="dot">·</span><span class="c5">INSIDE</span><span class="dot">·</span><span class="c1">街道口</span><span class="dot">·</span><span class="c2">卡颜微卡颜</span><span class="dot">·</span><span class="c3">气氛局</span><span class="dot">·</span><span class="c4">不喧哗自有声</span><span class="dot">·</span>
+  </div>
+</div>
+
+<section class="fade-in">
+  <div class="section-label">✦ HOW TO ✦</div>
+  <h2 class="section-title">入局</h2>
+  <div class="section-line"></div>
+  <div class="flow-row">
+    <div class="flow-step">
+      <div class="fs-icon">✉️</div>
+      <div class="fs-num">01</div>
+      <h4>添加微信</h4>
+      <p>搜索 xiaoxizi04，备注「晚藏」，发一张近照。</p>
+    </div>
+    <div class="flow-step">
+      <div class="fs-icon">💬</div>
+      <div class="fs-num">02</div>
+      <h4>双向了解</h4>
+      <p>聊聊你的喜好和 vibe，为你匹配合适的局。</p>
+    </div>
+    <div class="flow-step">
+      <div class="fs-icon">🥃</div>
+      <div class="fs-num">03</div>
+      <h4>赴约入夜</h4>
+      <p>拉群发定位，到场即是老友。剩下的交给夜晚。</p>
+    </div>
+  </div>
+</section>
+
+<section class="fade-in">
+  <div class="section-label">✦ WORDS ✦</div>
+  <h2 class="section-title">他们说</h2>
+  <div class="section-line"></div>
+  <div class="review-grid">
+    <div class="review-card">
+      <div class="rv-stars">★ ★ ★ ★ ★</div>
+      <div class="rv-body">"不吵不闹，但每个人都在一个频道上。第一次觉得组局可以这么舒服。"</div>
+      <div class="rv-who">—— 小鹿，上周卡颜局</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-stars">★ ★ ★ ★ ★</div>
+      <div class="rv-body">"朋友推荐来的，果然跟外面那些局不一样。聊天的质量太高了。"</div>
+      <div class="rv-who">—— 阿哲，微卡颜局</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-stars">★ ★ ★ ★ ★</div>
+      <div class="rv-body">"女生好多而且都是宝藏女孩，局头很用心在筛选，氛围感绝了。"</div>
+      <div class="rv-who">—— Nana，气氛局</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-stars">★ ★ ★ ★ ★</div>
+      <div class="rv-body">"一个人来也完全不会尴尬，十分钟就混熟了。晚藏有点东西的。"</div>
+      <div class="rv-who">—— 凯文，上周微卡颜局</div>
+    </div>
+  </div>
+</section>
+
+<section id="join" class="fade-in">
+  <div class="section-label">✦ JOIN US ✦</div>
+  <h2 class="section-title">同行者</h2>
+  <div class="section-line"></div>
+  <div class="join-box">
+    <h3>晚藏在找你</h3>
+    <p class="join-desc">
+      如果你也相信社交不该将就——<br>
+      会带台、有品味、颜值在线、或只是单纯喜欢夜晚的 vibe，<br>
+      欢迎加入晚藏。<br>
+      分成优厚 · 时间自由 · 定期派对。
+    </p>
+    <div class="join-tags">
+      <span>成型局头</span><span>枪手代理</span><span>颜值担当</span><span>气氛组</span>
+    </div>
+    <p style="font-size:11px;color:var(--mist);letter-spacing:2px;">
+      微信 xiaoxizi04 · 备注「晚藏同行」
+    </p>
+  </div>
+</section>
+
+<section id="contact" class="fade-in">
+  <div class="section-label">✦ CONTACT ✦</div>
+  <h2 class="section-title">推门而入</h2>
+  <div class="section-line"></div>
+  <div class="contact-area">
+    <p style="font-size:12px;color:var(--cream-dim);letter-spacing:3px;margin-bottom:16px;">扫一扫或搜索，开启你的夜晚</p>
+    <div class="ca-wechat">xiaoxizi04</div>
+    <p class="ca-note">
+      备注「晚藏」<br>
+      发一张近照 · 聊聊你的夜晚
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-brand">晚 藏</div>
+  <p>深夜里的藏宝地 · 武汉隐奢社交<br>
+  VX：xiaoxizi04 · © 2026 晚藏</p>
+</footer>
+
+<script>
+// ── 漂浮表情雨 ──
+(function(){
+  const canvas=document.getElementById('emoji-rain');
+  const ctx=canvas.getContext('2d');
+  let drops=[],w,h;
+  const emojis=['✨','💫','🌟','🥂','🍷','🌙','🎭','💎','⭐','🫧'];
+  function resize(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight}
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<18;i++){
+    drops.push({x:Math.random()*w,y:Math.random()*h,e:emojis[Math.floor(Math.random()*emojis.length)],s:12+Math.random()*16,vy:.3+Math.random()*.6,vx:(Math.random()-.5)*.3,o:.15+Math.random()*.3})
+  }
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    drops.forEach(d=>{
+      d.y-=d.vy;d.x+=d.vx;
+      if(d.y<-40){d.y=h+40;d.x=Math.random()*w}
+      if(d.x>w+20)d.x=-20;
+      if(d.x<-20)d.x=w+20;
+      ctx.font=`${d.s}px serif`;
+      ctx.fillStyle=`rgba(255,255,255,${d.o})`;
+      ctx.fillText(d.e,d.x,d.y);
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── 进度条 ──
+window.addEventListener('scroll',()=>{const s=window.scrollY,d=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('progress-bar').style.width=Math.min(d>0?(s/d)*100:0,100)+'%'});
+
+// ── 滚动动画 ──
+const ob=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting)t.target.classList.add('visible')})},{threshold:.15});
+document.querySelectorAll('.fade-in').forEach(e=>ob.observe(e));
+
+// ── 导航 ──
+window.addEventListener('scroll',()=>{const n=document.querySelector('nav');n.style.height=window.scrollY>50?'52px':'64px';n.style.background=window.scrollY>50?'rgba(19,19,22,.96)':'rgba(19,19,22,.9)'});
+
+const hb=document.querySelector('.hamburger'),nl=document.querySelector('.nav-links');
+hb.addEventListener('click',()=>{hb.classList.toggle('active');nl.classList.toggle('open')});
+nl.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>{hb.classList.remove('active');nl.classList.remove('open')})});
+</script>
+</body>
+</html>
