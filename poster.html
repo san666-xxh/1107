@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1107 武汉组局 · 广告海报</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#c9a96e;--bg:#0a0a0a;--text:#e8e8e8;--text-dim:#999}
+
+body{
+  font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+  background:#111;display:flex;justify-content:center;align-items:center;
+  min-height:100vh;padding:20px;
+}
+
+.poster{
+  width:420px;min-height:820px;
+  background:var(--bg);
+  position:relative;overflow:hidden;
+  padding:48px 36px 36px;
+  display:flex;flex-direction:column;
+  border:1px solid #222;
+  box-shadow:0 0 80px rgba(201,169,110,.1),0 24px 80px rgba(0,0,0,.8);
+}
+
+/* 背景纹理 */
+.poster::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 20%,rgba(168,85,247,.08),transparent 50%),
+    radial-gradient(circle at 70% 60%,rgba(201,169,110,.06),transparent 50%),
+    radial-gradient(circle at 50% 80%,rgba(236,72,153,.05),transparent 50%),
+    radial-gradient(circle at 20% 90%,rgba(59,130,246,.04),transparent 40%);
+  pointer-events:none;
+}
+
+/* 装饰线 */
+.poster::after{
+  content:'';position:absolute;top:24px;left:36px;right:36px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:.4;
+}
+
+/* 所有内容相对定位 */
+.poster>*{position:relative;z-index:1}
+
+/* 顶部标签 */
+.top-badge{
+  display:flex;justify-content:center;gap:10px;margin-bottom:32px;
+}
+.top-badge span{
+  font-size:10px;letter-spacing:3px;color:var(--text-dim);
+  border:1px solid #222;padding:4px 12px;
+}
+
+/* 主标题 */
+.main-title{
+  text-align:center;margin-bottom:8px;
+}
+.main-title .num{
+  font-size:120px;font-weight:900;color:var(--gold);
+  letter-spacing:24px;line-height:1;
+  text-shadow:0 0 60px rgba(201,169,110,.4),0 0 120px rgba(201,169,110,.15);
+}
+.main-title .sub{
+  font-size:16px;font-weight:700;letter-spacing:8px;
+  color:var(--text);margin-top:8px;
+}
+.main-title .sub2{
+  font-size:11px;font-weight:300;letter-spacing:4px;
+  color:var(--text-dim);margin-top:6px;
+}
+
+/* 分割装饰 */
+.divider{
+  display:flex;align-items:center;gap:8px;margin:28px 0;
+}
+.divider-line{
+  flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,169,110,.3),transparent);
+}
+.divider-diamond{
+  width:6px;height:6px;background:var(--gold);transform:rotate(45deg);
+  opacity:.6;flex-shrink:0;
+}
+
+/* 三大局类型 */
+.party-types{
+  display:flex;gap:12px;margin-bottom:24px;
+}
+.party-card{
+  flex:1;text-align:center;padding:18px 10px;
+  background:rgba(255,255,255,.02);border:1px solid #1a1a1a;
+  transition:all .3s;
+}
+.party-card .p-icon{font-size:32px;margin-bottom:8px}
+.party-card .p-name{font-size:13px;font-weight:700;letter-spacing:3px;color:var(--text);margin-bottom:4px}
+.party-card .p-desc{font-size:9px;color:var(--text-dim);line-height:1.6}
+
+/* 亮点条 */
+.highlights{
+  display:flex;flex-direction:column;gap:10px;margin-bottom:24px;
+}
+.highlight-row{
+  display:flex;align-items:center;gap:12px;padding:12px 16px;
+  background:rgba(255,255,255,.015);border-left:2px solid var(--gold);
+}
+.highlight-row .h-icon{font-size:18px}
+.highlight-row .h-text{font-size:12px;color:var(--text);letter-spacing:2px}
+.highlight-row .h-sub{font-size:10px;color:var(--text-dim)}
+
+/* MOON 主战场 */
+.venue-badge{
+  text-align:center;padding:14px;margin-bottom:24px;
+  border:1px solid rgba(201,169,110,.3);
+  background:rgba(201,169,110,.03);
+}
+.venue-badge .v-label{font-size:9px;color:var(--text-dim);letter-spacing:3px;margin-bottom:4px}
+.venue-badge .v-name{font-size:20px;font-weight:900;color:var(--gold);letter-spacing:6px}
+
+/* CTA 区 */
+.cta-area{
+  text-align:center;margin-bottom:20px;
+}
+.cta-wechat{
+  font-size:22px;font-weight:700;color:var(--gold);letter-spacing:2px;
+  margin-bottom:4px;
+}
+.cta-note{
+  font-size:10px;color:var(--text-dim);letter-spacing:2px;margin-bottom:4px;
+}
+
+/* 底部 */
+.footer-strip{
+  text-align:center;margin-top:auto;padding-top:20px;
+  border-top:1px solid #1a1a1a;
+}
+.footer-strip p{font-size:10px;color:#444;letter-spacing:3px;line-height:1.8}
+
+/* 悬浮光点 */
+.glow-dot{
+  position:absolute;border-radius:50%;pointer-events:none;
+}
+.glow-dot:nth-child(1){width:120px;height:120px;top:-30px;right:-40px;background:radial-gradient(circle,rgba(201,169,110,.08),transparent 70%)}
+.glow-dot:nth-child(2){width:80px;height:80px;bottom:80px;left:-20px;background:radial-gradient(circle,rgba(168,85,247,.06),transparent 70%)}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="poster">
+  <!-- 背景光点 -->
+  <div class="glow-dot"></div>
+  <div class="glow-dot"></div>
+
+  <!-- 顶部标签 -->
+  <div class="top-badge">
+    <span>18-25 武汉</span>
+    <span>街道口</span>
+    <span>每日有局</span>
+  </div>
+
+  <!-- 主标题 -->
+  <div class="main-title">
+    <div class="num">1107</div>
+    <div class="sub">街道口最靠谱局头</div>
+    <div class="sub2">全 武 汉 组 局 / 拼 桌 / 订 台</div>
+  </div>
+
+  <!-- 分割线 -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-diamond"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- 三大局 -->
+  <div class="party-types">
+    <div class="party-card">
+      <div class="p-icon">👑</div>
+      <div class="p-name">卡 颜 局</div>
+      <div class="p-desc">颜值天花板<br>严格审核入局</div>
+    </div>
+    <div class="party-card">
+      <div class="p-icon">✨</div>
+      <div class="p-name">微卡颜局</div>
+      <div class="p-desc">气质在线就行<br>氛围刚刚好</div>
+    </div>
+    <div class="party-card">
+      <div class="p-icon">🔥</div>
+      <div class="p-name">气 氛 局</div>
+      <div class="p-desc">不卡脸只卡嗨<br>全场一起炸</div>
+    </div>
+  </div>
+
+  <!-- 亮点 -->
+  <div class="highlights">
+    <div class="highlight-row">
+      <span class="h-icon">👯‍♀️</span>
+      <span class="h-text">女围成群 · 顶美顶帅云集</span>
+    </div>
+    <div class="highlight-row">
+      <span class="h-icon">🍻</span>
+      <span class="h-text">拼桌 / 订台 · 一站式安排</span>
+    </div>
+    <div class="highlight-row">
+      <span class="h-icon">🎁</span>
+      <span class="h-text">大学生凭学生证立减 20 元</span>
+    </div>
+  </div>
+
+  <!-- 主战场 -->
+  <div class="venue-badge">
+    <div class="v-label">▼ 主战场 ▼</div>
+    <div class="v-name">M O O N</div>
+  </div>
+
+  <!-- 联系方式 -->
+  <div class="cta-area">
+    <div class="cta-wechat">VX：a12378945b</div>
+    <div class="cta-note">备注「1107组局」· 发照片秒回秒安排</div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-strip">
+    <p>MOON · INSIDE · FANS · FOREVER · REMIX<br>
+    武汉夜娱天花板 · 每晚 21:00 开场<br>
+    © 2026 1107</p>
+  </div>
+</div>
+
+</body>
+</html>
