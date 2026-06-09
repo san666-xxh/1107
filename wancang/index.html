@@ -614,7 +614,62 @@ nl.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>{hb.classLis
 (function(){const prizes=['🍻 下次减20','🥂 送一杯特调','✨ 下次免排队','🎫 立减30元','🌟 再来一次','👑 VIP待遇','🎁 神秘礼物','💎 订台9折'];const colors=['#c8a45c','#f472b6','#a78bfa','#2dd4bf','#fb7185','#fbbf24','#c8a45c','#f472b6'];let spinning=false;function draw(rot=0){const cv=document.getElementById('wheel-canvas'),ctx=cv.getContext('2d'),r=110;ctx.clearRect(0,0,220,220);const slice=Math.PI*2/prizes.length;prizes.forEach((p,i)=>{const a=slice*i+rot;ctx.beginPath();ctx.moveTo(r,r);ctx.arc(r,r,r-2,a,a+slice);ctx.fillStyle=colors[i];ctx.fill();ctx.strokeStyle='#1a1a1e';ctx.lineWidth=2;ctx.stroke();ctx.save();ctx.translate(r,r);ctx.rotate(a+slice/2);ctx.fillStyle='#000';ctx.font='bold 11px "Noto Sans SC"';ctx.textAlign='center';ctx.fillText(p,r*.62,4);ctx.restore()});ctx.beginPath();ctx.arc(r,r,16,0,Math.PI*2);ctx.fillStyle='#1a1a1e';ctx.fill();ctx.fillStyle='var(--amber)';ctx.font='bold 10px "Noto Sans SC"';ctx.textAlign='center';ctx.fillText('GO',r,r+3)}draw();window.spinWheel=function(){if(spinning)return;spinning=true;const target=Math.random()*Math.PI*2+Math.PI*6+Math.random()*4;const start=performance.now();const dur=4000;function anim(now){const p=Math.min((now-start)/dur,1);const eased=1-Math.pow(1-p,3);draw(target*eased);if(p<1)requestAnimationFrame(anim);else{spinning=false;const idx=Math.floor(((target%(Math.PI*2))/(Math.PI*2/prizes.length)+prizes.length)%prizes.length);document.getElementById('wheel-result').textContent='🎉 '+prizes[idx]+'！加微信兑奖'}}requestAnimationFrame(anim)}})();
 
 //── 自测 ──
-(function(){let s=0;const a=[],q=[{q:'😎 你对自己颜值的评价是？',opts:['👑 顶帅/顶美，走到哪都是焦点','✨ 干净清爽，气质在线','🔥 我不靠脸，我靠气氛']},{q:'🍻 你去酒吧最看重什么？',opts:['👯‍♀️ 女生多不多，质量高不高','🤝 能不能认识新朋友','🎵 音乐嗨不嗨，能不能放开玩']}],pg=document.getElementById('quiz-dots'),bd=document.getElementById('quiz-body');function rq(){bd.innerHTML=`<div class="quiz-q">${q[s].q}</div><div class="quiz-ops">${q[s].opts.map((o,i)=>`<button onclick="window._qa(${i})">${o}</button>`).join('')}</div>`;ud()}function ud(){pg.querySelectorAll('.quiz-dot').forEach((d,i)=>{d.classList.remove('active','done');if(i<s)d.classList.add('done');if(i===s)d.classList.add('active')})}function sr(){const sc=a[0]*1.5+a[1];let r;if(sc<=.5)r={icon:'👑',title:'卡 颜 局',desc:'你就是为卡颜局而生的！'}else if(sc<=2)r={icon:'✨',title:'微 卡 颜 局',desc:'气质在线的你最适合微卡颜局！'}else r={icon:'🔥',title:'气 氛 局',desc:'气氛组欢迎你！'};pg.querySelectorAll('.quiz-dot').forEach(d=>{d.classList.add('done');d.classList.remove('active')});bd.innerHTML=`<div style="text-align:center;padding:24px 0"><div style="font-size:48px;margin-bottom:8px">${r.icon}</div><div style="font-size:20px;font-weight:700;color:var(--amber);letter-spacing:4px;margin-bottom:6px">${r.title}</div><div style="font-size:13px;color:var(--cream-dim);margin-bottom:16px">${r.desc}</div><button class="quiz-ops button" onclick="window._qr()" style="padding:10px 24px;border:1px solid var(--amber);color:var(--amber);background:transparent;border-radius:20px;cursor:pointer;font-family:inherit;letter-spacing:2px">🔄 再测一次</button></div>`}window._qa=function(i){a.push(i);s++;if(s>=q.length)sr();else rq()};window._qr=function(){s=0;a.length=0;pg.querySelectorAll('.quiz-dot').forEach(d=>{d.classList.remove('active','done')});pg.querySelector('.quiz-dot').classList.add('active');rq()};rq()})();
+(function(){
+  var step=0,answers=[];
+  var questions=[
+    {q:'😎 你对自己颜值的评价是？',opts:['👑 顶帅/顶美，走到哪都是焦点','✨ 干净清爽，气质在线','🔥 我不靠脸，我靠气氛']},
+    {q:'🍻 你去酒吧最看重什么？',opts:['👯‍♀️ 女生多不多，质量高不高','🤝 能不能认识新朋友','🎵 音乐嗨不嗨，能不能放开玩']}
+  ];
+  var dots=document.getElementById('quiz-dots');
+  var body=document.getElementById('quiz-body');
+
+  function renderQuestion(){
+    var q=questions[step];
+    var optsHTML=q.opts.map(function(o,i){
+      return '<button onclick="window._qa('+i+')">'+o+'</button>';
+    }).join('');
+    body.innerHTML='<div class="quiz-q">'+q.q+'</div><div class="quiz-ops">'+optsHTML+'</div>';
+    updateDots();
+  }
+
+  function updateDots(){
+    var all=dots.querySelectorAll('.quiz-dot');
+    all.forEach(function(d,i){
+      d.classList.remove('active','done');
+      if(i<step) d.classList.add('done');
+      if(i===step) d.classList.add('active');
+    });
+  }
+
+  function showResult(){
+    var score=answers[0]*1.5+answers[1];
+    var result;
+    if(score<=0.5){
+      result={icon:'👑',title:'卡 颜 局',desc:'你就是为卡颜局而生的！颜值在线、气场到位。'};
+    }else if(score<=2){
+      result={icon:'✨',title:'微 卡 颜 局',desc:'气质在线的你最适合微卡颜局！轻松又体面。'};
+    }else{
+      result={icon:'🔥',title:'气 氛 局',desc:'气氛组欢迎你！会玩、能嗨、放得开。'};
+    }
+    dots.querySelectorAll('.quiz-dot').forEach(function(d){d.classList.add('done');d.classList.remove('active')});
+    body.innerHTML='<div style="text-align:center;padding:24px 0"><div style="font-size:48px;margin-bottom:8px">'+result.icon+'</div><div style="font-size:20px;font-weight:700;color:var(--amber);letter-spacing:4px;margin-bottom:6px">'+result.title+'</div><div style="font-size:13px;color:var(--cream-dim);margin-bottom:16px">'+result.desc+'</div><button onclick="window._qr()" style="padding:10px 24px;border:1px solid var(--amber);color:var(--amber);background:transparent;border-radius:20px;cursor:pointer;font-family:inherit;letter-spacing:2px;font-size:13px">🔄 再测一次</button></div>';
+  }
+
+  window._qa=function(i){
+    answers.push(i);step++;
+    if(step>=questions.length){ showResult(); }
+    else{ renderQuestion(); }
+  };
+
+  window._qr=function(){
+    step=0;answers=[];
+    dots.querySelectorAll('.quiz-dot').forEach(function(d){d.classList.remove('active','done')});
+    dots.querySelector('.quiz-dot').classList.add('active');
+    renderQuestion();
+  };
+
+  renderQuestion();
+})();
 
 //── FAQ ──
 document.querySelectorAll('.faq-q').forEach(b=>{b.addEventListener('click',()=>{const i=b.parentElement,wo=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(e=>e.classList.remove('open'));if(!wo)i.classList.add('open')})});
