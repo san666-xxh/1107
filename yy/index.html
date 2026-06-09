@@ -75,12 +75,9 @@ section{padding:80px 40px;max-width:1000px;margin:0 auto;position:relative;z-ind
 .section-line{width:50px;height:1px;margin:0 auto 36px;background:linear-gradient(90deg,transparent,var(--pink),transparent)}
 
 /*── 照片 ──*/
-.photo-gallery{position:relative;max-width:500px;margin:0 auto;height:380px}
-.photo-card{position:absolute;width:180px;border-radius:20px;overflow:hidden;border:3px solid var(--border);transition:all .4s;box-shadow:0 8px 32px rgba(0,0,0,.4);cursor:pointer}
-.photo-card:nth-child(1){left:10px;top:10px;transform:rotate(-6deg);z-index:1}
-.photo-card:nth-child(2){left:50%;top:30px;transform:translateX(-50%) rotate(2deg);z-index:3}
-.photo-card:nth-child(3){right:10px;top:10px;transform:rotate(6deg);z-index:2}
-.photo-card:hover{z-index:10!important;transform:rotate(0deg) scale(1.12)!important;border-color:var(--pink-hot);box-shadow:0 12px 40px rgba(255,64,136,.3)}
+.photo-gallery{max-width:320px;margin:0 auto;display:flex;justify-content:center}
+.photo-card{width:220px;border-radius:20px;overflow:hidden;border:3px solid var(--pink);transition:all .4s;box-shadow:0 8px 32px rgba(0,0,0,.4);cursor:pointer}
+.photo-card:hover{transform:scale(1.05);border-color:var(--pink-hot);box-shadow:0 12px 40px rgba(255,64,136,.3)}
 .photo-card img{width:100%;height:auto;display:block;aspect-ratio:3/4;object-fit:cover}
 .photo-badge{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:var(--pink-hot);color:#fff;font-size:10px;padding:3px 12px;border-radius:10px;letter-spacing:2px;white-space:nowrap;pointer-events:none;z-index:4}
 
@@ -186,11 +183,8 @@ footer .ft-brand{font-size:18px;font-weight:700;color:var(--pink-hot);letter-spa
   .pricing-card.popular{margin:0;padding:22px 12px}
   .review-grid{grid-template-columns:1fr}
   .party-row{flex-direction:column;text-align:center;gap:10px;padding:18px 16px}
-  .photo-gallery{height:320px}
-  .photo-card{width:140px}
-  .photo-card:nth-child(1){left:0;top:10px}
-  .photo-card:nth-child(2){left:50%;top:20px}
-  .photo-card:nth-child(3){right:0;top:10px;left:auto}
+  .photo-gallery{max-width:260px}
+  .photo-card{width:180px}
   .cd-block{width:56px;height:56px}.cd-block .cd-num{font-size:22px}
   body{padding-bottom:60px}
 }
@@ -228,8 +222,6 @@ footer .ft-brand{font-size:18px;font-weight:700;color:var(--pink-hot);letter-spa
   <h2 class="section-title">武汉最美枪手</h2>
   <div class="section-line"></div>
   <div class="photo-gallery">
-    <div class="photo-card"><img src="da6cfde4f1bb1dd4cfc61768a7ac68..jpg" alt="歪歪" loading="lazy"><div class="photo-badge">✨ 本人</div></div>
-    <div class="photo-card"><img src="2aa1bcc8bd8ef15952a5aacb775ac2..jpg" alt="歪歪" loading="lazy"><div class="photo-badge">🎀 歪歪</div></div>
     <div class="photo-card"><img src="69bf80f43600a134857a86236619a8..jpg" alt="歪歪" loading="lazy"><div class="photo-badge">💕 武汉最美</div></div>
   </div>
   <div class="about-text" style="margin-top:32px">
