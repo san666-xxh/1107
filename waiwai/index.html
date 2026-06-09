@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>歪歪 — 武汉最美枪手</title>
+<meta name="description" content="武汉最美枪手歪歪——MOON+INSIDE，组局拼桌订台，卡颜局/微卡颜局/气氛局，每天都有局。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{overflow-x:hidden;max-width:100vw;scroll-behavior:smooth}
+
+:root{
+  --pink:#ff6b9d;
+  --pink-hot:#ff4088;
+  --pink-light:#ffb3cc;
+  --rose:#f8c8d8;
+  --white:#fff5f7;
+  --bg:#1a0a10;
+  --bg-card:#1f0f16;
+  --bg-light:#24141b;
+  --text:#ffe8ee;
+  --text-dim:#c996a6;
+  --border:#3a1f2a;
+  --gold:#f0c060;
+}
+
+body{
+  font-family:'Noto Sans SC',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
+  overflow-x:hidden;
+  padding-bottom:80px;
+  background-image:radial-gradient(circle at 50% 20%,rgba(255,107,157,.04),transparent 50%),radial-gradient(circle at 30% 60%,rgba(255,64,136,.03),transparent 50%),radial-gradient(circle at 70% 80%,rgba(255,179,204,.04),transparent 50%);
+}
+
+/* 进度条 */
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--pink-hot),var(--pink),var(--pink-light));z-index:9999;width:0;box-shadow:0 0 8px var(--pink-hot)}
+
+/* 导航 */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:0 32px;height:60px;display:flex;align-items:center;justify-content:space-between;background:rgba(26,10,16,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:all .3s}
+nav .logo{font-size:24px;font-weight:900;background:linear-gradient(135deg,var(--pink-hot),var(--pink-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:6px}
+nav .nav-links{display:flex;gap:24px;list-style:none}
+nav .nav-links a{color:var(--text-dim);text-decoration:none;font-size:11px;font-weight:500;letter-spacing:2px;transition:all .3s}
+nav .nav-links a:hover{color:var(--pink-hot)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:101}
+.hamburger span{display:block;width:22px;height:2px;background:var(--pink);transition:all .3s}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+
+/*── Hero ──*/
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.hero-content{position:relative;z-index:2;padding:0 20px}
+.hero-crown{font-size:48px;margin-bottom:12px;animation:float 2s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-eyebrow{display:inline-block;font-size:11px;letter-spacing:4px;color:var(--pink-light);border:1px solid rgba(255,107,157,.4);padding:4px 16px;border-radius:20px;margin-bottom:20px}
+.hero h1{font-size:clamp(56px,12vw,100px);font-weight:900;background:linear-gradient(180deg,var(--pink-light),var(--pink-hot) 50%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:12px;line-height:1;filter:drop-shadow(0 0 20px rgba(255,64,136,.3));margin-bottom:12px}
+.hero .tagline{font-size:14px;color:var(--text-dim);letter-spacing:4px;margin-bottom:4px}
+.hero .tagline-sub{font-size:11px;color:var(--text-dim);letter-spacing:3px;opacity:.7}
+.hero-badges{margin-top:24px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.hero-badges span{font-size:10px;letter-spacing:2px;padding:5px 14px;border-radius:20px;transition:all .3s;cursor:default}
+.hero-badges span:nth-child(1){border:1px solid var(--pink-hot);color:var(--pink-hot)}.hero-badges span:nth-child(2){border:1px solid var(--pink-light);color:var(--pink-light)}.hero-badges span:nth-child(3){border:1px solid var(--gold);color:var(--gold)}.hero-badges span:nth-child(4){border:1px solid var(--pink);color:var(--pink)}
+.hero-badges span:hover{transform:translateY(-2px)}
+.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);color:var(--text-dim);font-size:10px;letter-spacing:3px;animation:float 2s ease-in-out infinite;cursor:pointer}
+
+/*── 通用 ──*/
+section{padding:80px 40px;max-width:1000px;margin:0 auto;position:relative;z-index:1}
+.section-label{font-size:10px;letter-spacing:5px;text-align:center;margin-bottom:10px;color:var(--pink-light)}
+.section-title{text-align:center;margin-bottom:8px;font-size:26px;font-weight:700;letter-spacing:5px;color:var(--text)}
+.section-line{width:50px;height:1px;margin:0 auto 36px;background:linear-gradient(90deg,transparent,var(--pink),transparent)}
+
+/*── 照片 ──*/
+.photo-strip{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:700px;margin:0 auto}
+.photo-card{flex:1;min-width:140px;max-width:200px;border-radius:20px;overflow:hidden;border:3px solid var(--border);transition:all .4s;aspect-ratio:3/4}
+.photo-card:hover{border-color:var(--pink-hot);transform:scale(1.04);box-shadow:0 8px 32px rgba(255,64,136,.2)}
+.photo-card img{width:100%;height:100%;object-fit:cover;display:block}
+
+/*── 关于 ──*/
+.about-text{max-width:550px;margin:0 auto;text-align:center;font-size:14px;color:var(--text-dim);line-height:2.3}
+
+/*── 局类型 ──*/
+.party-list{display:flex;flex-direction:column;gap:10px;max-width:650px;margin:0 auto}
+.party-row{display:flex;align-items:center;gap:24px;padding:24px 28px;border-radius:16px;transition:all .4s;border:1px solid var(--border);background:var(--bg-card)}
+.party-row:hover{transform:translateX(4px);border-color:var(--pink)}
+.party-row .p-icon{font-size:36px;min-width:48px;text-align:center}
+.party-row .p-info h3{font-size:18px;font-weight:700;letter-spacing:3px;color:var(--text);margin-bottom:2px}
+.party-row .p-info p{font-size:11px;color:var(--text-dim);line-height:1.7}
+
+/*── 倒计时 ──*/
+.countdown-wrap{text-align:center;padding:32px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;max-width:450px;margin:0 auto}
+.countdown-label{font-size:11px;color:var(--text-dim);letter-spacing:3px;margin-bottom:14px}
+.countdown-timer{display:flex;justify-content:center;gap:14px}
+.cd-block{width:68px;height:68px;border-radius:50%;background:var(--bg);border:2px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.cd-block:hover{border-color:var(--pink)}
+.cd-block .cd-num{font-size:26px;font-weight:900;color:var(--pink-hot);line-height:1}
+.cd-block .cd-unit{font-size:9px;color:var(--text-dim);letter-spacing:2px}
+.cd-urgency{margin-top:12px;font-size:10px;color:var(--pink-light);letter-spacing:2px;min-height:16px}
+
+/*── 价格 ──*/
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:700px;margin:0 auto;align-items:end}
+.pricing-card{background:var(--bg-card);border:1px solid var(--border);padding:24px 14px;text-align:center;transition:all .3s}
+.pricing-card:first-child{border-radius:14px 0 0 14px;border-right:none}
+.pricing-card:last-child{border-radius:0 14px 14px 0;border-left:none}
+.pricing-card.popular{border-color:rgba(255,107,157,.5);padding:36px 14px 40px;margin-bottom:-4px;border-radius:14px;z-index:2;background:linear-gradient(180deg,#1f1016,var(--bg-card));overflow:visible!important}
+.pricing-card.popular::before{content:'🎀 热门推荐';position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--pink-hot);color:#fff;font-size:9px;padding:3px 12px;letter-spacing:2px;font-weight:700;border-radius:10px}
+.pricing-type{font-size:11px;color:var(--text-dim);letter-spacing:2px;margin-bottom:4px}
+.pricing-amount{font-size:28px;font-weight:900;color:var(--pink-hot)!important;letter-spacing:1px}
+.pricing-unit{font-size:10px;color:var(--text-dim)}
+.pricing-desc{margin-top:10px;font-size:10px;color:var(--text-dim);line-height:2}
+.pricing-note{margin-top:8px;font-size:8px;color:#665}
+
+/*── 评价 ──*/
+.review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:650px;margin:0 auto}
+.review-card{padding:22px 18px;border-radius:12px;transition:all .3s;border:1px solid var(--border);background:var(--bg-card)}
+.review-card:hover{border-color:var(--pink);transform:translateY(-2px)}
+.review-card .rv-stars{font-size:11px;letter-spacing:3px;color:var(--pink);margin-bottom:6px}
+.review-card .rv-body{font-size:11px;color:var(--text);line-height:1.8;margin-bottom:6px}
+.review-card .rv-who{font-size:9px;color:var(--text-dim);letter-spacing:2px}
+
+/*── 招募 ──*/
+.join-box{max-width:600px;margin:0 auto;text-align:center;padding:40px 32px;border-radius:16px;background:linear-gradient(135deg,rgba(255,107,157,.05),rgba(255,64,136,.05));border:1px solid rgba(255,107,157,.15);position:relative;overflow:hidden}
+.join-box::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent,rgba(255,107,157,.03),transparent,rgba(255,179,204,.03),transparent);animation:spin 8s linear infinite;pointer-events:none}
+@keyframes spin{100%{transform:rotate(360deg)}}
+.join-box>*{position:relative;z-index:1}
+.join-box h3{font-size:18px;color:var(--pink-hot);letter-spacing:5px;margin-bottom:8px}
+.join-box .join-desc{font-size:12px;color:var(--text-dim);line-height:2.1;margin-bottom:16px}
+.join-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.join-tags span{font-size:10px;letter-spacing:2px;padding:5px 14px;border-radius:20px;border:1px solid var(--border);color:var(--text-dim);transition:all .3s}
+.join-tags span:hover{border-color:var(--pink);color:var(--pink)}
+
+/*── 联系 ──*/
+.contact-area{max-width:450px;margin:0 auto;text-align:center;padding:40px 32px;border-radius:16px;background:var(--bg-card);border:2px solid rgba(255,107,157,.2)}
+.contact-area .ca-name{font-size:22px;font-weight:900;color:var(--pink-hot);letter-spacing:4px;margin-bottom:4px}
+.contact-area .ca-wechat{font-size:20px;font-weight:700;color:var(--gold);letter-spacing:3px;margin-bottom:6px}
+.contact-area .ca-note{font-size:11px;color:var(--text-dim);letter-spacing:2px;line-height:2}
+
+/*── Footer ──*/
+footer{text-align:center;padding:32px 20px;font-size:10px;color:var(--text-dim);letter-spacing:2px;border-top:1px solid var(--border)}
+footer .ft-brand{font-size:18px;font-weight:700;color:var(--pink-hot);letter-spacing:6px;margin-bottom:4px}
+
+/*── 底部CTA ──*/
+.floating-cta{position:fixed;bottom:0;left:0;width:100%;z-index:200;padding:10px 16px;background:rgba(26,10,16,.96);backdrop-filter:blur(16px);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:12px;transform:translateY(100%);transition:transform .35s}
+.floating-cta.visible{transform:translateY(0)}
+.floating-cta .cta-text{font-size:11px;letter-spacing:2px;color:var(--text)}
+.floating-cta .cta-btn{padding:10px 24px;background:linear-gradient(135deg,var(--pink-hot),#e03070);color:#fff;border:none;font-size:12px;font-weight:700;letter-spacing:2px;cursor:pointer;border-radius:20px;text-decoration:none}
+.floating-cta .cta-btn:hover{filter:brightness(1.1)}
+
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/*── 弹窗 ──*/
+.popup-overlay{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .5s}
+.popup-overlay.show{opacity:1;pointer-events:auto}
+.popup-card{background:var(--bg-card);border:1px solid rgba(255,107,157,.3);padding:36px 24px;text-align:center;max-width:360px;width:90%;position:relative;border-radius:16px}
+.popup-close{position:absolute;top:8px;right:12px;background:transparent;border:none;color:var(--text-dim);font-size:18px;cursor:pointer}
+.popup-close:hover{color:var(--pink-hot)}
+.popup-icon{font-size:40px;margin-bottom:10px}
+.popup-title{font-size:18px;font-weight:700;color:var(--pink-hot);letter-spacing:3px;margin-bottom:6px}
+.popup-desc{font-size:11px;color:var(--text-dim);line-height:1.8;margin-bottom:14px}
+.popup-highlight{color:var(--pink-hot);font-weight:600}
+.popup-btn{display:inline-block;padding:10px 28px;background:linear-gradient(135deg,var(--pink-hot),#e03070);color:#fff;font-weight:700;font-size:13px;letter-spacing:2px;border:none;cursor:pointer;border-radius:20px;text-decoration:none;font-family:inherit}
+.popup-skip{display:block;margin-top:8px;font-size:9px;color:#555;cursor:pointer;background:none;border:none;letter-spacing:2px;font-family:inherit}
+
+/*── 响应式 ──*/
+@media(max-width:768px){
+  nav{padding:0 14px;height:52px}
+  nav .logo{font-size:20px}
+  .nav-links{position:fixed;top:0;right:-100%;width:70%;height:100vh;flex-direction:column;gap:0;background:rgba(26,10,16,.98);backdrop-filter:blur(16px);padding:70px 24px 24px;transition:right .35s;visibility:hidden;border-left:1px solid var(--border)}
+  .nav-links.open{right:0;visibility:visible}
+  .nav-links a{display:block;padding:12px 0;font-size:14px;border-bottom:1px solid var(--border)}
+  .hamburger{display:flex}
+  section{padding:48px 16px}
+  .section-title{font-size:22px}
+  .hero h1{letter-spacing:8px}
+  .pricing-grid{grid-template-columns:1fr;gap:12px}
+  .pricing-card{border-radius:14px!important;border:1px solid var(--border)!important;padding:18px 12px}
+  .pricing-card.popular{margin:0;padding:22px 12px}
+  .review-grid{grid-template-columns:1fr}
+  .party-row{flex-direction:column;text-align:center;gap:10px;padding:18px 16px}
+  .photo-card{min-width:100px;max-width:140px}
+  .cd-block{width:56px;height:56px}.cd-block .cd-num{font-size:22px}
+  body{padding-bottom:60px}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress-bar"></div>
+
+<nav>
+  <div class="logo">🎀 歪歪</div>
+  <button class="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+  <ul class="nav-links">
+    <li><a href="#about">关于</a></li><li><a href="#party">局类型</a></li><li><a href="#pricing">价格</a></li><li><a href="#join">招募</a></li><li><a href="#contact">联系</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-crown">🎀</div>
+    <div class="hero-eyebrow">武汉最美枪手</div>
+    <h1>歪 歪</h1>
+    <p class="tagline">MOON · INSIDE · 组局拼桌订台</p>
+    <p class="tagline-sub">每天都有局 · 街道口等你</p>
+    <div class="hero-badges">
+      <span>👑 卡颜局</span><span>✨ 微卡颜局</span><span>🔥 气氛局</span><span>🎀 全城对接</span>
+    </div>
+  </div>
+  <div class="hero-scroll" onclick="document.querySelector('#about').scrollIntoView()">▼ 认识歪歪</div>
+</section>
+
+<!-- ══ 照片 ══ -->
+<section id="about" class="fade-in">
+  <div class="section-label">🎀 ABOUT</div>
+  <h2 class="section-title">武汉最美枪手</h2>
+  <div class="section-line"></div>
+  <div class="photo-strip">
+    <div class="photo-card"><img src="da6cfde4f1bb1dd4cfc61768a7ac68..jpg" alt="歪歪" loading="lazy"></div>
+    <div class="photo-card"><img src="2aa1bcc8bd8ef15952a5aacb775ac2..jpg" alt="歪歪" loading="lazy"></div>
+    <div class="photo-card"><img src="69bf80f43600a134857a86236619a8..jpg" alt="歪歪" loading="lazy"></div>
+  </div>
+  <div class="about-text" style="margin-top:32px">
+    <p>嗨，我是<b style="color:var(--pink-hot)">歪歪</b>——武汉最美女枪手。</p>
+    <p>在 MOON 和 INSIDE 帮你组局、拼桌、订台。<br>卡颜局、微卡颜局、气氛局，你要的局我都能安排。<br>颜值在线、性格超好，来了就是朋友 💕</p>
+  </div>
+</section>
+
+<!-- ══ 倒计时 ══ -->
+<section id="countdown" class="fade-in">
+  <div class="section-label">🎀 TONIGHT</div>
+  <h2 class="section-title">距今晚开场</h2>
+  <div class="section-line"></div>
+  <div class="countdown-wrap">
+    <div class="countdown-timer" id="cd-timer">
+      <div class="cd-block"><div class="cd-num" id="cd-h">00</div><div class="cd-unit">时</div></div>
+      <div class="cd-block"><div class="cd-num" id="cd-m">00</div><div class="cd-unit">分</div></div>
+      <div class="cd-block"><div class="cd-num" id="cd-s">00</div><div class="cd-unit">秒</div></div>
+    </div>
+    <div class="cd-urgency" id="cd-urgency">📩 提前占位，今晚不见不散</div>
+  </div>
+</section>
+
+<!-- ══ 局类型 ══ -->
+<section id="party" class="fade-in">
+  <div class="section-label">🎀 SOCIAL</div>
+  <h2 class="section-title">局 · 型</h2>
+  <div class="section-line"></div>
+  <div class="party-list">
+    <div class="party-row"><div class="p-icon">👑</div><div class="p-info"><h3>卡 颜 局</h3><p>颜值门槛，严格审核。顶帅顶美云集，武汉颜值天花板。</p></div></div>
+    <div class="party-row"><div class="p-icon">✨</div><div class="p-info"><h3>微 卡 颜 局</h3><p>有门槛不苛刻。气质在线、干净清爽就能进。品质社交零压力。</p></div></div>
+    <div class="party-row"><div class="p-icon">🔥</div><div class="p-info"><h3>气 氛 局</h3><p>不卡脸，卡的就是气氛。会玩能喝放得开，全场嗨翻女围成群。</p></div></div>
+  </div>
+</section>
+
+<!-- ══ 价格 ══ -->
+<section id="pricing" class="fade-in">
+  <div class="section-label">🎀 PRICE</div>
+  <h2 class="section-title">价格参考</h2>
+  <div class="section-line"></div>
+  <div class="pricing-grid">
+    <div class="pricing-card"><div class="pricing-type">🫂 拼桌散客</div><div class="pricing-amount">150-300</div><div class="pricing-unit">元/人</div><div class="pricing-desc">和有趣的人拼卡座<br>公酒共享·气氛拉满</div></div>
+    <div class="pricing-card popular" style="position:relative"><div class="pricing-type">🍾 订台包卡</div><div class="pricing-amount">800-2000</div><div class="pricing-unit">元/卡</div><div class="pricing-desc">整张卡座带走<br>含酒水套餐·私密空间</div></div>
+    <div class="pricing-card"><div class="pricing-type">👑 卡颜局专享</div><div class="pricing-amount">私聊</div><div class="pricing-unit">微信咨询</div><div class="pricing-desc">审核通过后私聊<br>顶美顶帅专属群</div></div>
+  </div>
+</section>
+
+<!-- ══ 评价 ══ -->
+<section class="fade-in">
+  <div class="section-label">🎀 WORDS</div>
+  <h2 class="section-title">他们眼中的歪歪</h2>
+  <div class="section-line"></div>
+  <div class="review-grid">
+    <div class="review-card"><div class="rv-stars">★ ★ ★ ★ ★</div><div class="rv-body">"歪歪人美声甜，组局超级靠谱，每次找她都能安排得明明白白。"</div><div class="rv-who">—— 阿杰，MOON卡颜局</div></div>
+    <div class="review-card"><div class="rv-stars">★ ★ ★ ★ ★</div><div class="rv-body">"武汉最美女枪手不是吹的，颜值和业务能力都在线，推荐推荐！"</div><div class="rv-who">—— 小宇，INSIDE气氛局</div></div>
+    <div class="review-card"><div class="rv-stars">★ ★ ★ ★ ★</div><div class="rv-body">"第一次加微信就被秒回了，态度超好，局也安排得特别到位。"</div><div class="rv-who">—— Nana，微卡颜局</div></div>
+    <div class="review-card"><div class="rv-stars">★ ★ ★ ★ ★</div><div class="rv-body">"找歪歪订台比直接找酒吧便宜，还送果盘，性价比直接拉满。"</div><div class="rv-who">—— 浩哥，MOON包卡</div></div>
+  </div>
+</section>
+
+<!-- ══ 招募 ══ -->
+<section id="join" class="fade-in">
+  <div class="section-label">🎀 JOIN</div>
+  <h2 class="section-title">加入我们</h2>
+  <div class="section-line"></div>
+  <div class="join-box">
+    <h3>歪歪小队扩编中</h3>
+    <p class="join-desc">如果你也颜值在线、喜欢泡吧、会带台——<br>来跟歪歪一起搞事情！分成优厚、时间自由、定期团建。</p>
+    <div class="join-tags"><span>成型局头</span><span>枪手代理</span><span>颜值担当</span><span>气氛组</span></div>
+    <p style="font-size:10px;color:var(--text-dim);letter-spacing:2px">微信备注「歪歪团队」</p>
+  </div>
+</section>
+
+<!-- ══ 联系 ══ -->
+<section id="contact" class="fade-in">
+  <div class="section-label">🎀 CONTACT</div>
+  <h2 class="section-title">加 歪 歪</h2>
+  <div class="section-line"></div>
+  <div class="contact-area">
+    <p style="font-size:11px;color:var(--text-dim);letter-spacing:2px;margin-bottom:12px">👇 武汉最美枪手 👇</p>
+    <div class="ca-name">歪 歪</div>
+    <div class="ca-wechat">VX：xiaoxizi04</div>
+    <p class="ca-note">备注「歪歪组局」<br>发一张照片 · 秒回秒安排<br><br>📍 MOON & INSIDE 街道口<br>🌐 每天都有局</p>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-brand">🎀 歪 歪</div>
+  <p>武汉最美枪手 · MOON & INSIDE · 每天都有局<br>VX：xiaoxizi04 · © 2026 歪歪</p>
+</footer>
+
+<!-- ══ 底部CTA ══ -->
+<div class="floating-cta" id="floating-cta">
+  <span class="cta-text">🎀 <b style="color:var(--pink-hot)">歪歪</b> 今晚等你</span>
+  <a class="cta-btn" href="#contact">💬 加微信</a>
+</div>
+
+<!-- ══ 弹窗 ══ -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-card">
+    <button class="popup-close" id="popup-close">&times;</button>
+    <div class="popup-icon">🎀</div>
+    <div class="popup-title">今晚有局</div>
+    <div class="popup-desc"><span class="popup-highlight">MOON 街道口</span><br>卡颜局 · 23:00 入场<br>找歪歪还剩 <span class="popup-highlight" id="popup-spots">5</span> 个名额</div>
+    <a class="popup-btn" href="#contact">💬 找歪歪占位</a>
+    <button class="popup-skip" id="popup-skip">下次再说</button>
+  </div>
+</div>
+
+<script>
+// 进度条
+window.addEventListener('scroll',()=>{const s=window.scrollY,d=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('progress-bar').style.width=Math.min(d>0?(s/d)*100:0,100)+'%'});
+
+// 滚动动画
+const ob=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting)t.target.classList.add('visible')})},{threshold:.12});
+document.querySelectorAll('.fade-in').forEach(e=>ob.observe(e));
+
+// 导航
+window.addEventListener('scroll',()=>{const n=document.querySelector('nav');n.style.height=window.scrollY>50?'48px':'60px'});
+const hb=document.querySelector('.hamburger'),nl=document.querySelector('.nav-links');
+hb.addEventListener('click',()=>{hb.classList.toggle('active');nl.classList.toggle('open')});
+nl.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>{hb.classList.remove('active');nl.classList.remove('open')})});
+
+// 倒计时 23:00
+(function(){function u(){const n=new Date(),t=new Date(n);t.setHours(23,0,0,0);if(n>t)t.setDate(t.getDate()+1);const d=Math.max(0,t-n);document.getElementById('cd-h').textContent=String(Math.floor(d/3600000)).padStart(2,'0');document.getElementById('cd-m').textContent=String(Math.floor((d%3600000)/60000)).padStart(2,'0');document.getElementById('cd-s').textContent=String(Math.floor((d%60000)/1000)).padStart(2,'0');const u=document.getElementById('cd-urgency');if(d<3600000)u.textContent='⚡ 马上开场，速找歪歪！';else if(d<7200000)u.textContent='⏰ 快开始了，加歪歪微信占位';else u.textContent='📩 提前找歪歪占位，今晚不见不散'}u();setInterval(u,1000)})();
+
+// 底部CTA
+(function(){const c=document.getElementById('floating-cta'),cs=document.getElementById('contact');function u(){const isMobile=window.innerWidth<768;if(isMobile){c.classList.add('visible');return}const r=cs.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)c.classList.remove('visible');else if(window.scrollY>400)c.classList.add('visible');else c.classList.remove('visible')}window.addEventListener('scroll',u);u()})();
+
+// 弹窗
+(function(){const p=document.getElementById('popup'),cb=document.getElementById('popup-close'),sb=document.getElementById('popup-skip'),se=document.getElementById('popup-spots');function ss(){const l=localStorage.getItem('yy_popup_last');if(!l)return true;const ld=new Date(parseInt(l)),td=new Date();return ld.getDate()!==td.getDate()||ld.getMonth()!==td.getMonth()}function sh(){if(!ss())return;se.textContent=Math.floor(Math.random()*5)+2;setTimeout(()=>p.classList.add('show'),2000);localStorage.setItem('yy_popup_last',Date.now())}function hd(){p.classList.remove('show')}cb.addEventListener('click',hd);sb.addEventListener('click',hd);p.addEventListener('click',e=>{if(e.target===p)hd()});sh()})();
+</script>
+</body>
+</html>
