@@ -75,10 +75,14 @@ section{padding:80px 40px;max-width:1000px;margin:0 auto;position:relative;z-ind
 .section-line{width:50px;height:1px;margin:0 auto 36px;background:linear-gradient(90deg,transparent,var(--pink),transparent)}
 
 /*── 照片 ──*/
-.photo-strip{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:700px;margin:0 auto}
-.photo-card{flex:1;min-width:140px;max-width:200px;border-radius:20px;overflow:hidden;border:3px solid var(--border);transition:all .4s;aspect-ratio:3/4}
-.photo-card:hover{border-color:var(--pink-hot);transform:scale(1.04);box-shadow:0 8px 32px rgba(255,64,136,.2)}
-.photo-card img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-gallery{position:relative;max-width:500px;margin:0 auto;height:380px}
+.photo-card{position:absolute;width:180px;border-radius:20px;overflow:hidden;border:3px solid var(--border);transition:all .4s;box-shadow:0 8px 32px rgba(0,0,0,.4);cursor:pointer}
+.photo-card:nth-child(1){left:10px;top:10px;transform:rotate(-6deg);z-index:1}
+.photo-card:nth-child(2){left:50%;top:30px;transform:translateX(-50%) rotate(2deg);z-index:3}
+.photo-card:nth-child(3){right:10px;top:10px;transform:rotate(6deg);z-index:2}
+.photo-card:hover{z-index:10!important;transform:rotate(0deg) scale(1.12)!important;border-color:var(--pink-hot);box-shadow:0 12px 40px rgba(255,64,136,.3)}
+.photo-card img{width:100%;height:auto;display:block;aspect-ratio:3/4;object-fit:cover}
+.photo-badge{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:var(--pink-hot);color:#fff;font-size:10px;padding:3px 12px;border-radius:10px;letter-spacing:2px;white-space:nowrap;pointer-events:none;z-index:4}
 
 /*── 关于 ──*/
 .about-text{max-width:550px;margin:0 auto;text-align:center;font-size:14px;color:var(--text-dim);line-height:2.3}
@@ -182,7 +186,11 @@ footer .ft-brand{font-size:18px;font-weight:700;color:var(--pink-hot);letter-spa
   .pricing-card.popular{margin:0;padding:22px 12px}
   .review-grid{grid-template-columns:1fr}
   .party-row{flex-direction:column;text-align:center;gap:10px;padding:18px 16px}
-  .photo-card{min-width:100px;max-width:140px}
+  .photo-gallery{height:320px}
+  .photo-card{width:140px}
+  .photo-card:nth-child(1){left:0;top:10px}
+  .photo-card:nth-child(2){left:50%;top:20px}
+  .photo-card:nth-child(3){right:0;top:10px;left:auto}
   .cd-block{width:56px;height:56px}.cd-block .cd-num{font-size:22px}
   body{padding-bottom:60px}
 }
@@ -205,7 +213,7 @@ footer .ft-brand{font-size:18px;font-weight:700;color:var(--pink-hot);letter-spa
     <div class="hero-crown">🎀</div>
     <div class="hero-eyebrow">武汉最美枪手</div>
     <h1>歪 歪</h1>
-    <p class="tagline">MOON · INSIDE · 组局拼桌订台</p>
+    <p class="tagline">FANS 2.0 · 组局拼桌订台</p>
     <p class="tagline-sub">每天都有局 · 街道口等你</p>
     <div class="hero-badges">
       <span>👑 卡颜局</span><span>✨ 微卡颜局</span><span>🔥 气氛局</span><span>🎀 全城对接</span>
@@ -219,10 +227,10 @@ footer .ft-brand{font-size:18px;font-weight:700;color:var(--pink-hot);letter-spa
   <div class="section-label">🎀 ABOUT</div>
   <h2 class="section-title">武汉最美枪手</h2>
   <div class="section-line"></div>
-  <div class="photo-strip">
-    <div class="photo-card"><img src="da6cfde4f1bb1dd4cfc61768a7ac68..jpg" alt="歪歪" loading="lazy"></div>
-    <div class="photo-card"><img src="2aa1bcc8bd8ef15952a5aacb775ac2..jpg" alt="歪歪" loading="lazy"></div>
-    <div class="photo-card"><img src="69bf80f43600a134857a86236619a8..jpg" alt="歪歪" loading="lazy"></div>
+  <div class="photo-gallery">
+    <div class="photo-card"><img src="da6cfde4f1bb1dd4cfc61768a7ac68..jpg" alt="歪歪" loading="lazy"><div class="photo-badge">✨ 本人</div></div>
+    <div class="photo-card"><img src="2aa1bcc8bd8ef15952a5aacb775ac2..jpg" alt="歪歪" loading="lazy"><div class="photo-badge">🎀 歪歪</div></div>
+    <div class="photo-card"><img src="69bf80f43600a134857a86236619a8..jpg" alt="歪歪" loading="lazy"><div class="photo-badge">💕 武汉最美</div></div>
   </div>
   <div class="about-text" style="margin-top:32px">
     <p>嗨，我是<b style="color:var(--pink-hot)">歪歪</b>——武汉最美女枪手。</p>
@@ -275,8 +283,8 @@ footer .ft-brand{font-size:18px;font-weight:700;color:var(--pink-hot);letter-spa
   <h2 class="section-title">他们眼中的歪歪</h2>
   <div class="section-line"></div>
   <div class="review-grid">
-    <div class="review-card"><div class="rv-stars">★ ★ ★ ★ ★</div><div class="rv-body">"歪歪人美声甜，组局超级靠谱，每次找她都能安排得明明白白。"</div><div class="rv-who">—— 阿杰，MOON卡颜局</div></div>
-    <div class="review-card"><div class="rv-stars">★ ★ ★ ★ ★</div><div class="rv-body">"武汉最美女枪手不是吹的，颜值和业务能力都在线，推荐推荐！"</div><div class="rv-who">—— 小宇，INSIDE气氛局</div></div>
+    <div class="review-card"><div class="rv-stars">★ ★ ★ ★ ★</div><div class="rv-body">"歪歪人美声甜，组局超级靠谱，每次找她都能安排得明明白白。"</div><div class="rv-who">—— 阿杰，FANS卡颜局</div></div>
+    <div class="review-card"><div class="rv-stars">★ ★ ★ ★ ★</div><div class="rv-body">"武汉最美女枪手不是吹的，颜值和业务能力都在线，推荐推荐！"</div><div class="rv-who">—— 小宇，FANS气氛局</div></div>
     <div class="review-card"><div class="rv-stars">★ ★ ★ ★ ★</div><div class="rv-body">"第一次加微信就被秒回了，态度超好，局也安排得特别到位。"</div><div class="rv-who">—— Nana，微卡颜局</div></div>
     <div class="review-card"><div class="rv-stars">★ ★ ★ ★ ★</div><div class="rv-body">"找歪歪订台比直接找酒吧便宜，还送果盘，性价比直接拉满。"</div><div class="rv-who">—— 浩哥，MOON包卡</div></div>
   </div>
@@ -303,14 +311,14 @@ footer .ft-brand{font-size:18px;font-weight:700;color:var(--pink-hot);letter-spa
   <div class="contact-area">
     <p style="font-size:11px;color:var(--text-dim);letter-spacing:2px;margin-bottom:12px">👇 武汉最美枪手 👇</p>
     <div class="ca-name">歪 歪</div>
-    <div class="ca-wechat">VX：xiaoxizi04</div>
-    <p class="ca-note">备注「歪歪组局」<br>发一张照片 · 秒回秒安排<br><br>📍 MOON & INSIDE 街道口<br>🌐 每天都有局</p>
+    <div class="ca-wechat">VX：whyyy</div>
+    <p class="ca-note">备注「歪歪组局」<br>发一张照片 · 秒回秒安排<br><br>📍 FANS 2.0 街道口<br>🌐 每天都有局</p>
   </div>
 </section>
 
 <footer>
   <div class="ft-brand">🎀 歪 歪</div>
-  <p>武汉最美枪手 · MOON & INSIDE · 每天都有局<br>VX：xiaoxizi04 · © 2026 歪歪</p>
+  <p>武汉最美枪手 · MOON & INSIDE · 每天都有局<br>VX：whyyy · © 2026 歪歪</p>
 </footer>
 
 <!-- ══ 底部CTA ══ -->
@@ -325,7 +333,7 @@ footer .ft-brand{font-size:18px;font-weight:700;color:var(--pink-hot);letter-spa
     <button class="popup-close" id="popup-close">&times;</button>
     <div class="popup-icon">🎀</div>
     <div class="popup-title">今晚有局</div>
-    <div class="popup-desc"><span class="popup-highlight">MOON 街道口</span><br>卡颜局 · 23:00 入场<br>找歪歪还剩 <span class="popup-highlight" id="popup-spots">5</span> 个名额</div>
+    <div class="popup-desc"><span class="popup-highlight">FANS 2.0 街道口</span><br>卡颜局 · 23:00 入场<br>找歪歪还剩 <span class="popup-highlight" id="popup-spots">5</span> 个名额</div>
     <a class="popup-btn" href="#contact">💬 找歪歪占位</a>
     <button class="popup-skip" id="popup-skip">下次再说</button>
   </div>
