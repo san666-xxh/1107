@@ -20,8 +20,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{overflow-x:hidden;max-width:100vw}
+body{overflow-x:hidden;max-width:100vw}
 :root{--gold:#c9a96e;--purple:#a855f7;--blue:#3b82f6;--pink:#ec4899;--bg:#0a0a0a;--bg-card:#111;--bg-light:#161616;--text:#e8e8e8;--text-dim:#999;--border:#1f1f1f;scroll-behavior:smooth}
-body{font-family:'Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;padding-bottom:80px}
+html{overflow-x:hidden;max-width:100vw}
+body{font-family:'Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding-bottom:80px}
 .particle-bg{position:fixed;inset:0;pointer-events:none;z-index:0}
 
 /* 进度条 */
@@ -326,8 +329,8 @@ footer .footer-links span{color:#444;font-size:11px;letter-spacing:2px}
   body{padding-bottom:60px}
   nav{padding:0 14px;height:56px}
   nav .logo{font-size:22px;letter-spacing:2px}
-  .nav-links{position:fixed;top:0;right:-100%;width:70%;height:100vh;flex-direction:column;gap:0;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);padding:80px 32px 32px;transition:right .35s ease;border-left:1px solid var(--border)}
-  .nav-links.open{right:0}
+  .nav-links{position:fixed;top:0;right:-100%;width:70%;height:100vh;flex-direction:column;gap:0;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);padding:80px 32px 32px;transition:right .35s ease,visibility .35s;border-left:1px solid var(--border);visibility:hidden}
+  .nav-links.open{right:0;visibility:visible}
   .nav-links a{display:block;padding:14px 0;font-size:15px;border-bottom:1px solid var(--border)}
   .hamburger{display:flex}
   /* 紧凑间距 */
@@ -557,7 +560,7 @@ footer .footer-links span{color:#444;font-size:11px;letter-spacing:2px}
     <div class="pricing-card shimmer-card">
       <div class="pricing-type">👑 卡颜局专享</div><div class="pricing-amount">私聊</div><div class="pricing-unit">微信咨询</div>
       <div class="pricing-desc">颜值审核通过后私聊<br>顶美顶帅专属群<br>体验天花板级社交</div>
-      <div class="pricing-note">* 加微信 VX：a12378945b 详询</div>
+      <div class="pricing-note">* 加微信：a12378945b 详询</div>
     </div>
   </div>
 </section>
@@ -634,7 +637,7 @@ footer .footer-links span{color:#444;font-size:11px;letter-spacing:2px}
   <h2 class="section-title">入局 · <span>流程</span></h2>
   <p class="section-sub">三步上车，今晚就嗨</p>
   <div class="steps">
-    <div class="step"><div class="step-icon">📱</div><div class="step-num">01</div><h4>扫码 / 搜索加微信</h4><p>添加 1107 微信 VX：a12378945b，备注「1107组局」，发一张个人照片。</p></div>
+    <div class="step"><div class="step-icon">📱</div><div class="step-num">01</div><h4>扫码 / 搜索加微信</h4><p>添加 1107 微信：a12378945b，备注「1107组局」，发一张个人照片。</p></div>
     <div class="step"><div class="step-icon">✅</div><div class="step-num">02</div><h4>审核 + 匹配局类型</h4><p>卡颜还是气氛？1107 根据你的风格匹配。拼桌、订台一并搞定。</p></div>
     <div class="step"><div class="step-icon">🥂</div><div class="step-num">03</div><h4>到场 · 开嗨</h4><p>拉群发定位，到场就是一家人。顶美顶帅女围，你只管嗨。</p></div>
   </div>
@@ -694,7 +697,7 @@ footer .footer-links span{color:#444;font-size:11px;letter-spacing:2px}
   <p class="footer-slogan">街道口最靠谱局头 · 武汉夜娱天花板</p>
   <p class="footer-sub">18-25 岁武汉年轻人的夜生活入口</p>
   <div class="footer-links"><span>MOON</span> <span>INSIDE</span> <span>FANS</span> <span>FOREVER</span> <span>REMIX</span> <span>峡谷镇</span> <span>猩猩地堡</span> <span>MIDNIGHT</span></div>
-  <p style="margin-top:12px;">© 2026 1107 · 微信 VX：a12378945b · 全武汉组局拼桌订台</p>
+  <p style="margin-top:12px;">© 2026 1107 · VX：a12378945b · 全武汉组局拼桌订台</p>
 </footer>
 
 <div class="floating-cta" id="floating-cta">
