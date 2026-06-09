@@ -155,7 +155,7 @@ section{padding:100px 40px;max-width:1200px;margin:0 auto;position:relative;z-in
 .pricing-card:nth-child(1){padding-bottom:40px}
 .pricing-card:nth-child(3){padding-bottom:40px}
 .pricing-card:hover{border-color:#444}
-.pricing-card.popular{border-color:rgba(201,169,110,.5);padding:48px 20px 56px;margin-bottom:-8px;border-radius:16px;z-index:2;background:linear-gradient(180deg,#1a1810,var(--bg-card));box-shadow:0 -4px 40px rgba(201,169,110,.08)}
+.pricing-card.popular{border-color:rgba(201,169,110,.5);padding:48px 20px 56px;margin-bottom:-8px;border-radius:16px;z-index:2;background:linear-gradient(180deg,#1a1810,var(--bg-card));box-shadow:0 -4px 40px rgba(201,169,110,.08);overflow:visible}
 .pricing-card.popular::before{content:'🔥 最多人约';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:#000;font-size:10px;padding:3px 14px;letter-spacing:2px;font-weight:700;border-radius:10px}
 .pricing-type{font-size:13px;color:var(--text-dim);letter-spacing:3px;margin-bottom:8px}
 .pricing-amount{font-size:36px;font-weight:900;color:var(--gold);letter-spacing:2px}
@@ -380,7 +380,7 @@ footer .footer-links span{color:#444;font-size:11px;letter-spacing:2px}
   .pricing-grid{grid-template-columns:1fr;gap:20px}
   .pricing-card{border-radius:14px!important;border:1px solid var(--border)!important;padding:24px 16px;margin:0!important}
   .pricing-card:first-child,.pricing-card:last-child,.pricing-card.popular{border-radius:14px!important;border:1px solid var(--border)!important;border-left:1px solid var(--border)!important;border-right:1px solid var(--border)!important}
-  .pricing-card.popular{background:linear-gradient(180deg,#1a1810,var(--bg-card));box-shadow:0 0 30px rgba(201,169,110,.1)}
+  .pricing-card.popular{background:linear-gradient(180deg,#1a1810,var(--bg-card));box-shadow:0 0 30px rgba(201,169,110,.1);overflow:visible!important}
   .pricing-card.popular::before{top:-10px;font-size:10px;padding:4px 14px}
   .pricing-amount{font-size:30px;color:var(--gold)!important}
   .pricing-desc{font-size:11px}
