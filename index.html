@@ -1308,6 +1308,8 @@
       .hero { padding: 6rem 1.5rem 3rem; }
       .section-inner { padding: 4rem 1.5rem; }
       .venues-grid { grid-template-columns: 1fr; }
+      .venues-grid .venue-card[style*="span 2"],
+      .venues-grid .venue-card[style*="span 2 /"] { grid-column: span 1 !important; }
       .flow-steps { grid-template-columns: 1fr 1fr; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .stat-item { border-right: none; border-bottom: 1px solid var(--border-subtle); }
@@ -2103,7 +2105,9 @@
   function drawMoonVenue() {
     const c = document.getElementById('moon-canvas');
     if (!c) return;
-    c.width = c.offsetWidth; c.height = c.offsetHeight;
+    const w = c.offsetWidth, h = c.offsetHeight;
+    if (w === 0 || h === 0) { requestAnimationFrame(drawMoonVenue); return; }
+    c.width = w; c.height = h;
     const ctx = c.getContext('2d');
     const isNeon = document.documentElement.getAttribute('data-theme') === 'neon';
 
@@ -2140,7 +2144,9 @@
   function drawInsideVenue() {
     const c = document.getElementById('inside-canvas');
     if (!c) return;
-    c.width = c.offsetWidth; c.height = c.offsetHeight;
+    const w = c.offsetWidth, h = c.offsetHeight;
+    if (w === 0 || h === 0) { requestAnimationFrame(drawInsideVenue); return; }
+    c.width = w; c.height = h;
     const ctx = c.getContext('2d');
     const isNeon = document.documentElement.getAttribute('data-theme') === 'neon';
 
