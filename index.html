@@ -1,776 +1,2239 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="format-detection" content="telephone=no">
-<title>1107 武汉组局 | 街道口最靠谱局头 · 全武汉拼桌订台</title>
-<meta name="description" content="1107 武汉组局——街道口最靠谱局头。专注18-25岁年轻人高质量社交，卡颜局/微卡颜局/气氛局三种局类型，全武汉拼桌订台一站式安排。MOON、INSIDE 等主流酒吧全城对接。">
-<meta name="keywords" content="武汉组局,街道口酒吧,武汉拼桌,武汉订台,卡颜局,气氛局,INSIDE,MOON,1107,武汉夜生活">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://1107xxh.top/">
-<meta property="og:title" content="1107 武汉组局 | 街道口最靠谱局头">
-<meta property="og:description" content="专注18-25岁年轻人高质量社交。卡颜局/微卡颜局/气氛局，全武汉拼桌订台一站式安排。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://1107xxh.top/">
-<meta property="og:site_name" content="1107 武汉组局">
-<meta property="og:locale" content="zh_CN">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{overflow-x:hidden;max-width:100vw}
-body{overflow-x:hidden;max-width:100vw}
-:root{--gold:#c9a96e;--purple:#a855f7;--blue:#3b82f6;--pink:#ec4899;--bg:#0a0a0a;--bg-card:#111;--bg-light:#161616;--text:#e8e8e8;--text-dim:#999;--border:#1f1f1f;scroll-behavior:smooth}
-html{overflow-x:hidden;max-width:100vw}
-body{font-family:'Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding-bottom:80px}
-.particle-bg{position:fixed;inset:0;pointer-events:none;z-index:0}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1107 武汉组局 · 街道口天花板</title>
+  <meta name="description" content="武汉组局天花板1107，每天质量局，卡颜局微卡颜，气氛卡，主场街道口Moon & Inside，全武汉酒吧都有局">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* 进度条 */
-.progress-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),#e8c97a,var(--gold));z-index:9999;width:0;transition:width .1s linear;box-shadow:0 0 8px rgba(201,169,110,.5)}
+    :root {
+      --bg-deep: #080810;
+      --bg-surface: #0e0e1a;
+      --bg-card: #13131f;
+      --bg-card-hover: #1a1a2e;
+      --accent-gold: #d4a843;
+      --accent-gold-light: #f0c96e;
+      --accent-purple: #7c3aed;
+      --accent-purple-light: #a855f7;
+      --accent-pink: #ec4899;
+      --accent-teal: #14b8a6;
+      --text-primary: #f0ede8;
+      --text-secondary: #a09898;
+      --text-muted: #5a5560;
+      --border-subtle: rgba(212, 168, 67, 0.12);
+      --border-glow: rgba(212, 168, 67, 0.35);
+      --font-display: 'Outfit', 'Noto Sans SC', sans-serif;
+      --font-body: 'Noto Sans SC', 'Outfit', sans-serif;
+      --particle-color-1: 0.831, 0.659, 0.263;
+      --particle-color-2: 0.486, 0.227, 0.929;
+      --particle-color-3: 0.925, 0.282, 0.600;
+    }
 
-/* 导航 */
-nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:70px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);background:rgba(10,10,10,.88);border-bottom:1px solid transparent;border-image:linear-gradient(90deg,transparent,rgba(201,169,110,.3),rgba(168,85,247,.2),transparent) 1;transition:all .3s}
-nav .logo{font-size:28px;font-weight:900;color:var(--gold);letter-spacing:4px}
-nav .nav-links{display:flex;gap:32px;list-style:none}
-nav .nav-links a{color:var(--text-dim);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:2px;transition:color .3s}
-nav .nav-links a:hover{color:var(--gold)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:101}
-.hamburger span{display:block;width:24px;height:2px;background:var(--gold);transition:all .3s}
-.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-.hamburger.active span:nth-child(2){opacity:0}
-.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    [data-theme="neon"] {
+      --bg-deep: #05050f;
+      --bg-surface: #0a0a1e;
+      --bg-card: #0f0f28;
+      --bg-card-hover: #161640;
+      --accent-gold: #00ffaa;
+      --accent-gold-light: #66ffcc;
+      --accent-purple: #bf5af2;
+      --accent-purple-light: #da8fff;
+      --accent-pink: #ff2d78;
+      --accent-teal: #00e5ff;
+      --text-primary: #f5f5ff;
+      --text-secondary: #8888bb;
+      --text-muted: #555580;
+      --border-subtle: rgba(0, 255, 170, 0.1);
+      --border-glow: rgba(0, 255, 170, 0.4);
+      --particle-color-1: 0, 1, 0.667;
+      --particle-color-2: 0.749, 0.353, 0.949;
+      --particle-color-3: 1, 0.176, 0.471;
+    }
 
-/* Hero */
-.hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;z-index:1;background:radial-gradient(ellipse at center,#1a1210 0%,#0a0a0a 70%)}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(168,85,247,.06) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(201,169,110,.05) 0%,transparent 50%),radial-gradient(circle at 50% 50%,rgba(236,72,153,.04) 0%,transparent 50%)}
-.hero-content{position:relative;z-index:2}
-.hero-badge{display:inline-block;padding:6px 20px;border:1px solid rgba(201,169,110,.5);color:var(--gold);font-size:12px;letter-spacing:4px;margin-bottom:24px;border-radius:2px;backdrop-filter:blur(10px)}
-.hero h1{font-size:clamp(80px,15vw,160px);font-weight:900;color:var(--gold);letter-spacing:16px;line-height:1;text-shadow:0 0 120px rgba(201,169,110,.35),0 0 200px rgba(201,169,110,.1);position:relative}
-.hero-halo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(70vw,500px);height:min(70vw,500px);border-radius:50%;border:1px solid rgba(201,169,110,.12);animation:haloSpin 20s linear infinite;pointer-events:none}
-.hero-halo::before{content:'';position:absolute;inset:-20px;border-radius:50%;border:1px solid rgba(201,169,110,.05);animation:haloSpin 30s linear infinite reverse}
-.hero-halo::after{content:'';position:absolute;inset:20px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,.04) 0%,transparent 70%);animation:haloPulse 4s ease-in-out infinite}
-@keyframes haloSpin{0%{transform:translate(-50%,-50%) rotate(0deg)}100%{transform:translate(-50%,-50%) rotate(360deg)}}
-@keyframes haloPulse{0%,100%{opacity:.4}50%{opacity:1}}
-.hero .slogan{margin-top:12px;font-size:18px;font-weight:600;color:var(--text);letter-spacing:6px}
-.hero .slogan-sub{margin-top:6px;font-size:13px;font-weight:300;color:var(--text-dim);letter-spacing:5px}
-.hero-tags{margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.hero-tags span{padding:6px 18px;border:1px solid var(--border);font-size:12px;letter-spacing:3px;color:var(--text-dim);border-radius:1px;backdrop-filter:blur(10px);transition:all .3s}
-.hero-tags span:nth-child(1):hover{border-color:var(--gold);color:var(--gold)}
-.hero-tags span:nth-child(2):hover{border-color:var(--pink);color:var(--pink)}
-.hero-tags span:nth-child(3):hover{border-color:var(--purple);color:var(--purple)}
-.hero-tags span:nth-child(4):hover{border-color:var(--blue);color:var(--blue)}
-.hero-tags span:nth-child(5):hover{border-color:var(--purple);color:var(--purple)}
-.hero-tags span:nth-child(6):hover{border-color:var(--gold);color:var(--gold)}
-.scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);color:var(--text-dim);font-size:11px;letter-spacing:4px;animation:bounce 2s infinite;cursor:pointer}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+    html { scroll-behavior: smooth; }
 
-/* 通用 */
-section{padding:100px 40px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
-.section-title{text-align:center;margin-bottom:20px;font-size:30px;font-weight:700;letter-spacing:6px;color:var(--text)}
-.section-title span{color:var(--gold)}
-.section-sub{text-align:center;color:var(--text-dim);font-size:13px;letter-spacing:3px;margin-bottom:56px}
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background 0.5s, color 0.5s;
+    }
 
-/* 数字条 */
-.stats-strip{display:flex;justify-content:center;gap:80px;flex-wrap:wrap;padding:48px 40px;background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.stat-item{text-align:center}
-.stat-num{font-size:40px;font-weight:900;color:var(--gold);letter-spacing:2px}
-.stat-label{font-size:12px;color:var(--text-dim);letter-spacing:3px;margin-top:4px}
+    /* ---- THREE.JS BACKGROUND ---- */
+    #three-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
 
-/* 倒计时 */
-.countdown-section{text-align:center;padding:56px 40px;background:var(--bg-light);position:relative;z-index:1;border-bottom:1px solid var(--border)}
-.countdown-label{font-size:13px;color:var(--text-dim);letter-spacing:4px;margin-bottom:20px}
-.countdown-timer{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
-.countdown-block{width:100px;height:100px;border-radius:50%;background:var(--bg-card);border:2px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:all .3s;position:relative}
-.countdown-block::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1px solid transparent;transition:all .4s}
-.countdown-block:hover::after{border-color:rgba(201,169,110,.3)}
-.countdown-block .num{font-size:36px;font-weight:900;color:var(--gold);line-height:1}
-.countdown-block .unit{font-size:10px;color:var(--text-dim);letter-spacing:2px;margin-top:2px}
-.countdown-urgency{margin-top:18px;font-size:12px;color:var(--pink);letter-spacing:2px;animation:neonPulse 2s ease-in-out infinite}
+    /* ---- NAV ---- */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(8,8,16,0.95), transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid rgba(212,168,67,0.08);
+      transition: all 0.4s;
+    }
 
-/* 评价跑马灯 */
-.testimonial-strip{overflow:hidden;padding:48px 0;background:var(--bg);position:relative;z-index:1;border-bottom:1px solid var(--border)}
-.testimonial-track{display:flex;gap:28px;animation:scrollLeft 40s linear infinite;width:max-content;padding:0 14px}
-.testimonial-card{flex-shrink:0;width:340px;background:var(--bg-card);border:1px solid var(--border);border-radius:20px 20px 20px 4px;padding:28px 24px;text-align:left;position:relative;transition:all .3s}
-.testimonial-card::before{content:'"';position:absolute;top:8px;left:16px;font-size:48px;color:rgba(201,169,110,.12);font-weight:900;line-height:1;font-family:Georgia,serif}
-.testimonial-card:nth-child(even){border-radius:20px 20px 4px 20px}
-.testimonial-card:hover{border-color:var(--gold);transform:translateY(-3px)}
-.testimonial-card .t-stars{color:var(--gold);font-size:13px;margin-bottom:10px;letter-spacing:2px;padding-top:8px}
-.testimonial-card .t-body{font-size:13px;color:var(--text);line-height:1.8;margin-bottom:12px}
-.testimonial-card .t-meta{font-size:11px;color:var(--text-dim);letter-spacing:1px}
-.testimonial-card .t-meta b{color:var(--gold)}
-@keyframes scrollLeft{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    nav.scrolled {
+      background: rgba(8,8,16,0.96);
+      border-bottom-color: var(--border-glow);
+    }
 
-/* 局类型 */
-.event-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.event-card{background:var(--bg-card);border:1px solid var(--border);padding:0 0 32px;text-align:center;transition:all .4s;position:relative;overflow:hidden;clip-path:polygon(0 0,100% 0,100% 100%,0 95%)}
-.event-card::before{content:'';position:absolute;top:0;left:0;right:0;height:80px;transition:all .4s}
-.event-card:nth-child(1)::before{background:linear-gradient(180deg,rgba(201,169,110,.25),transparent)}
-.event-card:nth-child(2)::before{background:linear-gradient(180deg,rgba(168,85,247,.25),transparent)}
-.event-card:nth-child(3)::before{background:linear-gradient(180deg,rgba(236,72,153,.25),transparent)}
-.event-card:hover{border-color:#444;transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.6)}
-.event-card .icon{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;margin:36px auto 16px;position:relative;z-index:1;transition:all .4s}
-.event-card:nth-child(1) .icon{background:rgba(201,169,110,.15);box-shadow:0 0 30px rgba(201,169,110,.1)}
-.event-card:nth-child(2) .icon{background:rgba(168,85,247,.15);box-shadow:0 0 30px rgba(168,85,247,.1)}
-.event-card:nth-child(3) .icon{background:rgba(236,72,153,.15);box-shadow:0 0 30px rgba(236,72,153,.1)}
-.event-card:hover .icon{transform:scale(1.1)}
-.event-card h3{font-size:22px;font-weight:700;letter-spacing:4px;margin-bottom:10px;position:relative;z-index:1}
-.event-card p{color:var(--text-dim);font-size:13px;line-height:1.8;padding:0 28px;position:relative;z-index:1}
-.event-card .card-tags{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
-.event-card .card-tags span{font-size:10px;padding:3px 10px;border:1px solid #2a2a2a;border-radius:10px;color:var(--text-dim);letter-spacing:1px}
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.75rem;
+      letter-spacing: 0.08em;
+      color: var(--accent-gold);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.4s;
+    }
 
-/* 快速自测 */
-.quiz-section{background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
-.quiz-inner{max-width:600px;margin:0 auto;text-align:center}
-.quiz-progress{display:flex;justify-content:center;gap:8px;margin-bottom:28px}
-.quiz-dot{width:8px;height:8px;border-radius:50%;background:#333;transition:all .3s}
-.quiz-dot.active{background:var(--gold);box-shadow:0 0 8px var(--gold)}
-.quiz-dot.done{background:var(--gold)}
-.quiz-question{font-size:20px;font-weight:600;letter-spacing:3px;margin-bottom:24px}
-.quiz-options{display:flex;flex-direction:column;gap:12px;max-width:400px;margin:0 auto}
-.quiz-option{padding:14px 20px;background:var(--bg);border:1px solid var(--border);color:var(--text);font-size:14px;letter-spacing:2px;cursor:pointer;transition:all .3s;font-family:inherit}
-.quiz-option:hover{border-color:var(--gold);color:var(--gold)}
-.quiz-result{display:none;padding:40px 20px}
-.quiz-result .result-icon{font-size:64px;margin-bottom:16px}
-.quiz-result .result-title{font-size:24px;font-weight:700;color:var(--gold);letter-spacing:4px;margin-bottom:8px}
-.quiz-result .result-desc{color:var(--text-dim);font-size:14px;margin-bottom:20px;line-height:1.8}
-.quiz-reset{display:inline-block;padding:10px 24px;border:1px solid var(--gold);color:var(--gold);font-size:12px;letter-spacing:2px;cursor:pointer;background:transparent;font-family:inherit;transition:all .3s}
-.quiz-reset:hover{background:rgba(201,169,110,.1)}
+    .nav-logo span {
+      color: var(--text-primary);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      display: block;
+      margin-top: -4px;
+      opacity: 0.7;
+      transition: color 0.4s;
+    }
 
-/* 服务 */
-.service-strip{text-align:center;padding:56px 40px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-light);position:relative;z-index:1}
-.service-strip .services{display:flex;justify-content:center;gap:72px;flex-wrap:wrap}
-.service-item{text-align:center}
-.service-item .sicon{font-size:32px;margin-bottom:8px}
-.service-item .label{font-size:11px;color:var(--text-dim);letter-spacing:3px;margin-bottom:2px}
-.service-item .value{font-size:20px;font-weight:700;color:var(--gold);letter-spacing:4px}
+    .nav-center {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
 
-/* 价格 */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;align-items:end}
-.pricing-card{background:var(--bg-card);border:1px solid var(--border);padding:32px 20px;text-align:center;transition:all .3s;position:relative}
-.pricing-card:first-child{border-radius:16px 0 0 16px;border-right:none}
-.pricing-card:last-child{border-radius:0 16px 16px 0;border-left:none}
-.pricing-card:nth-child(1){padding-bottom:40px}
-.pricing-card:nth-child(3){padding-bottom:40px}
-.pricing-card:hover{border-color:#444}
-.pricing-card.popular{border-color:rgba(201,169,110,.5);padding:48px 20px 56px;margin-bottom:-8px;border-radius:16px;z-index:2;background:linear-gradient(180deg,#1a1810,var(--bg-card));box-shadow:0 -4px 40px rgba(201,169,110,.08);overflow:visible}
-.pricing-card.popular::before{content:'🔥 最多人约';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:#000;font-size:10px;padding:3px 14px;letter-spacing:2px;font-weight:700;border-radius:10px}
-.pricing-type{font-size:13px;color:var(--text-dim);letter-spacing:3px;margin-bottom:8px}
-.pricing-amount{font-size:36px;font-weight:900;color:var(--gold);letter-spacing:2px}
-.pricing-unit{font-size:12px;color:var(--text-dim)}
-.pricing-desc{margin-top:16px;font-size:11px;color:var(--text-dim);line-height:2}
-.pricing-note{margin-top:12px;font-size:10px;color:#555;font-style:italic}
+    .nav-center a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      transition: color 0.25s;
+      position: relative;
+    }
 
-/* 酒吧品牌 */
-.brand-wall-section{background:var(--bg-card);position:relative;z-index:1}
-.brand-wall-section section{padding:80px 40px}
-.brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.brand-card{background:var(--bg);border:1px solid var(--border);border-radius:40px;padding:28px 20px;text-align:center;transition:all .3s;cursor:default}
-.brand-card:hover{border-color:var(--gold);background:#141414;transform:translateY(-3px)}
-.brand-card.featured{border-color:rgba(201,169,110,.5);position:relative}
-.brand-card.featured::before{content:'★ 主营';position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--gold);letter-spacing:2px;background:var(--bg-card);padding:2px 12px;border-radius:8px}
-.brand-card h4{font-size:15px;font-weight:700;letter-spacing:3px;color:var(--text);margin-bottom:4px}
-.brand-card .b-loc{font-size:11px;color:var(--text-dim);letter-spacing:2px}
-.brand-card .b-vibe{font-size:10px;color:var(--text-dim);margin-top:6px}
+    .nav-center a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 1px;
+      background: var(--accent-gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
 
-/* 跑马灯 */
-.marquee-strip{overflow:hidden;white-space:nowrap;padding:32px 0;border-top:1px solid var(--border);background:var(--bg);position:relative;z-index:1}
-.marquee-inner{display:inline-flex;gap:48px;animation:marquee 28s linear infinite;align-items:center}
-.marquee-inner span{font-size:14px;font-weight:600;letter-spacing:4px;color:#3a3a3a;transition:color .3s}
-.marquee-inner span.highlight{color:var(--gold)}
-.marquee-inner .sep{color:#222;font-size:18px}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .nav-center a:hover { color: var(--accent-gold); }
+    .nav-center a:hover::after { transform: scaleX(1); }
 
-/* 氛围 */
-.vibe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.vibe-item{aspect-ratio:1;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:all .4s;padding:20px;position:relative}
-.vibe-item::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid transparent;transition:all .4s;pointer-events:none}
-.vibe-item:hover{border-color:var(--gold);transform:scale(1.06)}
-.vibe-item:hover::after{inset:-6px;border-color:rgba(201,169,110,.3)}
-.vibe-item .vibe-emoji{font-size:36px;margin-bottom:8px}
-.vibe-item .vibe-title{font-size:12px;font-weight:600;letter-spacing:3px;margin-bottom:2px}
-.vibe-item .vibe-desc{font-size:9px;color:var(--text-dim);letter-spacing:1px}
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
 
-/* 局头日志 */
-.log-timeline{max-width:650px;margin:0 auto;position:relative;padding-left:48px}
-.log-timeline::before{content:'';position:absolute;left:19px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--gold),rgba(201,169,110,.15),var(--purple),rgba(236,72,153,.15))}
-.log-entry{position:relative;margin-bottom:32px;padding:24px;background:var(--bg-card);border:1px solid var(--border);transition:all .3s;border-radius:4px}
-.log-entry:hover{border-color:#333;transform:translateX(4px)}
-.log-entry::before{content:'';position:absolute;left:-36px;top:28px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--bg);z-index:1;box-shadow:0 0 12px rgba(201,169,110,.5)}
-.log-entry:nth-child(2)::before{background:var(--purple);box-shadow:0 0 12px rgba(168,85,247,.5)}
-.log-entry:nth-child(3)::before{background:var(--pink);box-shadow:0 0 12px rgba(236,72,153,.5)}
-.log-entry:nth-child(4)::before{background:var(--blue);box-shadow:0 0 12px rgba(59,130,246,.5)}
-.log-entry:nth-child(5)::before{background:var(--gold);box-shadow:0 0 12px rgba(201,169,110,.5)}
-.log-entry .log-header{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.log-entry .log-icon{font-size:28px}
-.log-entry .log-tag{font-size:10px;padding:3px 10px;border-radius:10px;letter-spacing:2px;font-weight:500}
-.log-tag.news{border:1px solid var(--gold);color:var(--gold)}
-.log-tag.bar{border:1px solid var(--purple);color:var(--purple)}
-.log-tag.promo{border:1px solid var(--pink);color:var(--pink)}
-.log-entry .log-date{font-size:10px;color:var(--text-dim);letter-spacing:2px}
-.log-entry h4{font-size:15px;font-weight:700;letter-spacing:3px;margin-bottom:6px;color:var(--text)}
-.log-entry p{font-size:12px;color:var(--text-dim);line-height:1.8}
-.log-more{text-align:center;margin-top:8px;font-size:11px;color:var(--text-dim);letter-spacing:2px}
+    .theme-toggle {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--accent-gold);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
 
-/* 流程 */
-.steps{display:flex;flex-direction:column;gap:0;max-width:500px;margin:0 auto;position:relative;padding-left:60px}
-.steps::before{content:'';position:absolute;left:28px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--gold),rgba(201,169,110,.2),var(--gold))}
-.step{text-align:left;padding:28px 0 28px 32px;position:relative;border:none;background:transparent}
-.step::before{content:'';position:absolute;left:-36px;top:36px;width:14px;height:14px;border-radius:50%;background:var(--gold);border:3px solid var(--bg);z-index:1;box-shadow:0 0 16px rgba(201,169,110,.4)}
-.step .step-icon{font-size:28px;margin-bottom:6px}
-.step .step-num{font-size:40px;font-weight:900;color:var(--gold);opacity:.15;margin-bottom:4px;line-height:1}
-.step h4{font-size:15px;font-weight:600;letter-spacing:4px;margin-bottom:6px}
-.step p{color:var(--text-dim);font-size:12px;line-height:1.7}
+    .theme-toggle:hover {
+      border-color: var(--accent-gold);
+      background: rgba(212,168,67,0.08);
+      transform: rotate(20deg);
+    }
 
-/* 招募 */
-.recruit-section{background:var(--bg-card);position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.recruit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.recruit-card{background:var(--bg);border:1px solid var(--border);border-left:3px solid transparent;padding:36px 24px;text-align:left;transition:all .4s;position:relative;overflow:hidden}
-.recruit-card:nth-child(1){border-left-color:var(--gold)}
-.recruit-card:nth-child(2){border-left-color:var(--purple)}
-.recruit-card:nth-child(3){border-left-color:var(--pink)}
-.recruit-card::after{content:'';position:absolute;top:0;right:0;width:80px;height:80px;border-radius:0 0 0 80px;transition:all .4s}
-.recruit-card:nth-child(1)::after{background:rgba(201,169,110,.03)}
-.recruit-card:nth-child(2)::after{background:rgba(168,85,247,.03)}
-.recruit-card:nth-child(3)::after{background:rgba(236,72,153,.03)}
-.recruit-card:hover{border-color:#333;transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.5)}
-.recruit-card:nth-child(1):hover{border-left-color:var(--gold)}
-.recruit-card:nth-child(2):hover{border-left-color:var(--purple)}
-.recruit-card:nth-child(3):hover{border-left-color:var(--pink)}
-.recruit-card .r-icon{font-size:40px;margin-bottom:14px;transition:transform .3s}
-.recruit-card:hover .r-icon{transform:scale(1.1)}
-.recruit-card h4{font-size:18px;font-weight:700;letter-spacing:4px;margin-bottom:6px}
-.recruit-card .r-sub{font-size:12px;color:var(--gold);letter-spacing:3px;margin-bottom:12px}
-.recruit-card .r-desc{font-size:12px;color:var(--text-dim);line-height:1.9}
-.recruit-card .r-tags{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
-.recruit-card .r-tags span{font-size:10px;padding:3px 10px;border:1px solid #2a2a2a;border-radius:10px;color:var(--text-dim);letter-spacing:1px}
-.recruit-highlight{text-align:center;max-width:700px;margin:0 auto 48px;padding:28px 36px;background:var(--bg);border:1px solid rgba(201,169,110,.3);border-radius:12px}
-.recruit-highlight p{font-size:13px;color:var(--text-dim);line-height:2;letter-spacing:1px}
-.recruit-highlight b{color:var(--gold)}
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
 
-/* FAQ */
-.faq-list{max-width:700px;margin:0 auto}
-.faq-item{background:var(--bg-card);border:1px solid var(--border);margin-bottom:8px;transition:all .3s}
-.faq-item:hover{border-color:#333}
-.faq-q{width:100%;padding:18px 24px;text-align:left;background:transparent;border:none;color:var(--text);font-size:14px;font-weight:600;letter-spacing:2px;cursor:pointer;font-family:inherit;display:flex;justify-content:space-between;align-items:center}
-.faq-q .faq-arrow{font-size:12px;color:var(--gold);transition:transform .3s}
-.faq-item.open .faq-arrow{transform:rotate(180deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 24px;font-size:13px;color:var(--text-dim);line-height:1.8}
-.faq-item.open .faq-a{max-height:200px;padding:0 24px 18px}
+    .nav-cta:hover {
+      background: var(--accent-gold);
+      color: var(--bg-deep);
+    }
 
-/* 联系 */
-.contact-section{text-align:center}
-.contact-wrapper{display:flex;gap:24px;max-width:700px;margin:0 auto;align-items:stretch;flex-wrap:wrap;justify-content:center}
-.contact-card{flex:1;min-width:280px;background:var(--bg-card);border:1px solid #2a2a2a;padding:44px 36px;text-align:center}
-.contact-card.promo{border-color:rgba(201,169,110,.5);display:flex;flex-direction:column;justify-content:center}
-.contact-card .wc-icon{font-size:48px;margin-bottom:12px}
-.contact-card h3{font-size:20px;font-weight:700;letter-spacing:3px;margin-bottom:12px}
-.qr-img{width:150px;height:150px;margin:8px auto;border-radius:4px;object-fit:cover}
-.contact-card .wechat-id{font-size:22px;font-weight:600;color:var(--gold);letter-spacing:3px;margin:8px 0}
-.contact-card .note{color:var(--text-dim);font-size:12px;line-height:1.8}
-.promo-shout{font-size:24px;font-weight:900;color:var(--gold);letter-spacing:4px;line-height:1.4;margin-bottom:8px}
-.promo-sub{font-size:13px;color:var(--text-dim);letter-spacing:2px}
+    /* ---- HERO ---- */
+    .hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      z-index: 1;
+      padding: 8rem 2rem 4rem;
+      overflow: hidden;
+    }
 
-/* Footer */
-footer{text-align:center;padding:40px;color:var(--text-dim);font-size:12px;letter-spacing:2px;border-top:1px solid var(--border);position:relative;z-index:1}
-footer .footer-slogan{font-size:18px;font-weight:700;color:var(--gold);letter-spacing:4px;margin-bottom:4px}
-footer .footer-sub{font-size:11px;color:var(--text-dim);letter-spacing:2px;margin-bottom:12px}
-footer .footer-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-top:8px}
-footer .footer-links span{color:#444;font-size:11px;letter-spacing:2px}
+    .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-/* 底部CTA */
-.floating-cta{position:fixed;bottom:0;left:0;width:100%;z-index:200;padding:12px 20px;background:rgba(10,10,10,.96);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:16px;transform:translateY(100%);transition:transform .35s ease}
-.floating-cta.visible{transform:translateY(0)}
-.floating-cta .cta-text{font-size:13px;letter-spacing:2px;color:var(--text)}
-.floating-cta .cta-text b{color:var(--gold)}
-.floating-cta .cta-btn{padding:12px 32px;background:linear-gradient(135deg,#c9a96e,#a88a4e);color:#000;border:none;font-size:15px;font-weight:700;letter-spacing:3px;cursor:pointer;font-family:inherit;transition:all .3s;text-decoration:none;display:flex;align-items:center;gap:6px}
-.floating-cta .cta-btn:hover{filter:brightness(1.1);transform:scale(1.03)}
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--border-glow);
+      background: rgba(212,168,67,0.06);
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--accent-gold-light);
+      margin-bottom: 2rem;
+      animation: fadeUp 0.8s ease both;
+    }
 
-/* 音乐播放器 */
-.music-widget{position:fixed;bottom:100px;right:20px;z-index:300;width:44px;height:44px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;font-size:18px;opacity:.6}
-.music-widget:hover{opacity:1;border-color:var(--gold)}
-.music-widget.playing{border-color:var(--gold);opacity:1;animation:neonPulse 3s ease-in-out infinite}
-.music-widget .music-tooltip{position:absolute;right:54px;white-space:nowrap;font-size:10px;color:var(--text-dim);letter-spacing:2px;opacity:0;pointer-events:none;transition:opacity .3s}
-.music-widget:hover .music-tooltip{opacity:1}
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      animation: pulse-dot 2s infinite;
+    }
 
-/* 弹窗 */
-.popup-overlay{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .5s}
-.popup-overlay.show{opacity:1;pointer-events:auto}
-.popup-card{background:var(--bg-card);border:1px solid rgba(201,169,110,.4);padding:48px 36px;text-align:center;max-width:420px;width:90%;position:relative;box-shadow:0 0 80px rgba(201,169,110,.1)}
-.popup-close{position:absolute;top:12px;right:16px;background:transparent;border:none;color:var(--text-dim);font-size:20px;cursor:pointer;transition:color .3s}
-.popup-close:hover{color:var(--gold)}
-.popup-icon{font-size:56px;margin-bottom:16px}
-.popup-title{font-size:22px;font-weight:700;color:var(--gold);letter-spacing:4px;margin-bottom:8px}
-.popup-desc{font-size:13px;color:var(--text-dim);line-height:1.8;margin-bottom:20px}
-.popup-highlight{color:var(--pink);font-weight:600}
-.popup-btn{display:inline-block;padding:14px 40px;background:linear-gradient(135deg,#c9a96e,#a88a4e);color:#000;font-weight:700;font-size:15px;letter-spacing:3px;border:none;cursor:pointer;font-family:inherit;transition:all .3s;text-decoration:none}
-.popup-btn:hover{filter:brightness(1.1);transform:scale(1.03)}
-.popup-skip{display:block;margin-top:12px;font-size:11px;color:#555;cursor:pointer;background:none;border:none;letter-spacing:2px;font-family:inherit}
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.7); }
+    }
 
-/* 光效扫过 */
-@keyframes shimmer{0%{left:-100%;opacity:0}30%{opacity:1}100%{left:200%;opacity:0}}
-.shimmer-card{overflow:hidden}
-.shimmer-card::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.02),rgba(255,255,255,.04),rgba(255,255,255,.02),transparent);transform:skewX(-25deg);pointer-events:none;z-index:3}
-.shimmer-card:hover::after{animation:shimmer .8s ease forwards}
+    .hero-number {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 18vw, 14rem);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 40%, var(--accent-gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeUp 0.8s ease 0.1s both;
+      position: relative;
+    }
 
-/* 渐变分割线 */
-.divider-gradient{border:none;height:1px;background:linear-gradient(90deg,transparent,rgba(201,169,110,.25),rgba(168,85,247,.15),rgba(236,72,153,.1),transparent)}
+    .hero-number::after {
+      content: '1107';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light), var(--accent-gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: blur(40px);
+      opacity: 0.4;
+      z-index: -1;
+    }
 
-@keyframes neonPulse{0%,100%{text-shadow:0 0 20px rgba(201,169,110,.3)}50%{text-shadow:0 0 40px rgba(201,169,110,.6),0 0 80px rgba(201,169,110,.2)}}
-.neon-text{animation:neonPulse 3s ease-in-out infinite}
-.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
+    .hero-tagline {
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      font-weight: 300;
+      color: var(--text-secondary);
+      letter-spacing: 0.12em;
+      margin: 1rem 0 0.5rem;
+      animation: fadeUp 0.8s ease 0.2s both;
+      transition: color 0.4s;
+    }
 
-/* 响应式 */
-@media(max-width:900px){.brand-grid{grid-template-columns:repeat(3,1fr)}.event-grid{grid-template-columns:1fr}.pricing-grid{grid-template-columns:1fr;gap:12px}.pricing-card{border-radius:16px!important;border:1px solid var(--border)!important;padding:24px 16px}.pricing-card.popular{margin-bottom:0;padding:28px 16px}.recruit-grid{grid-template-columns:1fr}.steps{padding-left:40px}.steps::before{left:18px}.step::before{left:-26px;width:10px;height:10px}.countdown-block{width:70px;height:70px}.countdown-block .num{font-size:24px}.log-timeline{padding-left:32px}}
-@media(max-width:768px){
-  :root{scroll-behavior:smooth}
-  body{padding-bottom:60px}
-  nav{padding:0 14px;height:56px}
-  nav .logo{font-size:22px;letter-spacing:2px}
-  .nav-links{position:fixed;top:0;right:-100%;width:70%;height:100vh;flex-direction:column;gap:0;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);padding:80px 32px 32px;transition:right .35s ease,visibility .35s;border-left:1px solid var(--border);visibility:hidden}
-  .nav-links.open{right:0;visibility:visible}
-  .nav-links a{display:block;padding:14px 0;font-size:15px;border-bottom:1px solid var(--border)}
-  .hamburger{display:flex}
-  /* 紧凑间距 */
-  section{padding:48px 16px}
-  .section-title{font-size:22px;letter-spacing:4px;margin-bottom:12px}
-  .section-sub{font-size:11px;letter-spacing:2px;margin-bottom:32px}
-  /* Hero 缩小 */
-  .hero{height:92vh;min-height:560px}
-  .hero h1{font-size:clamp(60px,18vw,100px);letter-spacing:10px}
-  .hero .slogan{font-size:14px;letter-spacing:4px}
-  .hero .slogan-sub{font-size:11px;letter-spacing:3px}
-  .hero-tags{gap:8px;margin-top:20px}
-  .hero-tags span{padding:5px 12px;font-size:10px;letter-spacing:2px}
-  .hero-halo{width:min(80vw,320px);height:min(80vw,320px)}
-  /* 统计条 */
-  .stats-strip{gap:24px;padding:28px 16px}
-  .stat-num{font-size:26px}
-  .stat-label{font-size:10px;letter-spacing:2px}
-  /* 倒计时 */
-  .countdown-section{padding:36px 16px}
-  .countdown-label{font-size:11px}
-  .countdown-timer{gap:10px}
-  .countdown-block{width:62px;height:62px}
-  .countdown-block .num{font-size:22px}
-  .countdown-block .unit{font-size:9px}
-  .countdown-urgency{font-size:10px;margin-top:12px}
-  /* 评价 */
-  .testimonial-strip{padding:28px 0}
-  .testimonial-card{width:260px;padding:20px 16px}
-  .testimonial-card .t-body{font-size:12px}
-  /* 局类型 */
-  .event-grid{gap:14px}
-  .event-card{padding:0 0 20px}
-  .event-card .icon{width:56px;height:56px;font-size:28px;margin:28px auto 12px}
-  .event-card h3{font-size:18px;letter-spacing:3px}
-  .event-card p{font-size:11px;padding:0 16px}
-  /* 自测 */
-  .quiz-question{font-size:17px}
-  .quiz-option{font-size:12px;padding:12px 14px}
-  /* 服务 */
-  .service-strip{padding:32px 16px}
-  .services{gap:24px;flex-direction:row;justify-content:space-around}
-  .service-item .sicon{font-size:24px}
-  .service-item .value{font-size:16px;letter-spacing:2px}
-  /* 价格 */
-  .pricing-grid{grid-template-columns:1fr;gap:20px}
-  .pricing-card{border-radius:14px!important;border:1px solid var(--border)!important;padding:24px 16px;margin:0!important}
-  .pricing-card:first-child,.pricing-card:last-child,.pricing-card.popular{border-radius:14px!important;border:1px solid var(--border)!important;border-left:1px solid var(--border)!important;border-right:1px solid var(--border)!important}
-  .pricing-card.popular{background:linear-gradient(180deg,#1a1810,var(--bg-card));box-shadow:0 0 30px rgba(201,169,110,.1);overflow:visible!important}
-  .pricing-card.popular::before{top:-10px;font-size:10px;padding:4px 14px}
-  .pricing-amount{font-size:30px;color:var(--gold)!important}
-  .pricing-desc{font-size:11px}
-  .pricing-note{font-size:9px}
-  /* 品牌 */
-  .brand-wall-section section{padding:48px 16px}
-  .brand-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-  .brand-card{border-radius:28px;padding:20px 14px}
-  .brand-card h4{font-size:13px}
-  /* 氛围 */
-  .vibe-grid{grid-template-columns:repeat(3,1fr);gap:10px}
-  .vibe-item{padding:12px}
-  .vibe-item .vibe-emoji{font-size:24px;margin-bottom:4px}
-  .vibe-item .vibe-title{font-size:10px;letter-spacing:2px}
-  .vibe-item .vibe-desc{font-size:8px}
-  /* 日志 */
-  .log-timeline{padding-left:28px}
-  .log-timeline::before{left:13px}
-  .log-entry{margin-bottom:16px;padding:16px}
-  .log-entry::before{left:-24px;top:22px;width:8px;height:8px}
-  .log-entry h4{font-size:13px}
-  .log-entry p{font-size:11px}
-  .log-entry .log-icon{font-size:22px}
-  .log-entry .log-date{font-size:9px}
-  /* 流程 */
-  .steps{padding-left:36px}
-  .steps::before{left:15px}
-  .step{padding:16px 0 16px 20px}
-  .step::before{left:-24px;top:24px;width:8px;height:8px}
-  .step .step-num{font-size:30px}
-  .step h4{font-size:13px;letter-spacing:3px}
-  .step p{font-size:11px}
-  .step .step-icon{font-size:22px}
-  /* 招募 */
-  .recruit-card{padding:24px 16px}
-  .recruit-card h4{font-size:16px}
-  .recruit-card .r-desc{font-size:11px}
-  .recruit-highlight{padding:20px 20px;margin-bottom:28px}
-  .recruit-highlight p{font-size:11px}
-  /* FAQ */
-  .faq-q{font-size:12px;padding:14px 16px;letter-spacing:1px}
-  .faq-a{font-size:11px}
-  /* 联系 */
-  .contact-card{min-width:100%;padding:28px 20px}
-  .contact-card .wc-icon{font-size:36px}
-  .contact-card h3{font-size:17px}
-  .promo-shout{font-size:20px}
-  /* Footer */
-  footer{padding:24px 16px}
-  footer .footer-slogan{font-size:15px}
-  footer .footer-sub{font-size:10px}
-  .footer-links{gap:12px}
-  .footer-links span{font-size:9px}
-  /* 悬浮组件 */
-  .music-widget{bottom:80px;right:10px;width:38px;height:38px;font-size:16px}
-  .floating-cta{padding:8px 12px;gap:8px}
-  .floating-cta .cta-text{font-size:10px;letter-spacing:1px}
-  .floating-cta .cta-btn{padding:8px 16px;font-size:12px;letter-spacing:2px}
-  /* 弹窗 */
-  .popup-card{padding:32px 20px}
-  .popup-title{font-size:18px}
-  .popup-desc{font-size:11px}
-  .popup-btn{padding:12px 28px;font-size:13px}
-}
-</style>
+    .hero-tagline strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 1.5rem auto 3rem;
+      line-height: 1.8;
+      animation: fadeUp 0.8s ease 0.3s both;
+      transition: color 0.4s;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.8s ease 0.4s both;
+    }
+
+    .tag {
+      padding: 0.4rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      border: 1px solid;
+      transition: all 0.25s;
+      cursor: default;
+    }
+
+    .tag-gold {
+      border-color: rgba(212,168,67,0.4);
+      color: var(--accent-gold-light);
+      background: rgba(212,168,67,0.05);
+    }
+    .tag-gold:hover { background: rgba(212,168,67,0.12); border-color: var(--accent-gold); }
+
+    .tag-purple {
+      border-color: rgba(124,58,237,0.4);
+      color: #c4b5fd;
+      background: rgba(124,58,237,0.05);
+    }
+    .tag-purple:hover { background: rgba(124,58,237,0.12); }
+
+    .tag-pink {
+      border-color: rgba(236,72,153,0.4);
+      color: #f9a8d4;
+      background: rgba(236,72,153,0.05);
+    }
+
+    /* ---- COUNTDOWN ---- */
+    .countdown-wrapper {
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.8s ease 0.45s both;
+    }
+
+    .countdown-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--accent-gold);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .countdown-timer {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 64px;
+    }
+
+    .countdown-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-gold-light);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      transition: color 0.4s;
+    }
+
+    .countdown-txt {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+    }
+
+    .countdown-sep {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--accent-gold);
+      opacity: 0.4;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* ---- LIVE COUNTER ---- */
+    .live-counter {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(236,72,153,0.08);
+      border: 1px solid rgba(236,72,153,0.2);
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      color: #f9a8d4;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.8s ease 0.5s both;
+    }
+
+    .live-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #ec4899;
+      animation: pulse-dot 1.5s infinite;
+    }
+
+    .live-num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: #f9a8d4;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s ease 0.55s both;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold));
+      color: var(--bg-deep);
+      padding: 0.85rem 2.2rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 32px rgba(212,168,67,0.35);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      padding: 0.85rem 2.2rem;
+      border-radius: 6px;
+      font-weight: 400;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(240,237,232,0.2);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(240,237,232,0.5);
+      background: rgba(240,237,232,0.04);
+      transform: translateY(-2px);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      animation: fadeIn 1s ease 1s both;
+    }
+
+    .scroll-line {
+      width: 1px; height: 48px;
+      background: linear-gradient(to bottom, var(--accent-gold), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+
+    @keyframes scrollPulse {
+      0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+      50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ---- SECTIONS ---- */
+    section { position: relative; z-index: 1; }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      color: var(--accent-gold);
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: color 0.4s;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--accent-gold);
+      transition: background 0.4s;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 540px;
+      line-height: 1.75;
+      transition: color 0.4s;
+    }
+
+    /* ---- STATS ROW ---- */
+    .stats-section {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.4s;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0;
+    }
+
+    .stat-item {
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border-right: 1px solid var(--border-subtle);
+      transition: background 0.3s;
+    }
+
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: rgba(212,168,67,0.03); }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--accent-gold);
+      letter-spacing: -0.02em;
+      transition: color 0.4s;
+    }
+
+    .stat-unit {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--accent-gold-light);
+      transition: color 0.4s;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.08em;
+      margin-top: 0.5rem;
+      transition: color 0.4s;
+    }
+
+    /* ---- EVENT FILTER ---- */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .filter-btn {
+      padding: 0.45rem 1rem;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--border-subtle);
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    .filter-btn.active {
+      background: var(--accent-gold);
+      color: var(--bg-deep);
+      border-color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    /* ---- 局类卡片 ---- */
+    .events-section { background: transparent; }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .event-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16,1,0.3,1), opacity 0.4s, transform 0.4s;
+      cursor: default;
+    }
+
+    .event-card.hidden {
+      opacity: 0;
+      transform: scale(0.92);
+      pointer-events: none;
+      position: absolute;
+      visibility: hidden;
+    }
+
+    .event-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, var(--card-glow, rgba(212,168,67,0.06)) 0%, transparent 60%);
+      transition: opacity 0.4s;
+      opacity: 0;
+    }
+
+    .event-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-glow);
+      background: var(--bg-card-hover);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(212,168,67,0.05);
+    }
+
+    .event-card:hover::before { opacity: 1; }
+
+    .event-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.5rem;
+    }
+
+    .event-card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .event-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      transition: color 0.4s;
+    }
+
+    .event-badge {
+      position: absolute;
+      top: 1.25rem; right: 1.25rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+    }
+
+    .card-gold { --card-glow: rgba(212,168,67,0.08); }
+    .card-gold .event-icon { background: rgba(212,168,67,0.1); color: var(--accent-gold); }
+    .card-gold .event-card-title { color: var(--accent-gold-light); }
+    .card-gold .event-badge { background: rgba(212,168,67,0.15); color: var(--accent-gold); }
+
+    .card-purple { --card-glow: rgba(124,58,237,0.08); }
+    .card-purple .event-icon { background: rgba(124,58,237,0.12); color: #a78bfa; }
+    .card-purple .event-card-title { color: #c4b5fd; }
+    .card-purple .event-badge { background: rgba(124,58,237,0.15); color: #a78bfa; }
+
+    .card-pink { --card-glow: rgba(236,72,153,0.08); }
+    .card-pink .event-icon { background: rgba(236,72,153,0.12); color: #f9a8d4; }
+    .card-pink .event-card-title { color: #f9a8d4; }
+    .card-pink .event-badge { background: rgba(236,72,153,0.15); color: #f9a8d4; }
+
+    .card-teal { --card-glow: rgba(20,184,166,0.08); }
+    .card-teal .event-icon { background: rgba(20,184,166,0.12); color: #5eead4; }
+    .card-teal .event-card-title { color: #5eead4; }
+    .card-teal .event-badge { background: rgba(20,184,166,0.15); color: #5eead4; }
+
+    /* ---- VENUES ---- */
+    .venues-section { background: var(--bg-surface); transition: background 0.4s; }
+
+    .venues-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .venue-card {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .venue-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--border-glow);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(212,168,67,0.08);
+    }
+
+    .venue-visual { height: 200px; position: relative; overflow: hidden; }
+    .venue-canvas { width: 100%; height: 100%; display: block; }
+
+    .venue-star {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: var(--accent-gold);
+      color: var(--bg-deep);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+      transition: all 0.4s;
+    }
+
+    .venue-body { padding: 1.75rem; }
+
+    .venue-name {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.25rem;
+    }
+
+    .venue-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      transition: color 0.4s;
+    }
+
+    .venue-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+      transition: color 0.4s;
+    }
+
+    .venue-features { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .venue-feature {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      letter-spacing: 0.06em;
+      transition: all 0.4s;
+    }
+
+    /* ---- SCHEDULE ---- */
+    .schedule-section { background: transparent; }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.6rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) { .schedule-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 480px) { .schedule-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .day-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .day-card.active {
+      border-color: var(--accent-gold);
+      background: rgba(212,168,67,0.06);
+    }
+
+    .day-card.active::after {
+      content: '今日';
+      position: absolute;
+      top: 0.4rem; right: 0.4rem;
+      font-size: 0.55rem;
+      color: var(--accent-gold);
+      letter-spacing: 0.05em;
+    }
+
+    .day-card:hover { transform: translateY(-3px); border-color: var(--border-glow); }
+
+    .day-name { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .day-main-event { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; }
+    .day-event-type { font-size: 0.7rem; color: var(--text-muted); }
+    .day-card.active .day-main-event { color: var(--accent-gold-light); }
+
+    /* ---- FLOW ---- */
+    .flow-section { background: var(--bg-surface); transition: background 0.4s; }
+
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      margin-top: 3rem;
+      background: var(--border-subtle);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .flow-step {
+      background: var(--bg-card);
+      padding: 2rem 1.75rem;
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    .flow-step:hover { background: var(--bg-card-hover); }
+
+    .flow-step-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(212,168,67,0.12);
+      line-height: 1;
+      margin-bottom: 1rem;
+      letter-spacing: -0.04em;
+    }
+
+    .flow-step-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); }
+    .flow-step-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.65; transition: color 0.4s; }
+
+    /* ---- TESTIMONIALS ---- */
+    .testimonials-section { background: transparent; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: all 0.3s;
+    }
+
+    .testimonial-card:hover { transform: translateY(-4px); border-color: var(--border-glow); }
+
+    .testimonial-text {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+      position: relative;
+    }
+
+    .testimonial-text::before {
+      content: '\201C';
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--accent-gold);
+      opacity: 0.25;
+      line-height: 0;
+      position: relative;
+      top: 0.5rem;
+      margin-right: 0.25rem;
+    }
+
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+
+    .author-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: rgba(212,168,67,0.12);
+      color: var(--accent-gold);
+      flex-shrink: 0;
+    }
+
+    .author-name { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); }
+    .author-type { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ---- FAQ ---- */
+    .faq-section { background: var(--bg-surface); transition: background 0.4s; }
+
+    .faq-list { margin-top: 3rem; max-width: 720px; }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-subtle);
+      transition: border-color 0.3s;
+    }
+
+    .faq-item:first-child { border-top: 1px solid var(--border-subtle); }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      text-align: left;
+      padding: 1.25rem 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: color 0.3s;
+    }
+
+    .faq-question:hover { color: var(--accent-gold); }
+
+    .faq-arrow {
+      width: 20px; height: 20px;
+      flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+      color: var(--accent-gold);
+    }
+
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.4s;
+    }
+
+    .faq-item.open .faq-answer { max-height: 200px; }
+
+    .faq-answer-inner {
+      padding-bottom: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* ---- CONTACT / CTA ---- */
+    .cta-section {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+      transition: background 0.4s;
+    }
+
+    .cta-inner { text-align: center; padding: 8rem 2rem; }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .cta-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      max-width: 480px;
+      margin-left: auto; margin-right: auto;
+      line-height: 1.75;
+    }
+
+    .cta-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .contact-card:hover { border-color: var(--border-glow); background: rgba(212,168,67,0.03); transform: translateY(-3px); }
+
+    .contact-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: rgba(212,168,67,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem;
+      transition: background 0.4s;
+    }
+
+    .contact-label { font-size: 0.75rem; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .contact-value { font-weight: 600; font-size: 0.95rem; color: var(--text-primary); }
+
+    /* ---- QR MODAL ---- */
+    .qr-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(5,5,15,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s;
+    }
+
+    .qr-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .qr-modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: 24px;
+      padding: 2.5rem;
+      text-align: center;
+      max-width: 380px;
+      width: 90%;
+      transform: scale(0.9) translateY(20px);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+      position: relative;
+    }
+
+    .qr-overlay.open .qr-modal {
+      transform: scale(1) translateY(0);
+    }
+
+    .qr-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border-subtle);
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s;
+    }
+
+    .qr-close:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+    .qr-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent-gold-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .qr-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .qr-code-box {
+      width: 200px; height: 200px;
+      margin: 0 auto 1.5rem;
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .qr-wechat-id {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-top: 0.5rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* ---- FLOATING WECHAT BTN ---- */
+    .float-wechat {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 200;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      color: var(--bg-deep);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 24px rgba(212,168,67,0.4);
+      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+      animation: floatBounce 3s ease infinite;
+    }
+
+    .float-wechat:hover {
+      transform: scale(1.12);
+      box-shadow: 0 8px 40px rgba(212,168,67,0.5);
+    }
+
+    @keyframes floatBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .float-wechat:hover { animation: none; }
+
+    .float-tooltip {
+      position: absolute;
+      right: 68px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+      color: var(--accent-gold-light);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+
+    .float-wechat:hover .float-tooltip { opacity: 1; }
+
+    /* ---- FOOTER ---- */
+    footer {
+      position: relative;
+      z-index: 1;
+      background: var(--bg-deep);
+      border-top: 1px solid var(--border-subtle);
+      padding: 2rem;
+      text-align: center;
+      transition: background 0.4s;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-logo { font-family: var(--font-display); font-weight: 900; font-size: 1.25rem; color: var(--accent-gold); letter-spacing: 0.08em; }
+    .footer-copy { font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.05em; }
+
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-links a { font-size: 0.78rem; color: var(--text-muted); text-decoration: none; letter-spacing: 0.05em; transition: color 0.25s; }
+    .footer-links a:hover { color: var(--accent-gold); }
+
+    .divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-subtle), transparent);
+      margin: 0 2rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    .marquee-wrapper {
+      overflow: hidden;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1rem 0;
+      background: var(--bg-surface);
+      position: relative;
+      z-index: 1;
+      transition: background 0.4s;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      animation: marqueeScroll 25s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .marquee-item {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .marquee-dot { color: var(--accent-gold); margin-right: 3rem; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-center { display: none; }
+      .hero { padding: 6rem 1.5rem 3rem; }
+      .section-inner { padding: 4rem 1.5rem; }
+      .venues-grid { grid-template-columns: 1fr; }
+      .flow-steps { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border-subtle); }
+      .countdown-num { font-size: 1.6rem; }
+      .countdown-unit { min-width: 48px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-btns { flex-direction: column; }
+      .btn-primary, .btn-secondary { justify-content: center; }
+      .flow-steps { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="progress-bar" id="progress-bar"></div>
-<canvas class="particle-bg" aria-hidden="true"></canvas>
+<!-- Three.js Background -->
+<canvas id="three-bg"></canvas>
 
-<nav role="navigation" aria-label="主导航">
-  <div class="logo">1107</div>
-  <button class="hamburger" aria-label="菜单" aria-expanded="false"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="#events">局类型</a></li>
-    <li><a href="#pricing">价格</a></li>
-    <li><a href="#brands">酒吧品牌</a></li>
-    <li><a href="#vibe">氛围</a></li>
-    <li><a href="#gallery">日志</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#recruit">招募队友</a></li>
-    <li><a href="#contact">联系</a></li>
+<!-- QR Code Modal -->
+<div class="qr-overlay" id="qr-overlay">
+  <div class="qr-modal">
+    <button class="qr-close" id="qr-close">&times;</button>
+    <div class="qr-title">扫码加局头</div>
+    <div class="qr-subtitle">微信扫一扫，今晚就能入局</div>
+    <div class="qr-code-box">
+      <img src="wechat-qr.jpg" alt="微信二维码" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+    </div>
+    <div class="qr-hint">微信号搜索添加</div>
+    <div class="qr-wechat-id">a12378945b</div>
+  </div>
+</div>
+
+<!-- Floating WeChat Button -->
+<button class="float-wechat" id="float-wechat">
+  <span class="float-tooltip">扫码加微信入局</span>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.045c.133 0 .241-.108.241-.243 0-.06-.023-.118-.039-.177l-.326-1.233a.49.49 0 0 1 .177-.554C23.025 18.26 24 16.562 24 14.71c0-3.388-3.252-5.852-7.062-5.852zm-2.095 2.936c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.19 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982z"/></svg>
+</button>
+
+<!-- Navigation -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">
+    1107
+    <span>武汉组局 · 街道口</span>
+  </a>
+  <ul class="nav-center">
+    <li><a href="#events">局的类型</a></li>
+    <li><a href="#venues">主场地</a></li>
+    <li><a href="#schedule">每日排局</a></li>
+    <li><a href="#flow">入局流程</a></li>
+    <li><a href="#faq">常见问题</a></li>
+    <li><a href="#join-team">加入我们</a></li>
+    <li><a href="#contact">联系入局</a></li>
   </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="theme-toggle" title="切换主题">
+      <svg id="theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg id="theme-icon-neon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <a href="#" class="nav-cta open-qr">立即入局</a>
+  </div>
 </nav>
 
-<section class="hero">
+<!-- Hero Section -->
+<section class="hero" id="home">
   <div class="hero-content">
-    <div class="hero-badge">18-25 武汉年轻人都在找的局头</div>
-    <h1 class="neon-text">1107<div class="hero-halo"></div></h1>
-    <p class="slogan">街道口最靠谱局头 · 武汉夜娱天花板</p>
-    <p class="slogan-sub">全 武 汉 组 局 / 拼 桌 / 订 台</p>
-    <div class="hero-tags">
-      <span>🎧 卡颜局</span><span>🔥 气氛局</span><span>💎 微卡颜局</span>
-      <span>🌙 MOON</span><span>🥂 INSIDE</span><span>👑 全城对接</span>
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      今日有局 · 武汉街道口
     </div>
-  </div>
-  <div class="scroll-hint" onclick="document.querySelector('#countdown').scrollIntoView()">▼ 今晚有局</div>
-</section>
 
-<div class="stats-strip" id="stats-strip">
-  <div class="stat-item"><div class="stat-num"><span class="count-up" data-target="1107">0</span></div><div class="stat-label">你的专属局头</div></div>
-  <div class="stat-item"><div class="stat-num"><span class="count-up" data-target="25">18</span>-<span class="count-up" data-target="25">18</span></div><div class="stat-label">核心客群年龄</div></div>
-  <div class="stat-item"><div class="stat-num count-up-text" data-text="全武汉">全武汉</div><div class="stat-label">组局覆盖范围</div></div>
-  <div class="stat-item"><div class="stat-num"><span class="count-up" data-target="3">0</span> 种</div><div class="stat-label">局类型任选</div></div>
-</div>
+    <h1 class="hero-number">1107</h1>
 
-<div class="countdown-section" id="countdown">
-  <div class="countdown-label">距今晚开场还剩</div>
-  <div class="countdown-timer" id="countdown-timer">
-    <div class="countdown-block"><div class="num" id="cd-h">00</div><div class="unit">时</div></div>
-    <div class="countdown-block"><div class="num" id="cd-m">00</div><div class="unit">分</div></div>
-    <div class="countdown-block"><div class="num" id="cd-s">00</div><div class="unit">秒</div></div>
-  </div>
-  <div class="countdown-urgency" id="countdown-urgency"></div>
-</div>
-
-<section id="about" class="fade-in">
-  <h2 class="section-title"><span>1107</span> · 关于</h2>
-  <p class="section-sub">GATHER · MATCH · PARTY</p>
-  <div style="max-width:700px;margin:0 auto;text-align:center;">
-    <p style="font-size:15px;color:var(--text-dim);line-height:2.2;">
-      武汉最懂年轻人的组局人。专注 <b style="color:var(--text);">18-25 岁</b> 高质量社交。<br>
-      每一场局根据 <b style="color:var(--gold);">颜值 & 气质 & 氛围</b> 三重匹配。<br>
-      顶美、顶帅、女围成群 —— 这里不是吹牛逼，来了就知道。<br>
-      全武汉组局，<b style="color:var(--text);">拼桌、订台</b> 一站式安排，你只管到场嗨。
+    <p class="hero-tagline">武汉组局<strong>天花板</strong></p>
+    <p class="hero-desc">
+      街道口良心局头，每天质量局不断。卡颜局、微卡颜、气氛卡——三大局型每天轮番上阵，武汉最顶的局就在这里。
     </p>
+
+    <div class="hero-tags">
+      <span class="tag tag-purple">卡颜局</span>
+      <span class="tag tag-purple">微卡颜</span>
+      <span class="tag tag-pink">气氛卡</span>
+      <span class="tag tag-gold">良心局头</span>
+      <span class="tag tag-pink">每天质量局</span>
+      <span class="tag tag-purple">Moon & Inside</span>
+    </div>
+
+    <!-- Countdown -->
+    <div class="countdown-wrapper">
+      <div class="countdown-label">距今晚 22:30 开局</div>
+      <div class="countdown-timer" id="countdown-timer">
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-hours">--</div>
+          <div class="countdown-txt">时</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-mins">--</div>
+          <div class="countdown-txt">分</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-secs">--</div>
+          <div class="countdown-txt">秒</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Counter -->
+    <div class="live-counter">
+      <div class="live-dot"></div>
+      当前 <span class="live-num" id="live-count">--</span> 人已报名今晚的局
+    </div>
+
+    <div class="hero-btns">
+      <a href="#" class="btn-primary open-qr">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        立即加入
+      </a>
+      <a href="#events" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        查看今日局
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    SCROLL
   </div>
 </section>
 
-<hr class="divider-gradient">
-
-<div class="testimonial-strip"><div class="testimonial-track" id="testimonial-track"></div></div>
-
-<section id="events" class="fade-in">
-  <h2 class="section-title">局 · <span>类型</span></h2>
-  <p class="section-sub">三种局，总有一种适合你</p>
-  <div class="event-grid">
-    <div class="event-card shimmer-card">
-      <div class="icon">👑</div><h3>卡颜局</h3>
-      <p>颜值门槛，严格审核。顶帅、顶美云集，武汉颜值天花板。颜即正义，入场即焦点。</p>
-      <div class="card-tags"><span>高颜值</span><span>严格审核</span><span>顶美顶帅</span></div>
-    </div>
-    <div class="event-card shimmer-card">
-      <div class="icon">✨</div><h3>微卡颜局</h3>
-      <p>有门槛，不苛刻。气质在线、干净清爽就能进。高品质社交零压力，氛围刚刚好。</p>
-      <div class="card-tags"><span>气质局</span><span>轻松社交</span><span>女围多</span></div>
-    </div>
-    <div class="event-card shimmer-card">
-      <div class="icon">🔥</div><h3>气氛局</h3>
-      <p>不卡脸，卡的就是气氛。会玩、能喝、放得开。全场嗨翻，女围成群，来了就是兄弟。</p>
-      <div class="card-tags"><span>嗨翻天</span><span>不限颜值</span><span>纯气氛</span></div>
-    </div>
-  </div>
-</section>
-
-<div class="quiz-section"><section class="fade-in">
-  <h2 class="section-title">3秒 · <span>测你适合哪种局</span></h2>
-  <p class="section-sub">不知道该选哪种？答两道题就知道</p>
-  <div class="quiz-inner"><div class="quiz-progress" id="quiz-progress"><div class="quiz-dot active"></div><div class="quiz-dot"></div></div><div id="quiz-body"></div></div>
-</section></div>
-
-<div class="service-strip">
-  <div class="services">
-    <div class="service-item"><div class="sicon">🎯</div><div class="label">全武汉</div><div class="value">组 局</div></div>
-    <div class="service-item"><div class="sicon">🍻</div><div class="label">随时可约</div><div class="value">拼 桌</div></div>
-    <div class="service-item"><div class="sicon">🏷️</div><div class="label">各大酒吧</div><div class="value">订 台</div></div>
-  </div>
+<!-- Marquee -->
+<div class="marquee-wrapper">
+  <div class="marquee-track" id="marquee"></div>
 </div>
 
-<section id="pricing" class="fade-in">
-  <h2 class="section-title">价格 · <span>参考</span></h2>
-  <p class="section-sub">透明消费 · 无隐形费用</p>
-  <div class="pricing-grid">
-    <div class="pricing-card shimmer-card">
-      <div class="pricing-type">🫂 拼桌散客</div><div class="pricing-amount">150-300</div><div class="pricing-unit">元 / 人</div>
-      <div class="pricing-desc">和陌生人拼卡座<br>公酒共享 · 气氛拉满<br>适合 1-2 人来玩</div>
-      <div class="pricing-note">* 具体看当天酒吧和人数</div>
+<!-- Stats -->
+<section class="stats-section" id="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-number">365<span class="stat-unit">+</span></div>
+      <div class="stat-label">全年无间断</div>
     </div>
-    <div class="pricing-card popular shimmer-card">
-      <div class="pricing-type">🍾 订台包卡</div><div class="pricing-amount">800-2000</div><div class="pricing-unit">元 / 卡</div>
-      <div class="pricing-desc">整张卡座带走<br>含酒水套餐 · 私密空间<br>适合 4-10 人小团体</div>
-      <div class="pricing-note">* 酒吧不同价格有差异</div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-number">2<span class="stat-unit">大</span></div>
+      <div class="stat-label">主场地 Moon & Inside</div>
     </div>
-    <div class="pricing-card shimmer-card">
-      <div class="pricing-type">👑 卡颜局专享</div><div class="pricing-amount">私聊</div><div class="pricing-unit">微信咨询</div>
-      <div class="pricing-desc">颜值审核通过后私聊<br>顶美顶帅专属群<br>体验天花板级社交</div>
-      <div class="pricing-note">* 加微信：a12378945b 详询</div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-number">3<span class="stat-unit">大</span></div>
+      <div class="stat-label">核心局型</div>
     </div>
-  </div>
-</section>
-
-<div class="brand-wall-section" id="brands"><section class="fade-in">
-  <h2 class="section-title">合作 · <span>酒吧品牌</span></h2>
-  <p class="section-sub">武汉全城酒吧均已对接 · 想去哪家去哪家</p>
-  <div class="brand-grid">
-    <div class="brand-card featured"><h4>MOON</h4><p class="b-loc">洪山区 · 街道口</p><p class="b-vibe">社交酒吧天花板 · 1107 大本营</p></div>
-    <div class="brand-card featured"><h4>INSIDE</h4><p class="b-loc">洪山区 · 街道口</p><p class="b-vibe">高端氛围 · 灯光音响顶配</p></div>
-    <div class="brand-card"><h4>FANS</h4><p class="b-loc">武汉</p><p class="b-vibe">年轻人的潮流聚集地</p></div>
-    <div class="brand-card"><h4>FOREVER</h4><p class="b-loc">武汉</p><p class="b-vibe">气氛炸场 · 派对不断</p></div>
-    <div class="brand-card"><h4>REMIX</h4><p class="b-loc">武汉</p><p class="b-vibe">沉浸式夜店体验</p></div>
-    <div class="brand-card"><h4>峡谷镇</h4><p class="b-loc">武汉</p><p class="b-vibe">主题派对 · 玩法新颖</p></div>
-    <div class="brand-card"><h4>猩猩地堡</h4><p class="b-loc">武汉</p><p class="b-vibe">硬核电音 · 野生氛围</p></div>
-    <div class="brand-card"><h4>MIDNIGHT</h4><p class="b-loc">武汉</p><p class="b-vibe">深夜主场 · 越夜越嗨</p></div>
-  </div>
-</section></div>
-
-<div class="marquee-strip" aria-hidden="true">
-  <div class="marquee-inner">
-    <span class="highlight">MOON</span><span class="sep">|</span><span class="highlight">INSIDE</span><span class="sep">|</span><span>FANS</span><span class="sep">|</span><span>FOREVER</span><span class="sep">|</span><span>REMIX</span><span class="sep">|</span><span>峡谷镇</span><span class="sep">|</span><span>猩猩地堡</span><span class="sep">|</span><span>MIDNIGHT</span><span class="sep">|</span><span style="color:var(--gold);">全武汉组局</span><span class="sep">|</span><span>拼桌订台</span><span class="sep">|</span><span style="color:var(--gold);">1107</span><span class="sep">|</span><span class="highlight">MOON</span><span class="sep">|</span><span class="highlight">INSIDE</span><span class="sep">|</span><span>FANS</span><span class="sep">|</span><span>FOREVER</span><span class="sep">|</span><span>REMIX</span><span class="sep">|</span><span>峡谷镇</span><span class="sep">|</span><span>猩猩地堡</span><span class="sep">|</span><span>MIDNIGHT</span><span class="sep">|</span><span style="color:var(--gold);">全武汉组局</span><span class="sep">|</span><span>拼桌订台</span><span class="sep">|</span><span style="color:var(--gold);">1107</span>
-  </div>
-</div>
-
-<section id="vibe" class="fade-in">
-  <h2 class="section-title">局 · <span>氛围</span></h2>
-  <p class="section-sub">不是所有局都叫 1107 的局</p>
-  <div class="vibe-grid">
-    <div class="vibe-item"><div class="vibe-emoji">👯‍♀️</div><div class="vibe-title">女围成群</div><div class="vibe-desc">每场局女生比例拉满</div></div>
-    <div class="vibe-item"><div class="vibe-emoji">🎵</div><div class="vibe-title">音乐炸场</div><div class="vibe-desc">EDM / HipHop / K-Pop</div></div>
-    <div class="vibe-item"><div class="vibe-emoji">🍾</div><div class="vibe-title">卡座管够</div><div class="vibe-desc">订台拼桌一站式安排</div></div>
-    <div class="vibe-item"><div class="vibe-emoji">📸</div><div class="vibe-title">出片圣地</div><div class="vibe-desc">随手一拍就是朋友圈封面</div></div>
-    <div class="vibe-item"><div class="vibe-emoji">🤝</div><div class="vibe-title">社交流量</div><div class="vibe-desc">高质量人脉自然链接</div></div>
-    <div class="vibe-item"><div class="vibe-emoji">🎉</div><div class="vibe-title">主题不断</div><div class="vibe-desc">生日/庆功/周末主题趴</div></div>
-    <div class="vibe-item"><div class="vibe-emoji">💯</div><div class="vibe-title">口碑保证</div><div class="vibe-desc">来过一次就成回头客</div></div>
-  </div>
-</section>
-
-<section id="gallery" class="fade-in">
-  <h2 class="section-title">局头 · <span>日志</span></h2>
-  <p class="section-sub">最新动态 · 局头一手消息</p>
-  <div class="log-timeline">
-    <div class="log-entry shimmer-card">
-      <div class="log-header"><span class="log-icon">🔥</span><span class="log-tag news">最新动态</span><span class="log-date">2026.06.09</span></div>
-      <h4>本周卡颜局女生名额已满，气氛局持续招募</h4>
-      <p>上周六 MOON 卡颜局到场女生比例 55%，创近期新高。微卡颜局和气氛局还有空位，想来的抓紧加微信占坑。</p>
-    </div>
-    <div class="log-entry shimmer-card">
-      <div class="log-header"><span class="log-icon">🏪</span><span class="log-tag bar">新合作</span><span class="log-date">2026.06.07</span></div>
-      <h4>正式对接 FANS 酒吧，街道口第三据点</h4>
-      <p>除了 MOON 和 INSIDE，1107 现在也可以在 FANS 组局了。场地更大、灯光更炸，适合大型气氛局。第一场 FANS 局本周五试水。</p>
-    </div>
-    <div class="log-entry shimmer-card">
-      <div class="log-header"><span class="log-icon">🎁</span><span class="log-tag promo">优惠活动</span><span class="log-date">2026.06.05</span></div>
-      <h4>六月福利：大学生凭学生证立减 20 元</h4>
-      <p>整个六月，在校大学生凭学生证来拼桌每人立减 20 元（拼桌散客适用）。生日当天订台送果盘 + 全场生日歌。</p>
-    </div>
-    <div class="log-entry shimmer-card">
-      <div class="log-header"><span class="log-icon">👥</span><span class="log-tag news">团队动态</span><span class="log-date">2026.06.03</span></div>
-      <h4>1107 团队扩编：新增两位颜值担当加入</h4>
-      <p>又有两位高颜值小姐姐加入 1107 团队担当气氛组核心，微卡颜局和气氛局体验再度升级。团队还在扩编中，有想法的欢迎来聊。</p>
-    </div>
-    <div class="log-entry shimmer-card">
-      <div class="log-header"><span class="log-icon">📢</span><span class="log-tag promo">预告</span><span class="log-date">2026.06.01</span></div>
-      <h4>端午小长假连开三场，提前预订享折扣</h4>
-      <p>端午假期（6.20-6.22）连开三场：周五气氛局、周六卡颜局、周日收官微卡颜局。提前三天预订立减 30 元/人，名额有限先到先得。</p>
-    </div>
-  </div>
-  <p class="log-more">📩 加微信 <b style="color:var(--gold);">VX：a12378945b</b> 看更多动态 · 朋友圈每日更新</p>
-</section>
-
-<section class="fade-in">
-  <h2 class="section-title">入局 · <span>流程</span></h2>
-  <p class="section-sub">三步上车，今晚就嗨</p>
-  <div class="steps">
-    <div class="step"><div class="step-icon">📱</div><div class="step-num">01</div><h4>扫码 / 搜索加微信</h4><p>添加 1107 微信：a12378945b，备注「1107组局」，发一张个人照片。</p></div>
-    <div class="step"><div class="step-icon">✅</div><div class="step-num">02</div><h4>审核 + 匹配局类型</h4><p>卡颜还是气氛？1107 根据你的风格匹配。拼桌、订台一并搞定。</p></div>
-    <div class="step"><div class="step-icon">🥂</div><div class="step-num">03</div><h4>到场 · 开嗨</h4><p>拉群发定位，到场就是一家人。顶美顶帅女围，你只管嗨。</p></div>
-  </div>
-</section>
-
-<section id="faq" class="fade-in">
-  <h2 class="section-title">常见 · <span>问题</span></h2>
-  <p class="section-sub">还有想问的？直接加微信秒回</p>
-  <div class="faq-list">
-    <div class="faq-item"><button class="faq-q">💰 拼桌和订台有什么区别？价格多少？<span class="faq-arrow">▼</span></button><div class="faq-a">拼桌是你一个人或带一两个朋友来，和陌生人共享一张卡座，人均 150-300 元包酒水。订台是整张卡座归你，适合 4-10 人小团体，800-2000 元含酒水套餐。具体看当天酒吧和人数组局情况。</div></div>
-    <div class="faq-item"><button class="faq-q">🫂 我一个人来会不会尴尬？<span class="faq-arrow">▼</span></button><div class="faq-a">完全不会！70% 的人都是第一次一个人来。1107 会在局前拉群互相认识，到场后局头亲自带你融入，卡座上酒一开、游戏一玩，十分钟就熟了。</div></div>
-    <div class="faq-item"><button class="faq-q">👗 卡颜局要求多高？穿什么去？<span class="faq-arrow">▼</span></button><div class="faq-a">卡颜局需要发一张无滤镜正面照审核，主要看整体气质和干净程度，不是选美。穿搭建议：潮牌/暗黑/轻奢风，别穿拖鞋大裤衩。微卡颜局和气氛局没有硬性要求，干净就行。</div></div>
-    <div class="faq-item"><button class="faq-q">👩‍🦰 女生去安全吗？女生多吗？<span class="faq-arrow">▼</span></button><div class="faq-a">安全是第一原则。每场局女生比例控制在 40-60%，1107 本人全程在场。局前拉群验身份，不接受可疑人员。女生单独来有专属照顾，到场先认识其他女生，绝不让你落单。</div></div>
-    <div class="faq-item"><button class="faq-q">📍 一般在哪？几点到几点？<span class="faq-arrow">▼</span></button><div class="faq-a">主要在街道口 MOON 和 INSIDE 两家，偶尔去 FANS 或其他品牌。晚上 9:00-9:30 集合入场，凌晨 1:00-2:00 散场看气氛。具体定位当天微信群发。</div></div>
-    <div class="faq-item"><button class="faq-q">📅 能带朋友吗？需要提前多久约？<span class="faq-arrow">▼</span></button><div class="faq-a">可以带朋友！提前告诉 1107 人数就行，带异性朋友有优惠。建议当天下午 6 点前联系，临时来的只要有位置也能安排，但提前约更稳。</div></div>
-  </div>
-</section>
-
-<hr class="divider-gradient">
-
-<section id="recruit" class="fade-in">
-  <h2 class="section-title">招募 · <span>队友</span></h2>
-  <p class="section-sub">1107 团队扩编 · 期待你的加入</p>
-  <div class="recruit-highlight">
-    <p>1107 武汉组局团队持续扩编中，<b>招募成型局头、枪手代理、颜值担当</b>。<br>团队福利待遇多多：酒水提成 + 订台返点 + 定期团建 + 内部优惠。<br>会<b>带台</b>的、<b>颜值高</b>的、喜欢玩酒吧的，一起合作共事！</p>
-  </div>
-  <div class="recruit-grid">
-    <div class="recruit-card shimmer-card"><div class="r-icon">👑</div><h4>成型局头</h4><div class="r-sub">自带资源 · 独立带队</div><div class="r-desc">已经有自己的客群和组局经验，<br>1107 提供酒吧资源、品牌背书、运营支持。<br>利润分成，多劳多得。</div><div class="r-tags"><span>高分成</span><span>独立带队</span><span>资源对接</span></div></div>
-    <div class="recruit-card shimmer-card"><div class="r-icon">🤝</div><h4>枪手 / 代理</h4><div class="r-sub">带台有提成 · 轻松副业</div><div class="r-desc">会带台、有人脉就能干。<br>每带来一桌客人拿提成，<br>时间自由，多带多得，上不封顶。</div><div class="r-tags"><span>时间自由</span><span>提成丰厚</span><span>副业首选</span></div></div>
-    <div class="recruit-card shimmer-card"><div class="r-icon">💎</div><h4>颜值担当</h4><div class="r-sub">高颜值优先 · 氛围组核心</div><div class="r-desc">颜值高、气质好、喜欢酒吧文化。<br>作为局上社交核心，带动气氛，<br>福利最好，团队 C 位待遇。</div><div class="r-tags"><span>颜值优先</span><span>C 位待遇</span><span>福利拉满</span></div></div>
-  </div>
-  <div style="text-align:center;margin-top:36px;">
-    <p style="font-size:13px;color:var(--text-dim);letter-spacing:2px;margin-bottom:16px;">📩 感兴趣？加微信 <b style="color:var(--gold);">VX：a12378945b</b> 备注「<b style="color:var(--gold);">1107 团队</b>」，聊聊你的想法</p>
-    <a class="quiz-reset" href="#contact" style="font-size:13px;padding:12px 28px;">💬 加入我们</a>
-  </div>
-</section>
-
-<section id="contact" class="contact-section fade-in">
-  <h2 class="section-title">联系 · <span>1107</span></h2>
-  <p class="section-sub">今晚有局，扫码上车</p>
-  <div class="contact-wrapper">
-    <div class="contact-card">
-      <div class="wc-icon">💬</div><h3>扫码加微信</h3>
-      <img class="qr-img" src="wechat-qr.jpg" alt="1107 微信二维码" width="150" height="150" loading="lazy">
-      <p class="wechat-id">VX：a12378945b</p>
-      <p class="note">备注「<b style="color:var(--gold);">1107组局</b>」<br>发一张照片，秒回秒安排</p>
-    </div>
-    <div class="contact-card promo">
-      <div class="promo-shout">街道口<br>最靠谱局头</div>
-      <div class="promo-sub">武汉夜娱天花板</div>
-      <p style="margin-top:16px;color:var(--text-dim);font-size:12px;line-height:1.8;">🎯 全武汉组局<br>🍻 拼桌 · 订台<br>👑 卡颜 · 气氛<br>🔥 顶美顶帅女围</p>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-number" id="stat-online">--</div>
+      <div class="stat-label">今晚已报名</div>
     </div>
   </div>
 </section>
 
+<!-- Events Section -->
+<section class="events-section" id="events">
+  <div class="section-inner">
+    <div class="section-label reveal">局的类型</div>
+    <h2 class="section-title reveal reveal-delay-1">三大核心局型<br>每天轮番上阵</h2>
+    <p class="section-subtitle reveal reveal-delay-2">1107出品，局局精品。卡颜、微卡颜、气氛卡，总有一款适合你。</p>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar reveal reveal-delay-3">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="purple">卡颜</button>
+      <button class="filter-btn" data-filter="pink">微卡颜</button>
+      <button class="filter-btn" data-filter="teal">气氛卡</button>
+    </div>
+
+    <div class="events-grid" id="events-grid">
+      <div class="event-card card-purple reveal" data-type="purple">
+        <span class="event-badge">精选</span>
+        <div class="event-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        </div>
+        <h3 class="event-card-title">卡颜局</h3>
+        <p class="event-card-desc">严格颜值筛选，高标准审核，保证局内每一位都是高质量。卡颜不卡格局，进的来就是有实力。</p>
+      </div>
+
+      <div class="event-card card-pink reveal reveal-delay-1" data-type="pink">
+        <span class="event-badge">日常</span>
+        <div class="event-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 class="event-card-title">微卡颜局</h3>
+        <p class="event-card-desc">相对宽松的颜值门槛，更注重整体气质和氛围感，顾及更多朋友的参与需求，门槛友好但品质不减。</p>
+      </div>
+
+      <div class="event-card card-teal reveal reveal-delay-2" data-type="teal">
+        <span class="event-badge">招牌</span>
+        <div class="event-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3 class="event-card-title">气氛卡</h3>
+        <p class="event-card-desc">气氛卡专属席位，气氛担当加入，保证一整晚热场不冷场。嗨翻全场必备，社交达人首选局型。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Venues -->
+<section class="venues-section" id="venues">
+  <div class="section-inner">
+    <div class="section-label reveal">主场地</div>
+    <h2 class="section-title reveal reveal-delay-1">街道口双王<br>顶级主场</h2>
+    <p class="section-subtitle reveal reveal-delay-2">武汉最热门两大酒吧，1107长期驻场，最稳定最优质的出局保障。</p>
+
+    <div class="venues-grid">
+      <div class="venue-card reveal">
+        <div class="venue-visual">
+          <canvas class="venue-canvas" id="moon-canvas"></canvas>
+          <span class="venue-star">主场</span>
+        </div>
+        <div class="venue-body">
+          <h3 class="venue-name" style="color: var(--accent-gold-light);">Moon</h3>
+          <p class="venue-sub">街道口 · 武汉</p>
+          <p class="venue-desc">武汉街道口最受欢迎的精品酒吧之一，音响顶级、装修考究，氛围感拉满。1107长期在此主场，稳定输出高质量局。</p>
+          <div class="venue-features">
+            <span class="venue-feature">精品装修</span>
+            <span class="venue-feature">顶级音响</span>
+            <span class="venue-feature">氛围感强</span>
+            <span class="venue-feature">1107主场</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="venue-card reveal reveal-delay-1">
+        <div class="venue-visual">
+          <canvas class="venue-canvas" id="inside-canvas"></canvas>
+          <span class="venue-star" style="background: #a78bfa; color: #1a0a2e;">主场</span>
+        </div>
+        <div class="venue-body">
+          <h3 class="venue-name" style="color: #c4b5fd;">Inside</h3>
+          <p class="venue-sub">街道口 · 武汉</p>
+          <p class="venue-desc">街道口Inside，工业风格设计，空间宽阔开放，舞台效果震撼，是大型局和气氛局的首选场地，深受年轻人喜爱。</p>
+          <div class="venue-features">
+            <span class="venue-feature">工业风格</span>
+            <span class="venue-feature">大型场地</span>
+            <span class="venue-feature">舞台震撼</span>
+            <span class="venue-feature">1107主场</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="venue-card reveal reveal-delay-2" style="grid-column: span 2 / auto;">
+        <div style="padding: 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 200px;">
+            <div style="width: 56px; height: 56px; border-radius: 14px; background: rgba(20,184,166,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5eead4" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: #5eead4; margin-bottom: 0.5rem;">全武汉酒吧都有局</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75;">除了Moon和Inside两大主场，武汉各大优质酒吧1107都有局。从街道口到沿江，从光谷到汉街，组局范围覆盖全武汉。</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; max-width: 460px;">
+            <span class="venue-feature" style="border-color: rgba(94,234,212,0.3); color: #5eead4;">FANS</span>
+            <span class="venue-feature" style="border-color: rgba(94,234,212,0.3); color: #5eead4;">2.0</span>
+            <span class="venue-feature" style="border-color: rgba(94,234,212,0.3); color: #5eead4;">FOREVER</span>
+            <span class="venue-feature" style="border-color: rgba(94,234,212,0.3); color: #5eead4;">MIDNIGHT</span>
+            <span class="venue-feature" style="border-color: rgba(94,234,212,0.3); color: #5eead4;">峡谷镇</span>
+            <span class="venue-feature" style="border-color: rgba(94,234,212,0.3); color: #5eead4;">猩猩地堡</span>
+            <span class="venue-feature" style="border-color: rgba(94,234,212,0.3); color: #5eead4;">沿江一号Bottle</span>
+            <span class="venue-feature" style="border-color: rgba(94,234,212,0.3); color: #5eead4;">更多场地持续更新</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Daily Schedule -->
+<section class="schedule-section" id="schedule">
+  <div class="section-inner">
+    <div class="section-label reveal">每日排局</div>
+    <h2 class="section-title reveal reveal-delay-1">天天有局<br>从不断档</h2>
+    <p class="section-subtitle reveal reveal-delay-2">365天不间断，每天至少一场优质局。周日-周四 Moon主场，周五-周六 Inside主场。</p>
+    <div class="schedule-grid" id="week-schedule"></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Join Flow -->
+<section class="flow-section" id="flow">
+  <div class="section-inner">
+    <div class="section-label reveal">入局流程</div>
+    <h2 class="section-title reveal reveal-delay-1">三步入局<br>简单直接</h2>
+    <div class="flow-steps">
+      <div class="flow-step reveal">
+        <div class="flow-step-num">01</div>
+        <div class="flow-step-title">联系局头</div>
+        <div class="flow-step-desc">微信联系1107局头，告知想要参与的局型和日期，良心局头一对一接待。</div>
+      </div>
+      <div class="flow-step reveal reveal-delay-1">
+        <div class="flow-step-num">02</div>
+        <div class="flow-step-title">确认局型</div>
+        <div class="flow-step-desc">根据当天场次安排，确认局型（卡颜/微卡颜/气氛卡），明确场地和时间。</div>
+      </div>
+      <div class="flow-step reveal reveal-delay-2">
+        <div class="flow-step-num">03</div>
+        <div class="flow-step-title">到场入局</div>
+        <div class="flow-step-desc">准时到场，享受1107精心搭配的高质量局，顶帅顶美都在这，不虚此行。</div>
+      </div>
+      <div class="flow-step reveal reveal-delay-3">
+        <div class="flow-step-num">04</div>
+        <div class="flow-step-title">加入圈子</div>
+        <div class="flow-step-desc">成为1107局圈成员，提前获得排局通知，专属资源优先享受，下次继续。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials-section">
+  <div class="section-inner">
+    <div class="section-label reveal">口碑</div>
+    <h2 class="section-title reveal reveal-delay-1">局友怎么说</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <p class="testimonial-text">跟过很多局头，1107是我见过最认真搭配局的，每次颜值比例都很稳，卡颜局质量真的顶。</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">小L</div>
+          <div><div class="author-name">小L</div><div class="author-type">老局友 · 2年</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <p class="testimonial-text">卡颜局没话说，进去就知道局头用心了，帅哥美女都有，Moon的场地配上1107的局，直接天花板。</p>        <div class="testimonial-author">
+          <div class="author-avatar" style="background: rgba(124,58,237,0.15); color: #a78bfa;">阿C</div>
+          <div><div class="author-name">阿C</div><div class="author-type">卡颜局常客</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <p class="testimonial-text">第一次参加就入坑了，气氛卡超有用，整个晚上都嗨起来了，Inside那场真的绝，下次还来！</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background: rgba(236,72,153,0.12); color: #f9a8d4;">Mia</div>
+          <div><div class="author-name">Mia</div><div class="author-type">新局友</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-3">
+        <p class="testimonial-text">武汉组局问1107，良心局头不骗人，每天都有局这点我真没想到，365天不断档，佩服！</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background: rgba(20,184,166,0.12); color: #5eead4;">大威</div>
+          <div><div class="author-name">大威</div><div class="author-type">顶帅顶美局</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-inner">
+    <div class="section-label reveal">常见问题</div>
+    <h2 class="section-title reveal reveal-delay-1">你可能想问的</h2>
+    <div class="faq-list reveal reveal-delay-2">
+      <div class="faq-item">
+        <button class="faq-question">
+          卡颜局是什么意思？门槛很高吗？
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">卡颜局是对参与者的颜值有一定筛选标准的局，局头会根据照片审核。标准因局而异，卡颜局要求较高，微卡颜局相对宽松。目的是保证局内整体颜值水平，让大家都有好的体验。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          参加局需要费用吗？
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">1107是良心局头，不收任何中介费或组局费。你只需要支付自己在酒吧的消费即可，酒水价格由场地决定，和1107无关。有些局型可能有最低消费要求，具体报名时会提前告知。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          去局需要穿什么？有着装要求吗？
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">不同局型着装建议不同。卡颜局和顶帅顶美局建议稍微打扮一下，smart casual以上。微卡颜和气氛卡比较随意，干净整洁即可。具体建议报名时局头会告诉你。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          一个人去会不会尴尬？
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">完全不会！1107的局友大部分都是单独来的，局头会做破冰介绍，气氛卡局友专门负责暖场。很多人第一次来单独，走的时候已经加了一堆好友。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          怎么报名？需要提前多久？
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">微信联系1107局头即可报名，建议至少提前半天预约，热门局型（卡颜/顶帅顶美）建议提前1-2天锁定名额。当天报名视剩余名额情况而定。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          女围局和卡颜局有什么区别？
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">1107主打三大局型：卡颜局——严格颜值筛选，高标准审核；微卡颜局——颜值门槛相对宽松，更注重气质氛围；气氛卡——主打暖场社交，不卡颜值，气氛担当优先。不同需求选不同局型，局头会帮你推荐最适合的。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Join Team -->
+<section class="flow-section" id="join-team" style="background: var(--bg-surface);">
+  <div class="section-inner">
+    <div class="section-label reveal">加入我们</div>
+    <h2 class="section-title reveal reveal-delay-1">团队招募<br><span style="color: var(--accent-gold);">收成型局头 · 枪手</span></h2>
+    <p class="section-subtitle reveal reveal-delay-2" style="max-width: 620px;">1107团队持续扩编中，我们需要有资源、有执行力、有想法的伙伴加入。福利待遇多多，一起做大武汉组局天花板。</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; margin-top: 3rem;">
+      <div class="event-card card-gold reveal" style="--card-glow: rgba(212,168,67,0.08);">
+        <div class="event-icon" style="width: 56px; height: 56px; border-radius: 14px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="event-card-title" style="font-size: 1.35rem; margin-bottom: 0.75rem;">收成型局头</h3>
+        <p class="event-card-desc" style="line-height: 1.8;">自带资源、能独立组局收成的局头。你有场地资源或客源，1107提供品牌背书和运营支持，强强联手做大做强。</p>
+        <div style="margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <span class="venue-feature" style="border-color: rgba(212,168,67,0.3); color: var(--accent-gold-light);">自带资源</span>
+          <span class="venue-feature" style="border-color: rgba(212,168,67,0.3); color: var(--accent-gold-light);">品牌加持</span>
+          <span class="venue-feature" style="border-color: rgba(212,168,67,0.3); color: var(--accent-gold-light);">分成优厚</span>
+        </div>
+      </div>
+
+      <div class="event-card card-purple reveal reveal-delay-1" style="--card-glow: rgba(124,58,237,0.08);">
+        <div class="event-icon" style="width: 56px; height: 56px; border-radius: 14px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+        </div>
+        <h3 class="event-card-title" style="font-size: 1.35rem; margin-bottom: 0.75rem; color: #c4b5fd;">枪手</h3>
+        <p class="event-card-desc" style="line-height: 1.8;">活跃在一线的核心执行，负责现场控场、气氛带节奏、配合局头完成整场局的运营。执行力强、社交能力突出的优先。</p>
+        <div style="margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <span class="venue-feature" style="border-color: rgba(124,58,237,0.3); color: #c4b5fd;">现场控场</span>
+          <span class="venue-feature" style="border-color: rgba(124,58,237,0.3); color: #c4b5fd;">带气氛</span>
+          <span class="venue-feature" style="border-color: rgba(124,58,237,0.3); color: #c4b5fd;">收入可观</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Benefits -->
+    <div style="margin-top: 3rem; padding: 2rem; border-radius: 16px; border: 1px solid var(--border-subtle); background: var(--bg-card);" class="reveal reveal-delay-2">
+      <h3 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--accent-gold-light); margin-bottom: 1.25rem; letter-spacing: 0.04em;">团队福利待遇</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(212,168,67,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem;">💰</div>
+          <div><div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.15rem;">丰厚分成</div><div style="font-size: 0.78rem; color: var(--text-secondary);">局收入高比例分成，多劳多得</div></div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(124,58,237,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem;">🏟️</div>
+          <div><div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.15rem;">场地资源</div><div style="font-size: 0.78rem; color: var(--text-secondary);">全武汉优质酒吧场地优先权</div></div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(236,72,153,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem;">👑</div>
+          <div><div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.15rem;">品牌背书</div><div style="font-size: 0.78rem; color: var(--text-secondary);">1107天花板品牌，自带信任流量</div></div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(20,184,166,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem;">🤝</div>
+          <div><div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.15rem;">团队支持</div><div style="font-size: 0.78rem; color: var(--text-secondary);">运营指导、人员调配全程辅助</div></div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(212,168,67,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem;">🎯</div>
+          <div><div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.15rem;">灵活合作</div><div style="font-size: 0.78rem; color: var(--text-secondary);">全职/兼职均可，时间自由安排</div></div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(124,58,237,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem;">🚀</div>
+          <div><div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.15rem;">晋升通道</div><div style="font-size: 0.78rem; color: var(--text-secondary);">枪手→局头→合伙人，路径清晰</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 2.5rem;" class="reveal reveal-delay-3">
+      <a href="#" class="btn-primary open-qr" style="display: inline-flex; font-size: 0.95rem; padding: 0.85rem 2.2rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        咨询加入团队
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="section-label reveal" style="justify-content: center;">联系我们</div>
+    <h2 class="cta-title reveal reveal-delay-1">
+      今晚的局<br>
+      <span style="color: var(--accent-gold);">等你来</span>
+    </h2>
+    <p class="cta-subtitle reveal reveal-delay-2">
+      武汉街道口最良心的局头在这里，加入1107圈子，今晚就能入局。
+    </p>
+
+    <div class="cta-contact-grid reveal reveal-delay-2">
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="contact-label">微信号</div>
+        <div class="contact-value">1107局头</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="contact-label">主场地</div>
+        <div class="contact-value">街道口 Moon & Inside</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        </div>
+        <div class="contact-label">营业时间</div>
+        <div class="contact-value">每天 21:00 — 次日03:00</div>
+      </div>
+    </div>
+
+    <a href="#" class="btn-primary open-qr reveal reveal-delay-3" style="display: inline-flex; font-size: 1rem; padding: 1rem 2.8rem;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      立即联系入局
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer>
-  <p class="footer-slogan">街道口最靠谱局头 · 武汉夜娱天花板</p>
-  <p class="footer-sub">18-25 岁武汉年轻人的夜生活入口</p>
-  <div class="footer-links"><span>MOON</span> <span>INSIDE</span> <span>FANS</span> <span>FOREVER</span> <span>REMIX</span> <span>峡谷镇</span> <span>猩猩地堡</span> <span>MIDNIGHT</span></div>
-  <p style="margin-top:12px;">© 2026 1107 · VX：a12378945b · 全武汉组局拼桌订台</p>
+  <div class="footer-inner">
+    <div class="footer-logo">1107</div>
+    <p class="footer-copy">© 2026 1107 武汉组局 · 街道口天花板 · 每天质量局</p>
+    <ul class="footer-links">
+      <li><a href="#events">局的类型</a></li>
+      <li><a href="#venues">场地</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+  </div>
 </footer>
 
-<div class="floating-cta" id="floating-cta">
-  <span class="cta-text">🔥 今晚 <b>MOON 卡颜局</b> 还有名额</span>
-  <a class="cta-btn" href="#contact">💬 立即加微信</a>
-</div>
-
-<div class="music-widget" id="music-widget" title="氛围音乐"><span class="music-tooltip">🎵 氛围音效</span>🎵</div>
-
-<div class="popup-overlay" id="popup">
-  <div class="popup-card">
-    <button class="popup-close" id="popup-close">&times;</button>
-    <div class="popup-icon">🔥</div><div class="popup-title">今晚有局</div>
-    <div class="popup-desc"><span class="popup-highlight">MOON 街道口</span><br>卡颜局 · 21:00 入场<br>目前还剩 <span class="popup-highlight" id="popup-spots">3</span> 个名额</div>
-    <a class="popup-btn" href="#contact">💬 立即占位</a>
-    <button class="popup-skip" id="popup-skip">下次再说</button>
-  </div>
-</div>
-
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"1107 武汉组局","description":"街道口最靠谱局头，专注18-25岁年轻人高质量社交组局","url":"https://1107xxh.top/","areaServed":{"@type":"City","name":"武汉"},"knowsAbout":["卡颜局","微卡颜局","气氛局","拼桌","订台"],"contactPoint":{"@type":"ContactPoint","contactType":"组局预约","identifier":"a12378945b","availableLanguage":"zh-CN"}}
-</script>
-
 <script>
-// 进度条
-window.addEventListener('scroll',()=>{const s=window.scrollY,d=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('progress-bar').style.width=Math.min(d>0?(s/d)*100:0,100)+'%'});
+  /* ============================================
+     THREE.JS 3D PARTICLE BACKGROUND
+     ============================================ */
+  let threeScene, threeCamera, threeRenderer, threeParticles, threeMouse = {x:0, y:0};
 
-// 粒子背景
-(function(){const c=document.querySelector('.particle-bg'),x=c.getContext('2d');let p=[],w,h;function rs(){w=c.width=window.innerWidth;h=c.height=window.innerHeight}rs();window.addEventListener('resize',()=>{rs();ip()});function ip(){const n=Math.min(Math.floor(w*h/12000),120);p=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.2+.3,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,alpha:Math.random()*.4+.1}))}ip();function dr(){x.clearRect(0,0,w,h);p.forEach(t=>{t.x+=t.vx;t.y+=t.vy;if(t.x<-10)t.x=w+10;if(t.x>w+10)t.x=-10;if(t.y<-10)t.y=h+10;if(t.y>h+10)t.y=-10;x.beginPath();x.arc(t.x,t.y,t.r,0,Math.PI*2);x.fillStyle=`rgba(201,169,110,${t.alpha})`;x.fill()});requestAnimationFrame(dr)}dr()})();
+  function initThree() {
+    const canvas = document.getElementById('three-bg');
+    threeScene = new THREE.Scene();
+    threeCamera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    threeCamera.position.z = 50;
 
-// 滚动动画
-const ob=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting)t.target.classList.add('visible')})},{threshold:.12});
-document.querySelectorAll('.fade-in').forEach(e=>ob.observe(e));
+    threeRenderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    threeRenderer.setSize(window.innerWidth, window.innerHeight);
+    threeRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    threeRenderer.setClearColor(0x000000, 0);
 
-// 统计数字递增
-(function(){let a=false;const s=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting&&!a){a=true;document.querySelectorAll('.count-up').forEach(e=>{const t=parseInt(e.dataset.target),d=1500,b=performance.now();function n(r){const o=Math.min((r-b)/d,1),i=o===1?1:1-Math.pow(2,-10*o);e.textContent=Math.floor(i*t);if(o<1)requestAnimationFrame(n)}requestAnimationFrame(n)});document.querySelectorAll('.count-up-text').forEach(e=>{e.style.opacity='0';e.style.transition='opacity .8s ease';setTimeout(()=>{e.style.opacity='1'},800)})}})},{threshold:.5});const t=document.getElementById('stats-strip');if(t)s.observe(t)})();
+    const count = window.innerWidth < 768 ? 400 : 800;
+    const geo = new THREE.BufferGeometry();
+    const positions = new Float32Array(count * 3);
+    const colors = new Float32Array(count * 3);
+    const sizes = new Float32Array(count);
 
-// 导航收缩
-window.addEventListener('scroll',()=>{const n=document.querySelector('nav');n.style.height=window.scrollY>50?'56px':'70px';n.style.background=window.scrollY>50?'rgba(10,10,10,.96)':'rgba(10,10,10,.88)'});
+    const style = getComputedStyle(document.documentElement);
+    const c1 = style.getPropertyValue('--particle-color-1').trim().split(',').map(Number);
+    const c2 = style.getPropertyValue('--particle-color-2').trim().split(',').map(Number);
+    const c3 = style.getPropertyValue('--particle-color-3').trim().split(',').map(Number);
+    const palettes = [c1, c2, c3];
 
-// 汉堡菜单
-const hb=document.querySelector('.hamburger'),nl=document.querySelector('.nav-links');
-hb.addEventListener('click',()=>{hb.classList.toggle('active');nl.classList.toggle('open');hb.setAttribute('aria-expanded',nl.classList.contains('open'))});
-nl.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>{hb.classList.remove('active');nl.classList.remove('open');hb.setAttribute('aria-expanded','false')})});
+    for (let i = 0; i < count; i++) {
+      positions[i*3] = (Math.random() - 0.5) * 120;
+      positions[i*3+1] = (Math.random() - 0.5) * 120;
+      positions[i*3+2] = (Math.random() - 0.5) * 80;
 
-// 倒计时
-(function(){function u(){const n=new Date(),t=new Date(n);t.setHours(23,0,0,0);if(n>t)t.setDate(t.getDate()+1);const d=Math.max(0,t-n),h=Math.floor(d/3600000),m=Math.floor((d%3600000)/60000),s=Math.floor((d%60000)/1000);document.getElementById('cd-h').textContent=String(h).padStart(2,'0');document.getElementById('cd-m').textContent=String(m).padStart(2,'0');document.getElementById('cd-s').textContent=String(s).padStart(2,'0');const u=document.getElementById('countdown-urgency');if(d<3600000)u.textContent='🔥 马上就要开场了，速来占位！';else if(d<7200000)u.textContent='⏰ 今晚局快开始了，现在加微信还来得及！';else u.textContent='📩 现在就约，名额有限先到先得'}u();setInterval(u,1000)})();
+      const pal = palettes[Math.floor(Math.random() * palettes.length)];
+      colors[i*3] = pal[0];
+      colors[i*3+1] = pal[1];
+      colors[i*3+2] = pal[2];
 
-// 评价跑马灯
-(function(){const r=[{stars:'★★★★★',body:'第一次来就上瘾了，1107太会组织了，妹子质量真的高，颜值这块没话说。',name:'小陈',date:'上周六 MOON 卡颜局'},{stars:'★★★★★',body:'我一个社恐都被带嗨了，局头贼能搞气氛，拼桌认识了好几个朋友，下周还来！',name:'阿杰',date:'周五 MOON 气氛局'},{stars:'★★★★★',body:'比想象中靠谱多了，不是那种乱七八糟的局。女生比例确实高，安全感拉满。',name:'Nana',date:'上周六 MOON 微卡颜局'},{stars:'★★★★★',body:'订台价格比直接找酒吧便宜，还不用操心，带兄弟们来倍有面子。',name:'浩哥',date:'周三 INSIDE 包卡'},{stars:'★★★★★',body:'我说实话街道口没有比1107更靠谱的局头了，来了三四次每次都满意。',name:'David',date:'上周五 MOON 卡颜局'},{stars:'★★★★★',body:'朋友推荐来的，果然名不虚传。入局流程清晰，不坑不骗，武汉夜娱天花板当之无愧。',name:'小宇',date:'周六 INSIDE 拼桌'},{stars:'★★★★★',body:'每场局女生都好多，而且都是高质量，聊得来的加了微信，社交圈直接打开。',name:'然然',date:'周五 MOON 气氛局'},{stars:'★★★★★',body:'我过生日找1107订的台，安排得太到位了，送了果盘还有全场生日歌，排面拉满！',name:'凯文',date:'上上周 INSIDE 生日趴'}];document.getElementById('testimonial-track').innerHTML=[...r,...r].map(r=>`<div class="testimonial-card"><div class="t-stars">${r.stars}</div><div class="t-body">"${r.body}"</div><div class="t-meta"><b>${r.name}</b> · ${r.date}</div></div>`).join('')})();
+      sizes[i] = Math.random() * 2.0 + 0.5;
+    }
 
-// 快速自测
-(function(){let s=0;const a=[],q=[{q:'😎 你对自己颜值的评价是？',opts:['👑 顶帅/顶美，走到哪都是焦点','✨ 干净清爽，气质在线','🔥 我不靠脸，我靠气氛']},{q:'🍻 你去酒吧最看重什么？',opts:['👯‍♀️ 女生多不多，质量高不高','🤝 能不能认识新朋友','🎵 音乐嗨不嗨，能不能放开玩']}],pg=document.getElementById('quiz-progress'),bd=document.getElementById('quiz-body');function rq(){const qq=q[s];bd.innerHTML=`<div class="quiz-question">${qq.q}</div><div class="quiz-options">${qq.opts.map((o,i)=>`<button class="quiz-option" onclick="window._qa(${i})">${o}</button>`).join('')}</div>`;ud()}function ud(){pg.querySelectorAll('.quiz-dot').forEach((d,i)=>{d.classList.remove('active','done');if(i<s)d.classList.add('done');if(i===s)d.classList.add('active')})}function sr(){const sc=a[0]*1.5+a[1];let r;if(sc<=.5)r={icon:'👑',title:'卡 颜 局',desc:'你就是为卡颜局而生的！<br>颜值在线、气场到位，武汉颜值天花板等你来战。<br>加微信发照片，审核通过即刻入局。'};else if(sc<=2)r={icon:'✨',title:'微 卡 颜 局',desc:'气质在线的你最适合微卡颜局！<br>有门槛但不苛刻，高品质社交零压力。<br>氛围刚刚好，轻松又体面。'};else r={icon:'🔥',title:'气 氛 局',desc:'气氛组欢迎你！<br>不卡脸，卡的就是你的能量。<br>会玩、能喝、放得开，全场嗨翻就靠你。'};pg.querySelectorAll('.quiz-dot').forEach(d=>{d.classList.add('done');d.classList.remove('active')});bd.innerHTML=`<div class="quiz-result" style="display:block;"><div class="result-icon">${r.icon}</div><div class="result-title">${r.title}</div><div class="result-desc">${r.desc}</div><button class="quiz-reset" onclick="window._qr()">🔄 再测一次</button></div>`}window._qa=function(i){a.push(i);s++;if(s>=q.length)sr();else rq()};window._qr=function(){s=0;a.length=0;pg.querySelectorAll('.quiz-dot').forEach(d=>{d.classList.remove('active','done')});pg.querySelector('.quiz-dot').classList.add('active');rq()};rq()})();
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    geo.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
-// FAQ
-document.querySelectorAll('.faq-q').forEach(b=>{b.addEventListener('click',()=>{const i=b.parentElement,wo=i.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(e=>e.classList.remove('open'));if(!wo)i.classList.add('open')})});
+    const mat = new THREE.PointsMaterial({
+      size: 1.2,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.7,
+      sizeAttenuation: true,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
+    });
 
-// 底部CTA
-(function(){const c=document.getElementById('floating-cta'),cs=document.getElementById('contact');function u(){const isMobile=window.innerWidth<768;if(isMobile){c.classList.add('visible');return}const r=cs.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)c.classList.remove('visible');else if(window.scrollY>500)c.classList.add('visible');else c.classList.remove('visible')}window.addEventListener('scroll',u);u()})();
+    threeParticles = new THREE.Points(geo, mat);
+    threeScene.add(threeParticles);
 
-// 音乐播放器
-(function(){const w=document.getElementById('music-widget');let p=false,ac=null,o=null,g=null;function sa(){try{ac=new(window.AudioContext||window.webkitAudioContext)();o=ac.createOscillator();g=ac.createGain();o.type='sine';o.frequency.value=60;g.gain.value=.03;o.connect(g);g.connect(ac.destination);o.start()}catch(e){}}function sp(){try{o.stop();ac.close()}catch(e){}ac=null;o=null;g=null}w.addEventListener('click',()=>{p=!p;if(p){w.classList.add('playing');w.querySelector('.music-tooltip').textContent='🔇 关闭音效';sa()}else{w.classList.remove('playing');w.querySelector('.music-tooltip').textContent='🎵 氛围音效';sp()}})})();
+    // Connection lines
+    const lineGeo = new THREE.BufferGeometry();
+    const lineCount = window.innerWidth < 768 ? 100 : 250;
+    const linePos = new Float32Array(lineCount * 6);
+    const lineCol = new Float32Array(lineCount * 6);
+    for (let i = 0; i < lineCount; i++) {
+      const a = Math.floor(Math.random() * count);
+      const b = Math.floor(Math.random() * count);
+      linePos[i*6] = positions[a*3];
+      linePos[i*6+1] = positions[a*3+1];
+      linePos[i*6+2] = positions[a*3+2];
+      linePos[i*6+3] = positions[b*3];
+      linePos[i*6+4] = positions[b*3+1];
+      linePos[i*6+5] = positions[b*3+2];
+      lineCol[i*6] = c1[0]; lineCol[i*6+1] = c1[1]; lineCol[i*6+2] = c1[2];
+      lineCol[i*6+3] = c1[0]; lineCol[i*6+4] = c1[1]; lineCol[i*6+5] = c1[2];
+    }
+    lineGeo.setAttribute('position', new THREE.BufferAttribute(linePos, 3));
+    lineGeo.setAttribute('color', new THREE.BufferAttribute(lineCol, 3));
+    const lineMat = new THREE.LineBasicMaterial({
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.06,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
+    });
+    const lines = new THREE.LineSegments(lineGeo, lineMat);
+    threeScene.add(lines);
 
-// 弹窗
-(function(){const p=document.getElementById('popup'),cb=document.getElementById('popup-close'),sb=document.getElementById('popup-skip'),se=document.getElementById('popup-spots');function ss(){const l=localStorage.getItem('1107_popup_last');if(!l)return true;const ld=new Date(parseInt(l)),td=new Date();return ld.getDate()!==td.getDate()||ld.getMonth()!==td.getMonth()}function sh(){if(!ss())return;se.textContent=Math.floor(Math.random()*5)+1;setTimeout(()=>p.classList.add('show'),2500);localStorage.setItem('1107_popup_last',Date.now())}function hd(){p.classList.remove('show')}cb.addEventListener('click',hd);sb.addEventListener('click',hd);p.addEventListener('click',e=>{if(e.target===p)hd()});sh()})();
+    function animateThree() {
+      requestAnimationFrame(animateThree);
+      threeParticles.rotation.y += 0.0008;
+      threeParticles.rotation.x += 0.0003;
+      lines.rotation.y = threeParticles.rotation.y;
+      lines.rotation.x = threeParticles.rotation.x;
+
+      // Mouse parallax
+      threeCamera.position.x += (threeMouse.x * 8 - threeCamera.position.x) * 0.02;
+      threeCamera.position.y += (-threeMouse.y * 5 - threeCamera.position.y) * 0.02;
+      threeCamera.lookAt(threeScene.position);
+
+      threeRenderer.render(threeScene, threeCamera);
+    }
+    animateThree();
+  }
+
+  function updateThreeColors() {
+    if (!threeParticles) return;
+    const style = getComputedStyle(document.documentElement);
+    const c1 = style.getPropertyValue('--particle-color-1').trim().split(',').map(Number);
+    const c2 = style.getPropertyValue('--particle-color-2').trim().split(',').map(Number);
+    const c3 = style.getPropertyValue('--particle-color-3').trim().split(',').map(Number);
+    const palettes = [c1, c2, c3];
+    const colors = threeParticles.geometry.attributes.color;
+    const count = colors.count;
+    for (let i = 0; i < count; i++) {
+      const pal = palettes[Math.floor(Math.random() * palettes.length)];
+      colors.setXYZ(i, pal[0], pal[1], pal[2]);
+    }
+    colors.needsUpdate = true;
+  }
+
+  window.addEventListener('mousemove', e => {
+    threeMouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+    threeMouse.y = (e.clientY / window.innerHeight) * 2 - 1;
+  });
+
+  window.addEventListener('resize', () => {
+    if (threeRenderer && threeCamera) {
+      threeCamera.aspect = window.innerWidth / window.innerHeight;
+      threeCamera.updateProjectionMatrix();
+      threeRenderer.setSize(window.innerWidth, window.innerHeight);
+    }
+  });
+
+  if (typeof THREE !== 'undefined') {
+    initThree();
+  }
+
+  /* ============================================
+     THEME TOGGLE
+     ============================================ */
+  const themeBtn = document.getElementById('theme-toggle');
+  const iconDark = document.getElementById('theme-icon-dark');
+  const iconNeon = document.getElementById('theme-icon-neon');
+
+  themeBtn.addEventListener('click', () => {
+    const html = document.documentElement;
+    const isNeon = html.getAttribute('data-theme') === 'neon';
+    html.setAttribute('data-theme', isNeon ? 'dark' : 'neon');
+    iconDark.style.display = isNeon ? 'block' : 'none';
+    iconNeon.style.display = isNeon ? 'none' : 'block';
+    updateThreeColors();
+    // Redraw venue canvases with new theme
+    setTimeout(() => { drawMoonVenue(); drawInsideVenue(); }, 50);
+  });
+
+  /* ============================================
+     COUNTDOWN TIMER
+     ============================================ */
+  function updateCountdown() {
+    const now = new Date();
+    let target = new Date(now);
+    target.setHours(22, 30, 0, 0);
+    // If past 22:30, show countdown to next day's 22:30
+    if (now.getHours() > 22 || (now.getHours() === 22 && now.getMinutes() >= 30)) {
+      target.setDate(target.getDate() + 1);
+    }
+    const diff = target - now;
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  /* ============================================
+     LIVE COUNTER (simulated)
+     ============================================ */
+  let liveBase = Math.floor(Math.random() * 15) + 18; // 18-32
+  function updateLiveCount() {
+    liveBase += Math.random() > 0.6 ? 1 : 0;
+    if (liveBase > 58) liveBase = Math.floor(Math.random() * 10) + 25;
+    document.getElementById('live-count').textContent = liveBase;
+    document.getElementById('stat-online').textContent = liveBase;
+  }
+  updateLiveCount();
+  setInterval(updateLiveCount, 4000 + Math.random() * 3000);
+
+  /* ============================================
+     QR CODE MODAL
+     ============================================ */
+  const qrOverlay = document.getElementById('qr-overlay');
+  const qrClose = document.getElementById('qr-close');
+
+  function openQR() {
+    qrOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeQR() {
+    qrOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.open-qr').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); openQR(); });
+  });
+  qrClose.addEventListener('click', closeQR);
+  qrOverlay.addEventListener('click', e => { if (e.target === qrOverlay) closeQR(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeQR(); });
+
+  // Floating WeChat button
+  document.getElementById('float-wechat').addEventListener('click', openQR);
+
+  /* ============================================
+     EVENT FILTER
+     ============================================ */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const eventCards = document.querySelectorAll('.event-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      eventCards.forEach(card => {
+        if (filter === 'all' || card.dataset.type === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  /* ============================================
+     FAQ ACCORDION
+     ============================================ */
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      // Toggle clicked
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* ============================================
+     VENUE CANVAS ART
+     ============================================ */
+  function drawMoonVenue() {
+    const c = document.getElementById('moon-canvas');
+    if (!c) return;
+    c.width = c.offsetWidth; c.height = c.offsetHeight;
+    const ctx = c.getContext('2d');
+    const isNeon = document.documentElement.getAttribute('data-theme') === 'neon';
+
+    const bg = ctx.createLinearGradient(0, 0, c.width, c.height);
+    bg.addColorStop(0, isNeon ? '#050510' : '#0d0a16');
+    bg.addColorStop(1, isNeon ? '#051510' : '#1a1208');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, c.width, c.height);
+
+    const cx = c.width * 0.65, cy = c.height * 0.45, r = Math.min(c.width, c.height) * 0.3;
+    const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+    grd.addColorStop(0, isNeon ? 'rgba(0,255,170,0.35)' : 'rgba(240,201,110,0.35)');
+    grd.addColorStop(0.6, isNeon ? 'rgba(0,255,170,0.1)' : 'rgba(212,168,67,0.1)');
+    grd.addColorStop(1, 'transparent');
+    ctx.fillStyle = grd;
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.fill();
+
+    ctx.strokeStyle = isNeon ? 'rgba(0,255,170,0.7)' : 'rgba(240,201,110,0.7)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.arc(cx, cy, r * 0.55, 0.3, Math.PI * 1.7); ctx.stroke();
+
+    for (let i = 0; i < 40; i++) {
+      ctx.beginPath();
+      ctx.arc(Math.random() * c.width * 0.8, Math.random() * c.height, Math.random() * 1.2 + 0.3, 0, Math.PI * 2);
+      ctx.fillStyle = isNeon ? `rgba(0,255,170,${Math.random()*0.6+0.1})` : `rgba(240,201,110,${Math.random()*0.6+0.1})`;
+      ctx.fill();
+    }
+
+    ctx.font = 'bold 28px Outfit, sans-serif';
+    ctx.fillStyle = isNeon ? 'rgba(0,255,170,0.9)' : 'rgba(240,201,110,0.9)';
+    ctx.fillText('MOON', 28, c.height - 28);
+  }
+
+  function drawInsideVenue() {
+    const c = document.getElementById('inside-canvas');
+    if (!c) return;
+    c.width = c.offsetWidth; c.height = c.offsetHeight;
+    const ctx = c.getContext('2d');
+    const isNeon = document.documentElement.getAttribute('data-theme') === 'neon';
+
+    const bg = ctx.createLinearGradient(0, 0, c.width, c.height);
+    bg.addColorStop(0, '#0a0916'); bg.addColorStop(1, '#130c20');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, c.width, c.height);
+
+    ctx.strokeStyle = 'rgba(124,58,237,0.12)'; ctx.lineWidth = 0.5;
+    for (let x = 0; x < c.width; x += 32) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,c.height); ctx.stroke(); }
+    for (let y = 0; y < c.height; y += 32) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(c.width,y); ctx.stroke(); }
+
+    const grd = ctx.createRadialGradient(c.width*0.7, c.height*0.4, 0, c.width*0.7, c.height*0.4, c.width*0.4);
+    grd.addColorStop(0, isNeon ? 'rgba(0,229,255,0.3)' : 'rgba(124,58,237,0.3)');
+    grd.addColorStop(1, 'transparent');
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, c.width, c.height);
+
+    ctx.strokeStyle = isNeon ? 'rgba(0,229,255,0.5)' : 'rgba(168,139,250,0.5)';
+    ctx.lineWidth = 1.5;
+    const sw = c.width * 0.5, sh = 10, sx = (c.width - sw) / 2, sy = c.height * 0.55;
+    ctx.beginPath(); ctx.roundRect(sx, sy, sw, sh, 4); ctx.stroke();
+
+    [sx+sw*0.2, sx+sw*0.5, sx+sw*0.8].forEach(spx => {
+      const spGrd = ctx.createLinearGradient(spx, 0, spx, sy);
+      spGrd.addColorStop(0, 'transparent');
+      spGrd.addColorStop(1, isNeon ? 'rgba(0,229,255,0.12)' : 'rgba(168,139,250,0.12)');
+      ctx.fillStyle = spGrd;
+      ctx.beginPath();
+      ctx.moveTo(spx-20,0); ctx.lineTo(spx+20,0); ctx.lineTo(spx+5,sy); ctx.lineTo(spx-5,sy);
+      ctx.fill();
+    });
+
+    ctx.font = 'bold 28px Outfit, sans-serif';
+    ctx.fillStyle = isNeon ? 'rgba(0,229,255,0.9)' : 'rgba(196,181,253,0.9)';
+    ctx.fillText('INSIDE', 28, c.height - 28);
+  }
+
+  setTimeout(() => { drawMoonVenue(); drawInsideVenue(); }, 100);
+  window.addEventListener('resize', () => { drawMoonVenue(); drawInsideVenue(); });
+
+  /* ============================================
+     MARQUEE
+     ============================================ */
+  const marqueeItems = ['卡颜局','Moon','微卡颜','Inside','气氛卡','街道口','1107','每天质量局','良心局头','天花板','FANS','MIDNIGHT','峡谷镇'];
+  const track = document.getElementById('marquee');
+  track.innerHTML = [...marqueeItems, ...marqueeItems].map((t,i) =>
+    `<span class="marquee-item">${t}${i%2?'<span class="marquee-dot"> ✦</span>':''}</span>`
+  ).join('');
+
+  /* ============================================
+     WEEKLY SCHEDULE
+     ============================================ */
+  const days = ['周一','周二','周三','周四','周五','周六','周日'];
+  const dayEvents = [
+    {event:'卡颜局',venue:'Moon'},{event:'微卡颜',venue:'Moon'},{event:'气氛卡',venue:'Moon'},
+    {event:'卡颜局',venue:'Moon'},{event:'微卡颜',venue:'Inside'},{event:'气氛卡',venue:'Inside'},{event:'卡颜局',venue:'Moon'}
+  ];
+  const todayIdx = new Date().getDay() === 0 ? 6 : new Date().getDay() - 1;
+  const scheduleGrid = document.getElementById('week-schedule');
+  days.forEach((day, i) => {
+    scheduleGrid.innerHTML += `<div class="day-card ${i===todayIdx?'active':''}"><div class="day-name">${day}</div><div class="day-main-event">${dayEvents[i].event}</div><div class="day-event-type">${dayEvents[i].venue}</div></div>`;
+  });
+
+  /* ============================================
+     NAV SCROLL + REVEAL + MAGNETIC + ANCHORS
+     ============================================ */
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      btn.style.transform = `translateX(${(e.clientX-r.left-r.width/2)*0.15}px) translateY(${(e.clientY-r.top-r.height/2)*0.15}px)`;
+    });
+    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); }
+    });
+  });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
 </script>
 </body>
 </html>
