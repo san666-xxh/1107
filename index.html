@@ -33,6 +33,10 @@
       --particle-color-1: 0.831, 0.659, 0.263;
       --particle-color-2: 0.486, 0.227, 0.929;
       --particle-color-3: 0.925, 0.282, 0.600;
+      --glow-hero-inner: 0 0 20px rgba(212,168,67,0.6), 0 0 60px rgba(212,168,67,0.25);
+      --glow-hero-outer: 0 0 80px rgba(212,168,67,0.12);
+      --glass-bg: rgba(10,10,20,0.55);
+      --glass-border: rgba(255,255,255,0.06);
     }
 
     [data-theme="neon"] {
@@ -54,6 +58,10 @@
       --particle-color-1: 0, 1, 0.667;
       --particle-color-2: 0.749, 0.353, 0.949;
       --particle-color-3: 1, 0.176, 0.471;
+      --glow-hero-inner: 0 0 20px rgba(0,255,170,0.7), 0 0 60px rgba(0,255,170,0.3);
+      --glow-hero-outer: 0 0 80px rgba(0,255,170,0.18);
+      --glass-bg: rgba(5,5,20,0.55);
+      --glass-border: rgba(0,255,170,0.08);
     }
 
     html { scroll-behavior: smooth; }
@@ -65,6 +73,19 @@
       line-height: 1.6;
       overflow-x: hidden;
       transition: background 0.5s, color 0.5s;
+      position: relative;
+    }
+
+    /* Subtle noise texture overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 128px 128px;
     }
 
     /* ---- THREE.JS BACKGROUND ---- */
@@ -85,15 +106,22 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: linear-gradient(to bottom, rgba(8,8,16,0.95), transparent);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 0.5px solid rgba(212,168,67,0.08);
+      background: rgba(8,8,16,0.7);
+      backdrop-filter: blur(20px) saturate(1.2);
+      -webkit-backdrop-filter: blur(20px) saturate(1.2);
+      border-bottom: 1px solid rgba(212,168,67,0.06);
       transition: all 0.4s;
     }
 
+    [data-theme="neon"] nav {
+      background: rgba(5,5,15,0.7);
+      border-bottom: 1px solid rgba(0,255,170,0.06);
+    }
+
     nav.scrolled {
-      background: rgba(8,8,16,0.96);
+      background: rgba(8,8,16,0.92);
+      backdrop-filter: blur(24px) saturate(1.4);
+      -webkit-backdrop-filter: blur(24px) saturate(1.4);
       border-bottom-color: var(--border-glow);
     }
 
@@ -217,6 +245,8 @@
       gap: 0.5rem;
       border: 1px solid var(--border-glow);
       background: rgba(212,168,67,0.06);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       padding: 0.4rem 1rem;
       border-radius: 100px;
       font-size: 0.75rem;
@@ -224,6 +254,13 @@
       color: var(--accent-gold-light);
       margin-bottom: 2rem;
       animation: fadeUp 0.8s ease both;
+      box-shadow: 0 0 20px rgba(212,168,67,0.05);
+      transition: all 0.4s;
+    }
+
+    [data-theme="neon"] .hero-badge {
+      background: rgba(0,255,170,0.06);
+      box-shadow: 0 0 20px rgba(0,255,170,0.06);
     }
 
     .hero-badge-dot {
@@ -238,6 +275,66 @@
       50% { opacity: 0.5; transform: scale(0.7); }
     }
 
+    /* Neon frame behind hero number */
+    .hero-frame {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: -1;
+      width: min(80vw, 700px);
+      height: min(80vw, 700px);
+    }
+
+    .hero-frame-inner {
+      position: absolute;
+      inset: 0;
+      border: 1.5px solid rgba(212,168,67,0.18);
+      border-radius: 50%;
+      animation: framePulse 4s ease-in-out infinite, frameRotate 40s linear infinite;
+      transition: border-color 0.4s;
+    }
+
+    [data-theme="neon"] .hero-frame-inner {
+      border-color: rgba(0,255,170,0.22);
+    }
+
+    .hero-frame-mid {
+      position: absolute;
+      inset: 6%;
+      border: 1px solid rgba(212,168,67,0.1);
+      border-radius: 44%;
+      animation: framePulse 4s ease-in-out 0.5s infinite, frameRotate 35s linear infinite reverse;
+      transition: border-color 0.4s;
+    }
+
+    [data-theme="neon"] .hero-frame-mid {
+      border-color: rgba(0,255,170,0.12);
+    }
+
+    .hero-frame-outer {
+      position: absolute;
+      inset: 14%;
+      border: 0.5px solid rgba(212,168,67,0.06);
+      border-radius: 38%;
+      animation: framePulse 4s ease-in-out 1s infinite, frameRotate 45s linear infinite;
+      transition: border-color 0.4s;
+    }
+
+    [data-theme="neon"] .hero-frame-outer {
+      border-color: rgba(0,255,170,0.08);
+    }
+
+    @keyframes framePulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes frameRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
     .hero-number {
       font-family: var(--font-display);
       font-size: clamp(5rem, 18vw, 14rem);
@@ -250,6 +347,13 @@
       background-clip: text;
       animation: fadeUp 0.8s ease 0.1s both;
       position: relative;
+      filter: drop-shadow(var(--glow-hero-inner)) drop-shadow(var(--glow-hero-outer));
+    }
+
+    .hero-number-inner {
+      position: relative;
+      display: inline-block;
+      margin: 0 auto;
     }
 
     .hero-number::after {
@@ -260,8 +364,8 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      filter: blur(40px);
-      opacity: 0.4;
+      filter: blur(50px);
+      opacity: 0.5;
       z-index: -1;
     }
 
@@ -367,6 +471,11 @@
       line-height: 1;
       letter-spacing: -0.02em;
       transition: color 0.4s;
+      text-shadow: 0 0 12px var(--accent-gold), 0 0 30px rgba(212,168,67,0.3);
+    }
+
+    [data-theme="neon"] .countdown-num {
+      text-shadow: 0 0 12px #00ffaa, 0 0 30px rgba(0,255,170,0.4);
     }
 
     .countdown-txt {
@@ -441,6 +550,27 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      position: relative;
+      box-shadow: 0 4px 24px rgba(212,168,67,0.25);
+      animation: btnBreathe 3s ease-in-out infinite;
+    }
+
+    [data-theme="neon"] .btn-primary {
+      box-shadow: 0 4px 24px rgba(0,255,170,0.3);
+    }
+
+    @keyframes btnBreathe {
+      0%, 100% { box-shadow: 0 4px 24px rgba(212,168,67,0.2); }
+      50% { box-shadow: 0 4px 40px rgba(212,168,67,0.45), 0 0 80px rgba(212,168,67,0.1); }
+    }
+
+    [data-theme="neon"] .btn-primary {
+      animation-name: btnBreatheNeon;
+    }
+
+    @keyframes btnBreatheNeon {
+      0%, 100% { box-shadow: 0 4px 24px rgba(0,255,170,0.25); }
+      50% { box-shadow: 0 4px 40px rgba(0,255,170,0.5), 0 0 80px rgba(0,255,170,0.15); }
     }
 
     .btn-primary:hover {
@@ -546,6 +676,11 @@
       line-height: 1.15;
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
+      text-shadow: 0 0 60px rgba(212,168,67,0.06);
+    }
+
+    [data-theme="neon"] .section-title {
+      text-shadow: 0 0 60px rgba(0,255,170,0.08);
     }
 
     .section-subtitle {
@@ -681,7 +816,22 @@
       transform: translateY(-6px);
       border-color: var(--border-glow);
       background: var(--bg-card-hover);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(212,168,67,0.05);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), var(--glow-card);
+      animation: cardGlowPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes cardGlowPulse {
+      0%, 100% { border-color: var(--border-glow); }
+      50% { border-color: rgba(212,168,67,0.55); }
+    }
+
+    [data-theme="neon"] .event-card:hover {
+      animation-name: cardGlowPulseNeon;
+    }
+
+    @keyframes cardGlowPulseNeon {
+      0%, 100% { border-color: rgba(0,255,170,0.4); }
+      50% { border-color: rgba(0,255,170,0.65); }
     }
 
     .event-card:hover::before { opacity: 1; }
@@ -1303,7 +1453,11 @@
     .marquee-dot { color: var(--accent-gold); margin-right: 3rem; }
 
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.25rem; }
+      nav {
+        padding: 1rem 1.25rem;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
       .nav-center { display: none; }
       .hero { padding: 6rem 1.5rem 3rem; }
       .section-inner { padding: 4rem 1.5rem; }
@@ -1315,6 +1469,7 @@
       .stat-item { border-right: none; border-bottom: 1px solid var(--border-subtle); }
       .countdown-num { font-size: 1.6rem; }
       .countdown-unit { min-width: 48px; }
+      .hero-frame { width: 85vw; height: 85vw; }
     }
 
     @media (max-width: 480px) {
@@ -1382,6 +1537,13 @@
     </div>
 
     <h1 class="hero-number">1107</h1>
+
+    <!-- Neon geometric frame -->
+    <div class="hero-frame">
+      <div class="hero-frame-inner"></div>
+      <div class="hero-frame-mid"></div>
+      <div class="hero-frame-outer"></div>
+    </div>
 
     <p class="hero-tagline">武汉组局<strong>天花板</strong></p>
     <p class="hero-desc">
@@ -1862,10 +2024,11 @@
 
     threeRenderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     threeRenderer.setSize(window.innerWidth, window.innerHeight);
-    threeRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const isMobile = window.innerWidth < 768;
+    threeRenderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
     threeRenderer.setClearColor(0x000000, 0);
 
-    const count = window.innerWidth < 768 ? 400 : 800;
+    const count = isMobile ? 250 : 800;
     const geo = new THREE.BufferGeometry();
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
@@ -1909,7 +2072,7 @@
 
     // Connection lines
     const lineGeo = new THREE.BufferGeometry();
-    const lineCount = window.innerWidth < 768 ? 100 : 250;
+    const lineCount = isMobile ? 50 : 250;
     const linePos = new Float32Array(lineCount * 6);
     const lineCol = new Float32Array(lineCount * 6);
     for (let i = 0; i < lineCount; i++) {
@@ -1938,14 +2101,22 @@
 
     function animateThree() {
       requestAnimationFrame(animateThree);
+      const scrollY = window.scrollY;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const scrollProgress = maxScroll > 0 ? scrollY / maxScroll : 0;
+
       threeParticles.rotation.y += 0.0008;
       threeParticles.rotation.x += 0.0003;
       lines.rotation.y = threeParticles.rotation.y;
       lines.rotation.x = threeParticles.rotation.x;
 
-      // Mouse parallax
+      // Scroll-driven depth: particles drift upward slightly as user scrolls
+      threeParticles.position.y = -scrollProgress * 8;
+      lines.position.y = threeParticles.position.y;
+
+      // Mouse parallax + scroll offset
       threeCamera.position.x += (threeMouse.x * 8 - threeCamera.position.x) * 0.02;
-      threeCamera.position.y += (-threeMouse.y * 5 - threeCamera.position.y) * 0.02;
+      threeCamera.position.y += (-threeMouse.y * 5 - scrollProgress * 3 - threeCamera.position.y) * 0.02;
       threeCamera.lookAt(threeScene.position);
 
       threeRenderer.render(threeScene, threeCamera);
@@ -2102,14 +2273,15 @@
   /* ============================================
      VENUE CANVAS ART
      ============================================ */
-  function drawMoonVenue() {
+  function drawMoonVenue(time = 0) {
     const c = document.getElementById('moon-canvas');
     if (!c) return;
     const w = c.offsetWidth, h = c.offsetHeight;
-    if (w === 0 || h === 0) { requestAnimationFrame(drawMoonVenue); return; }
+    if (w === 0 || h === 0) { requestAnimationFrame(() => drawMoonVenue()); return; }
     c.width = w; c.height = h;
     const ctx = c.getContext('2d');
     const isNeon = document.documentElement.getAttribute('data-theme') === 'neon';
+    const pulse = Math.sin(time * 0.001) * 0.3 + 0.7; // gentle breathing
 
     const bg = ctx.createLinearGradient(0, 0, c.width, c.height);
     bg.addColorStop(0, isNeon ? '#050510' : '#0d0a16');
@@ -2119,36 +2291,39 @@
 
     const cx = c.width * 0.65, cy = c.height * 0.45, r = Math.min(c.width, c.height) * 0.3;
     const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-    grd.addColorStop(0, isNeon ? 'rgba(0,255,170,0.35)' : 'rgba(240,201,110,0.35)');
+    grd.addColorStop(0, isNeon ? `rgba(0,255,170,${0.35 * pulse})` : `rgba(240,201,110,${0.35 * pulse})`);
     grd.addColorStop(0.6, isNeon ? 'rgba(0,255,170,0.1)' : 'rgba(212,168,67,0.1)');
     grd.addColorStop(1, 'transparent');
     ctx.fillStyle = grd;
     ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.fill();
 
-    ctx.strokeStyle = isNeon ? 'rgba(0,255,170,0.7)' : 'rgba(240,201,110,0.7)';
+    ctx.strokeStyle = isNeon ? `rgba(0,255,170,${0.7 * pulse})` : `rgba(240,201,110,${0.7 * pulse})`;
     ctx.lineWidth = 1.5;
     ctx.beginPath(); ctx.arc(cx, cy, r * 0.55, 0.3, Math.PI * 1.7); ctx.stroke();
 
     for (let i = 0; i < 40; i++) {
       ctx.beginPath();
       ctx.arc(Math.random() * c.width * 0.8, Math.random() * c.height, Math.random() * 1.2 + 0.3, 0, Math.PI * 2);
-      ctx.fillStyle = isNeon ? `rgba(0,255,170,${Math.random()*0.6+0.1})` : `rgba(240,201,110,${Math.random()*0.6+0.1})`;
+      ctx.fillStyle = isNeon ? `rgba(0,255,170,${Math.random()*0.4*pulse+0.1})` : `rgba(240,201,110,${Math.random()*0.4*pulse+0.1})`;
       ctx.fill();
     }
 
     ctx.font = 'bold 28px Outfit, sans-serif';
-    ctx.fillStyle = isNeon ? 'rgba(0,255,170,0.9)' : 'rgba(240,201,110,0.9)';
+    ctx.fillStyle = isNeon ? `rgba(0,255,170,${0.9 * pulse})` : `rgba(240,201,110,${0.9 * pulse})`;
     ctx.fillText('MOON', 28, c.height - 28);
+
+    requestAnimationFrame(drawMoonVenue);
   }
 
-  function drawInsideVenue() {
+  function drawInsideVenue(time = 0) {
     const c = document.getElementById('inside-canvas');
     if (!c) return;
     const w = c.offsetWidth, h = c.offsetHeight;
-    if (w === 0 || h === 0) { requestAnimationFrame(drawInsideVenue); return; }
+    if (w === 0 || h === 0) { requestAnimationFrame(() => drawInsideVenue()); return; }
     c.width = w; c.height = h;
     const ctx = c.getContext('2d');
     const isNeon = document.documentElement.getAttribute('data-theme') === 'neon';
+    const pulse = Math.sin(time * 0.0012) * 0.25 + 0.75;
 
     const bg = ctx.createLinearGradient(0, 0, c.width, c.height);
     bg.addColorStop(0, '#0a0916'); bg.addColorStop(1, '#130c20');
@@ -2160,12 +2335,12 @@
     for (let y = 0; y < c.height; y += 32) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(c.width,y); ctx.stroke(); }
 
     const grd = ctx.createRadialGradient(c.width*0.7, c.height*0.4, 0, c.width*0.7, c.height*0.4, c.width*0.4);
-    grd.addColorStop(0, isNeon ? 'rgba(0,229,255,0.3)' : 'rgba(124,58,237,0.3)');
+    grd.addColorStop(0, isNeon ? `rgba(0,229,255,${0.3 * pulse})` : `rgba(124,58,237,${0.3 * pulse})`);
     grd.addColorStop(1, 'transparent');
     ctx.fillStyle = grd;
     ctx.fillRect(0, 0, c.width, c.height);
 
-    ctx.strokeStyle = isNeon ? 'rgba(0,229,255,0.5)' : 'rgba(168,139,250,0.5)';
+    ctx.strokeStyle = isNeon ? `rgba(0,229,255,${0.5 * pulse})` : `rgba(168,139,250,${0.5 * pulse})`;
     ctx.lineWidth = 1.5;
     const sw = c.width * 0.5, sh = 10, sx = (c.width - sw) / 2, sy = c.height * 0.55;
     ctx.beginPath(); ctx.roundRect(sx, sy, sw, sh, 4); ctx.stroke();
@@ -2181,8 +2356,10 @@
     });
 
     ctx.font = 'bold 28px Outfit, sans-serif';
-    ctx.fillStyle = isNeon ? 'rgba(0,229,255,0.9)' : 'rgba(196,181,253,0.9)';
+    ctx.fillStyle = isNeon ? `rgba(0,229,255,${0.9 * pulse})` : `rgba(196,181,253,${0.9 * pulse})`;
     ctx.fillText('INSIDE', 28, c.height - 28);
+
+    requestAnimationFrame(drawInsideVenue);
   }
 
   setTimeout(() => { drawMoonVenue(); drawInsideVenue(); }, 100);
@@ -2215,7 +2392,20 @@
      NAV SCROLL + REVEAL + MAGNETIC + ANCHORS
      ============================================ */
   const nav = document.getElementById('main-nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+
+    // Hero parallax: frame drifts slower than content
+    const hero = document.querySelector('.hero');
+    const frame = document.querySelector('.hero-frame');
+    if (hero && frame) {
+      const heroRect = hero.getBoundingClientRect();
+      if (heroRect.bottom > 0) {
+        const offset = window.scrollY * 0.3;
+        frame.style.transform = `translate(-50%, calc(-50% + ${offset}px))`;
+      }
+    }
+  });
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
